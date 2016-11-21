@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Pages;
+use app\models\Articles;
 
 /**
- * PagesSearch represents the model behind the search form about `app\models\Pages`.
+ * ArticlesSearch represents the model behind the search form about `app\models\Articles`.
  */
-class PagesSearch extends Pages
+class ArticlesSearch extends Articles
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class PagesSearch extends Pages
     public function rules()
     {
         return [
-            [['id', 'active', 'sort'], 'integer'],
-            [['title', 'url', 'description', 'meta_key', 'meta_desc', 'meta_title', 'meta_h1', 'type'], 'safe'],
+            [['id', 'active'], 'integer'],
+            [['title', 'short_description', 'description', 'date', 'image'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class PagesSearch extends Pages
      */
     public function search($params)
     {
-        $query = Pages::find();
+        $query = Articles::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -57,20 +57,14 @@ class PagesSearch extends Pages
 
         $query->andFilterWhere([
             'id' => $this->id,
+            'date' => $this->date,
             'active' => $this->active,
-            'sort' => $this->sort,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'url', $this->url])
+            ->andFilterWhere(['like', 'short_description', $this->short_description])
             ->andFilterWhere(['like', 'description', $this->description])
-            //->andFilterWhere(['like', 'full_description', $this->full_description])
-            ->andFilterWhere(['like', 'meta_key', $this->meta_key])
-            ->andFilterWhere(['like', 'meta_desc', $this->meta_desc])
-            ->andFilterWhere(['like', 'meta_title', $this->meta_title])
-            ->andFilterWhere(['like', 'meta_h1', $this->meta_h1])
-            //->andFilterWhere(['like', 'image', $this->image])
-            ->andFilterWhere(['like', 'type', $this->type]);
+            ->andFilterWhere(['like', 'image', $this->image]);
 
         return $dataProvider;
     }

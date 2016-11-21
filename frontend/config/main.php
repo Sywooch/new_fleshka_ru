@@ -61,10 +61,10 @@ return [
             'enablePrettyUrl' => true, // Disable r= routes
             //'enableStrictParsing' => true,
             'rules' => [
-                //'<controller:\w+>/<id:\d+>' => '<controller>/view',
-                //'<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-                //'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-                ['class' => 'app\components\MainUrlRule', 'connectionID' => 'db'],
+                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+                //['class' => 'app\components\MainUrlRule', 'connectionID' => 'db'],
             ],
         ],
     ],

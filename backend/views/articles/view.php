@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Pages */
+/* @var $model app\models\Articles */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Флешки', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Статьи', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="pages-view">
+<div class="articles-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -30,17 +30,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'title',
-            //'url:url',
-            'description:ntext',
-            //'full_description:ntext',
+            'short_description',
+            'description:html',
+            'date',
             'active',
-            'sort',
-            'meta_key',
-            'meta_desc',
-            'meta_title',
-            'meta_h1',
-            //'image',
-            //'type',
+            'image',
         ],
     ]) ?>
 

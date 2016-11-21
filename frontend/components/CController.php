@@ -10,7 +10,7 @@ class CController extends \yii\web\Controller {
 
     public function beforeAction($event) {
 
-        $sql = 'select title, url, id, parent, icon from {{%pages}} WHERE type=\'category\' and active = 1';
+        $sql = 'select title, url, id from {{%pages}} WHERE type=\'category\' and active = 1';
         $models = \Yii::$app->db->createCommand($sql)->queryAll();
         $rows = [];
         foreach ($models as $key => $model) {

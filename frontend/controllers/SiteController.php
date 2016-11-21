@@ -13,16 +13,8 @@ use app\components\CController;
 class SiteController extends CController {
 
     public function actionIndex() {
-        $pageInfo = $_GET['data'];
-		\Yii::$app->view->registerMetaTag([
-			'name' => 'keywords',
-			'content' => $pageInfo['meta_key']
-		]);
-		\Yii::$app->view->registerMetaTag([
-			'name' => 'description',
-			'content' => $pageInfo['meta_desc']
-		]);
-        return $this->render('index', ['page' => $pageInfo]);
+        
+        return $this->render('index');
     }
 
     public function actionSearch($text) {

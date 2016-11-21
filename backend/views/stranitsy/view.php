@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Pages */
+/* @var $model app\models\Stranitsy */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Флешки', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Страницы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="pages-view">
+<div class="stranitsy-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -30,17 +30,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'title',
-            //'url:url',
+            'url:url',
             'description:ntext',
-            //'full_description:ntext',
-            'active',
-            'sort',
-            'meta_key',
-            'meta_desc',
-            'meta_title',
-            'meta_h1',
-            //'image',
-            //'type',
         ],
     ]) ?>
 

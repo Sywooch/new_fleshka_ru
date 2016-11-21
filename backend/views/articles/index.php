@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\PagesSearch */
+/* @var $searchModel app\models\ArticlesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Флешки';
+$this->title = 'Статьи';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="pages-index">
+<div class="articles-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Создать', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Созать', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -27,17 +27,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'title',
-            //'url:url',
+            'short_description',
             //'description:ntext',
-            //'full_title',
+            'date',
             // 'active',
-            // 'sort',
-            // 'meta_key',
-            // 'meta_desc',
-            // 'meta_title',
-            // 'meta_h1',
             // 'image',
-            // 'type',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
