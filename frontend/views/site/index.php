@@ -1,55 +1,6 @@
 <div class="top-container">
     <div id="slideshow">
-        <div id="banner-slider-demo-5" class="owl-carousel owl-theme owl-middle-narrow owl-banner-carousel">
-            <div class="item" style="background:url(http://www.newsmartwave.net/magento/porto/media/wysiwyg/porto/homepage/slider/05/01_bg.png) repeat;">
-                <div class="container" style="position:relative">
-                    <img src="http://www.newsmartwave.net/magento/porto/media/wysiwyg/porto/homepage/slider/05/01.png" width="1140" height="500" alt="" />
-                    <div class="content type1 animated bounceInDown" data-animation="animated bounceInDown" style="position:absolute;top:30%;left:10%;text-align:right">
-                        <h2 style="font-weight:600;line-height:1;color:#08c">HUGE <b style="font-weight:800">SALE</b></h2>
-                        <p style="color:#777;font-weight:300;line-height:1;margin-bottom:15px">Now starting at <span style="color:#535353;font-weight:400">$99</span></p>
-                        <a href="#" style="font-weight:300;">Shop now &gt;</a>
-                    </div>
-                </div>
-            </div>
-            <div class="item" style="background:url(http://www.newsmartwave.net/magento/porto/media/wysiwyg/porto/homepage/slider/05/02_bg.png) center center no-repeat;background-size:cover;">
-                <div class="container" style="position:relative">
-                    <img src="http://www.newsmartwave.net/magento/porto/media/wysiwyg/porto/homepage/slider/05/02.png" width="1140" height="500" alt="" />
-                </div>
-            </div>
-            <div class="item" style="background:url(http://www.newsmartwave.net/magento/porto/media/wysiwyg/porto/homepage/slider/05/03_bg.png) center center no-repeat;background-size:cover;">
-                <div class="container" style="position:relative">
-                    <img src="http://www.newsmartwave.net/magento/porto/media/wysiwyg/porto/homepage/slider/05/03.png" width="1140" height="500" alt="" />
-                </div>
-            </div>
-        </div>
-        <script type="text/javascript">
-            jQuery(function ($) {
-                $("#banner-slider-demo-5").owlCarousel({
-                    autoPlay: true,
-                    lazyLoad: true,
-                    stopOnHover: true,
-                    pagination: false,
-                    autoPlay:true,
-                            navigation: true,
-                    navigationText: ["<i class='icon-chevron-left'></i>", "<i class='icon-chevron-right'></i>"],
-                    slideSpeed: 500,
-                    paginationSpeed: 500,
-                    singleItem: true,
-                    addClassActive: true,
-                    transitionStyle: "fade",
-                    afterMove: function () {
-                        $("#banner-slider-demo-5 .owl-item.active .content").each(function () {
-                            $(this).addClass($(this).attr("data-animation"));
-                        });
-                    },
-                    beforeMove: function () {
-                        $("#banner-slider-demo-5 .owl-item .content").each(function () {
-                            $(this).removeClass($(this).attr("data-animation"));
-                        });
-                    }
-                });
-            });
-        </script>
+        <?= \app\widgets\sliders\MainSlider::widget(); ?>
         <div class="homepage-bar">
             <div class="container">
                 <div class="row">

@@ -184,30 +184,9 @@ $curRegion = \Yii::$app->session['region'];
                     <div class="top-links-container">
                         <div class="top-links container">
                             <div class="form-currency top-select">
-                                <select id="select-currency" name="currency" title="Select Your Currency" onchange="setLocation(this.value)">
-                                    <option value="http://www.newsmartwave.net/magento/porto/index.php/demo5_en/directory/currency/switch/currency/EUR/uenc/aHR0cDovL3d3dy5uZXdzbWFydHdhdmUubmV0L21hZ2VudG8vcG9ydG8vaW5kZXgucGhwL2RlbW81X2Vu/">
-                                        EUR        </option>
-                                    <option value="http://www.newsmartwave.net/magento/porto/index.php/demo5_en/directory/currency/switch/currency/USD/uenc/aHR0cDovL3d3dy5uZXdzbWFydHdhdmUubmV0L21hZ2VudG8vcG9ydG8vaW5kZXgucGhwL2RlbW81X2Vu/" selected="selected">
-                                        USD        </option>
-                                </select>
-                                <script type="text/javascript">
-                                    (function ($) {
-                                        $("#select-currency").selectbox();
-                                    })(jQuery);
-                                </script>
+                                <span>Мы продаем флешки оптом уже 10 лет! Наносим красивые логотипы!</span>
                             </div>
-                            <span class="split"></span>
-                            <div class="form-language top-select">
-                                <select id="select-language" title="Your Language" onchange="window.location.href = this.value" style="width:auto;">
-                                    <option value="http://www.newsmartwave.net/magento/porto/index.php/demo5_en/?___from_store=demo5_en"  data-image="http://www.newsmartwave.net/magento/porto/skin/frontend/smartwave/porto/images/flags/demo5_en.png"   selected="selected">English</option>
-                                    <option value="http://www.newsmartwave.net/magento/porto/index.php/demo5_fr/?___from_store=demo5_en"  data-image="http://www.newsmartwave.net/magento/porto/skin/frontend/smartwave/porto/images/flags/demo5_fr.png"  >French</option>
-                                </select>
-                                <script type="text/javascript">
-                                    (function ($) {
-                                        $("#select-language").selectbox();
-                                    })(jQuery);
-                                </script>
-                            </div>
+                            
                             <span class="split"></span>
                             <div class="compare-link">
                                 <a href="javascript:void(0)" onclick="popWin('http://www.newsmartwave.net/magento/porto/index.php/demo5_en/catalog/product_compare/index/uenc/aHR0cDovL3d3dy5uZXdzbWFydHdhdmUubmV0L21hZ2VudG8vcG9ydG8vaW5kZXgucGhwL2RlbW81X2Vu/', 'compare', 'top:0,left:0,width=820,height=600,resizable=yes,scrollbars=yes')"><i class="icon-compare-link"></i>Compare (0)</a>
@@ -224,12 +203,16 @@ $curRegion = \Yii::$app->session['region'];
                                     <li class=" last" ><a href="http://www.newsmartwave.net/magento/porto/index.php/demo5_en/customer/account/login/" title="Log In" >Log In</a></li>
                                 </ul>
                             </div>
-                            <p class="welcome-msg">Default welcome msg! </p>
+                            <p class="welcome-msg">Привет, Москва! Мы доставляем заказы в ваш город!</p>
                             <div class="clearer"></div>
                         </div>
                     </div>
                     <div class="header container">
-                        <h1 class="logo"><strong>Magento Commerce</strong><a href="http://www.newsmartwave.net/magento/porto/index.php/demo5_en/" title="Magento Commerce" class="logo"><img src="http://www.newsmartwave.net/magento/porto/skin/frontend/smartwave/porto/images/logo.png" alt="Magento Commerce" /></a></h1>
+                        <h1 class="logo"><strong>Fleshka.ru</strong>
+                            <a href="/" title="Fleshka.ru" class="logo">
+                                <img src="<?= $assets ?>/images/header.png" alt="Fleshka.ru" />
+                            </a>
+                        </h1>
                         <div class="cart-area">
                             <div class="custom-block"><i class="icon-phone" style="margin-right: 5px;"></i><span>(+404) 158 14 25 78</span><span class="split"></span><a href="#">CONTACT US</a></div>            <div class="mini-cart">
                                 <a href="javascript:void(0)" class="mybag-link"><i class="icon-mini-cart"></i><span class="cart-info"><span class="cart-qty">0</span><span>item(s)</span></span></a>
