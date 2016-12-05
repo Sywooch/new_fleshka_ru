@@ -10,27 +10,24 @@ return [
     //'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
-		
-		'request' => [
+        'request' => [
             // it's not recommended to run functional tests with CSRF validation enabled
             'enableCsrfValidation' => false,
-            // but if you absolutely need it set cookie domain to localhost
-            /*
-            'csrfCookie' => [
-                'domain' => 'localhost',
-            ],
-            */
+        // but if you absolutely need it set cookie domain to localhost
+        /*
+          'csrfCookie' => [
+          'domain' => 'localhost',
+          ],
+         */
         ],
         'assetManager' => [
             'bundles' => [
                 'yii\bootstrap\BootstrapPluginAsset' => ['js' => []],
                 'yii\bootstrap\BootstrapAsset' => ['css' => []],
-				
-				'yii\widgets\MaskedInputAsset' => ['js' => []],
-				'yii\web\YiiAsset' => ['js' => []],
-				'yii\validators\ValidationAsset' => ['js' => []],
-				'yii\widgets\ActiveFormAsset' => ['js' => []],
-				
+                'yii\widgets\MaskedInputAsset' => ['js' => []],
+                'yii\web\YiiAsset' => ['js' => []],
+                'yii\validators\ValidationAsset' => ['js' => []],
+                'yii\widgets\ActiveFormAsset' => ['js' => []],
                 'yii\web\JqueryAsset' => [
                     'js' => []
                 ],
@@ -40,19 +37,19 @@ return [
             'class' => 'himiklab\ipgeobase\IpGeoBase',
             'useLocalDB' => false,
         ],
-        /*'user' => [
-            'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
-        ],*/
-        /*'log' => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
-            'targets' => [
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
-                ],
-            ],
-        ],*/
+        /* 'user' => [
+          'identityClass' => 'common\models\User',
+          'enableAutoLogin' => true,
+          ], */
+        /* 'log' => [
+          'traceLevel' => YII_DEBUG ? 3 : 0,
+          'targets' => [
+          [
+          'class' => 'yii\log\FileTarget',
+          'levels' => ['error', 'warning'],
+          ],
+          ],
+          ], */
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -61,10 +58,12 @@ return [
             'enablePrettyUrl' => true, // Disable r= routes
             //'enableStrictParsing' => true,
             'rules' => [
+                '<controller:\w+>/<url:.*?>-<id:\d+>' => '<controller>/view',
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-                //['class' => 'app\components\MainUrlRule', 'connectionID' => 'db'],
+                
+            //['class' => 'app\components\MainUrlRule', 'connectionID' => 'db'],
             ],
         ],
     ],

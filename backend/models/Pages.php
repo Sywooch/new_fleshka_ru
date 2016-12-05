@@ -39,8 +39,8 @@ class Pages extends \yii\db\ActiveRecord {
      */
     public function rules() {
         return [
-            [['title', 'url', 'sort', 'type', ], 'required'],
-            //[['icon'], 'default', 'value' => null],
+            [['title', 'sort', 'type', ], 'required'],
+            [['url'], 'default', 'value' => null],
             [['description'], 'string'],
             [['active', 'in_stock', 'sort'], 'integer'],
             [['title'], 'string', 'max' => 1000],
@@ -105,7 +105,7 @@ class Pages extends \yii\db\ActiveRecord {
             \Yii::$app->db->createCommand('delete from {{%volume_to_page}} where page_id = ' . $this->id)->execute();
             foreach ($_POST['volume'] as $key => $volume) {
                 if (isset($_POST['price'][$key]) && isset($_POST['price2'][$key]))
-                    \Yii::$app->db->createCommand('INSERT INTO {{%volume_to_page}} (volume_id, page_id, price, price_pz) VALUES (' . $volume . ', ' . $this->id . ', ' . $_POST['price'][$key] . ', ' . $_POST['price2'][$key] . ')')->execute();
+                    \Yii::$app->db->createCommand('INSERT INTO {{%volume_to_page}} (volume_id, page_id, price, price_pz) VALUES (' . $volume . ', ' . $this->id . ', ' . (empty($_POST['price'][$key]) ? 0 : $_POST['price'][$key]) . ', ' . (empty ($_POST['price2'][$key]) ? 0 : $_POST['price2'][$key]) . ')')->execute();
             }
         }
         if (isset($_POST['categories'])) {
