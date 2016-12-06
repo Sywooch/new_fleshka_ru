@@ -8,14 +8,60 @@
                         <i class="ajax-loader large animate-spin"></i>
                     </p>
                 </div>
+                <style>
+                    .btn span.glyphicon {
+                        opacity: 0;
+                    }
+                    .btn.active span.glyphicon {				
+                        opacity: 1;
+                    }
+                </style>
+                <div class="container">
+
+                    <div class="well well-sm text-center">
+
+                        <h3>Checkbox</h3>
+
+                        <div class="btn-group" data-toggle="buttons">
+
+                            <label class="btn btn-success active">
+                                <input type="checkbox" autocomplete="off" checked>
+                                <span class="glyphicon glyphicon-ok"></span>
+                            </label>
+
+                            <label class="btn btn-primary">
+                                <input type="checkbox" autocomplete="off">
+                                <span class="glyphicon glyphicon-ok"></span>
+                            </label>			
+
+                            <label class="btn btn-info">
+                                <input type="checkbox" autocomplete="off">
+                                <span class="glyphicon glyphicon-ok"></span>
+                            </label>			
+
+                            <label class="btn btn-default">
+                                <input type="checkbox" autocomplete="off">
+                                <span class="glyphicon glyphicon-ok"></span>
+                            </label>			
+
+                            <label class="btn btn-warning">
+                                <input type="checkbox" autocomplete="off">
+                                <span class="glyphicon glyphicon-ok"></span>
+                            </label>			
+
+                            <label class="btn btn-danger">
+                                <input type="checkbox" autocomplete="off">
+                                <span class="glyphicon glyphicon-ok"></span>
+                            </label>			
+
+                        </div>
+
+                    </div>
+
+                </div>
                 <div class="product-view ">
                     <div class="product-essential">
-                        <form action="http://www.newsmartwave.net/magento/porto/index.php/demo5_en/checkout/cart/add/uenc/aHR0cDovL3d3dy5uZXdzbWFydHdhdmUubmV0L21hZ2VudG8vcG9ydG8vaW5kZXgucGhwL2RlbW81X2VuL2VsZWN0cm9uaWNzL2NhbWVyYXMvY2VsbC1waG9uZXMtYWNjZXNzb3JpZXMvbW90b3JvbGEta2lkcy1waG9uZS1icm93bi1zYW1zdW5nLWdhbGF4eS5odG1s/product/82/form_key/BixTzLDQ5sdTL6OO/" method="post" id="product_addtocart_form">
-                            <input name="form_key" type="hidden" value="BixTzLDQ5sdTL6OO">
-                            <div class="no-display">
-                                <input type="hidden" name="product" value="82">
-                                <input type="hidden" name="related_product" id="related-products-field" value="">
-                            </div>
+                        <form action="" method="post" id="product_addtocart_form">
                             <div class="row">
                                 <div class="product-img-box col-sm-5 ">
                                     <ul id="etalage_MTJhMzVlMTMxYTNlNTc0M2ZkYTBjYzYxOWJjY2ExNTU" class="etalage" style="display: block; width: 337px; height: 447px;">
@@ -23,33 +69,39 @@
                                             <a rel="gallery" class="fancy-images fancy-images_MTJhMzVlMTMxYTNlNTc0M2ZkYTBjYzYxOWJjY2ExNTU" href="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/5/25_4_3.jpg"><span class="glyphicon glyphicon-search"></span></a>
                                             <img class="etalage_thumb_image" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/5/25_4_3.jpg" alt="" style="display: inline; width: 329px; height: auto; opacity: 1;">
                                             <img class="etalage_source_image" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/100x100/9df78eab33525d08d6e5fb8d27136e95/2/5/25_4_3.jpg" alt="">
-                                            <img src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/5/25_4_3.jpg" class="zoomImg" style="position: absolute; top: -119.246px; left: -93.2596px; opacity: 0; width: 600px; height: 800px; border: none; max-width: none; max-height: none;"></li>
+                                            <img src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/5/25_4_3.jpg" class="zoomImg" style="position: absolute; top: -119.246px; left: -93.2596px; opacity: 0; width: 600px; height: 800px; border: none; max-width: none; max-height: none;">
+                                        </li>
                                         <li class="etalage_thumb thumb_2" style="position: absolute; overflow: hidden; background-image: none;">
                                             <a rel="gallery" class="fancy-images fancy-images_MTJhMzVlMTMxYTNlNTc0M2ZkYTBjYzYxOWJjY2ExNTU" href="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/8/28_3_2.jpg"><span class="glyphicon glyphicon-search"></span></a>
                                             <img class="etalage_thumb_image" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/8/28_3_2.jpg" alt="" style="display: inline; width: 329px; height: auto;">
                                             <img class="etalage_source_image" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/100x100/9df78eab33525d08d6e5fb8d27136e95/2/8/28_3_2.jpg" alt="">
-                                            <img src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/8/28_3_2.jpg" class="zoomImg" style="position: absolute; top: 0px; left: 0px; opacity: 0; width: 600px; height: 800px; border: none; max-width: none; max-height: none;"></li>
+                                            <img src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/8/28_3_2.jpg" class="zoomImg" style="position: absolute; top: 0px; left: 0px; opacity: 0; width: 600px; height: 800px; border: none; max-width: none; max-height: none;">
+                                        </li>
                                         <li class="etalage_thumb thumb_3" style="position: absolute; overflow: hidden; background-image: none;">
                                             <a rel="gallery" class="fancy-images fancy-images_MTJhMzVlMTMxYTNlNTc0M2ZkYTBjYzYxOWJjY2ExNTU" href="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/2/22_1_5.jpg"><span class="glyphicon glyphicon-search"></span></a>
                                             <img class="etalage_thumb_image" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/2/22_1_5.jpg" alt="" style="display: inline; width: 329px; height: auto;">
                                             <img class="etalage_source_image" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/100x100/9df78eab33525d08d6e5fb8d27136e95/2/2/22_1_5.jpg" alt="">
-                                            <img src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/2/22_1_5.jpg" class="zoomImg" style="position: absolute; top: 0px; left: 0px; opacity: 0; width: 600px; height: 800px; border: none; max-width: none; max-height: none;"></li>
+                                            <img src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/2/22_1_5.jpg" class="zoomImg" style="position: absolute; top: 0px; left: 0px; opacity: 0; width: 600px; height: 800px; border: none; max-width: none; max-height: none;">
+                                        </li>
                                         <li class="etalage_thumb thumb_4" style="position: absolute; overflow: hidden; background-image: none;">
                                             <a rel="gallery" class="fancy-images fancy-images_MTJhMzVlMTMxYTNlNTc0M2ZkYTBjYzYxOWJjY2ExNTU" href="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/6/26_6_2.jpg"><span class="glyphicon glyphicon-search"></span></a>
                                             <img class="etalage_thumb_image" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/6/26_6_2.jpg" alt="" style="display: inline; width: 329px; height: auto;">
                                             <img class="etalage_source_image" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/100x100/9df78eab33525d08d6e5fb8d27136e95/2/6/26_6_2.jpg" alt="">
-                                            <img src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/6/26_6_2.jpg" class="zoomImg" style="position: absolute; top: 0px; left: 0px; opacity: 0; width: 600px; height: 800px; border: none; max-width: none; max-height: none;"></li>
+                                            <img src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/6/26_6_2.jpg" class="zoomImg" style="position: absolute; top: 0px; left: 0px; opacity: 0; width: 600px; height: 800px; border: none; max-width: none; max-height: none;">
+                                        </li>
                                         <li class="etalage_thumb thumb_5" style="position: absolute; overflow: hidden; background-image: none;">
                                             <a rel="gallery" class="fancy-images fancy-images_MTJhMzVlMTMxYTNlNTc0M2ZkYTBjYzYxOWJjY2ExNTU" href="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/4/24_7_2.jpg"><span class="glyphicon glyphicon-search"></span></a>
                                             <img class="etalage_thumb_image" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/4/24_7_2.jpg" alt="" style="display: inline; width: 329px; height: auto;">
                                             <img class="etalage_source_image" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/100x100/9df78eab33525d08d6e5fb8d27136e95/2/4/24_7_2.jpg" alt="">
-                                            <img src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/4/24_7_2.jpg" class="zoomImg" style="position: absolute; top: 0px; left: 0px; opacity: 0; width: 600px; height: 800px; border: none; max-width: none; max-height: none;"></li>
+                                            <img src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/4/24_7_2.jpg" class="zoomImg" style="position: absolute; top: 0px; left: 0px; opacity: 0; width: 600px; height: 800px; border: none; max-width: none; max-height: none;">
+                                        </li>
                                         <li class="etalage_thumb thumb_6" style="position: absolute; overflow: hidden; background-image: none;">
                                             <a rel="gallery" class="fancy-images fancy-images_MTJhMzVlMTMxYTNlNTc0M2ZkYTBjYzYxOWJjY2ExNTU" href="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/7/27_5_2.jpg"><span class="glyphicon glyphicon-search"></span></a>
                                             <img class="etalage_thumb_image" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/7/27_5_2.jpg" alt="" style="display: inline; width: 329px; height: auto;">
                                             <img class="etalage_source_image" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/100x100/9df78eab33525d08d6e5fb8d27136e95/2/7/27_5_2.jpg" alt="">
-                                            <img src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/7/27_5_2.jpg" class="zoomImg" style="position: absolute; top: 0px; left: 0px; opacity: 0; width: 600px; height: 800px; border: none; max-width: none; max-height: none;"></li>
-                                        <li class="etalage_magnifier" style="margin: 0px; padding: 0px; left: 30px; display: none;"><div style="margin: 0px; padding: 0px; width: 180px;"><img src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/5/25_4_3.jpg" style="margin: 0px; padding: 0px; width: 329px; height: auto; display: inline; left: -26px;"></div></li><li class="etalage_icon" style="opacity: 1;">&nbsp;</li><li class="etalage_zoom_area" style="margin: 0px; opacity: 0; left: 347px; display: none; background-image: none;"><div class="etalage_description" style="width: 329px; bottom: 0px; left: 0px; opacity: 0.7; display: none;"></div><div style="width: 329px;"><img class="etalage_zoom_img" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/100x100/9df78eab33525d08d6e5fb8d27136e95/2/5/25_4_3.jpg" style="width: 600px; height: auto; left: -28.4416px;"></div></li><li class="etalage_small_thumbs" style="width: 337px; left: 0px;"><ul style="width: 796px;"><li class="etalage_smallthumb_first etalage_smallthumb_navtoend" title="" style="opacity: 0.4; margin: 0px 10px 0px 0px;"><img class="etalage_small_thumb" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/7/27_5_2.jpg" width="69" style="width: 69px;"></li><li title="" class="etalage_smallthumb_active" style="opacity: 1; margin: 0px 9px 0px 0px;"><img class="etalage_small_thumb" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/5/25_4_3.jpg" width="69" style="width: 69px;"></li><li title="" style="opacity: 0.4; margin: 0px 10px 0px 0px;"><img class="etalage_small_thumb" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/8/28_3_2.jpg" width="69" style="width: 69px;"></li><li title="" class="etalage_smallthumb_last" style="opacity: 0.4; margin: 0px 10px 0px 0px;"><img class="etalage_small_thumb" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/2/22_1_5.jpg" width="69" style="width: 69px;"></li><li title="" style="opacity: 0.4; margin: 0px 9px 0px 0px;"><img class="etalage_small_thumb" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/6/26_6_2.jpg" width="69" style="width: 69px;"></li><li title="" style="opacity: 0.4; margin: 0px 10px 0px 0px;"><img class="etalage_small_thumb" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/4/24_7_2.jpg" width="69" style="width: 69px;"></li><li title="" style="opacity: 0.4; margin: 0px 10px 0px 0px;"><img class="etalage_small_thumb" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/7/27_5_2.jpg" width="69" style="width: 69px;"></li><li class="etalage_smallthumb_navtostart" title="" style="opacity: 0.4; margin: 0px 9px 0px 0px;"><img class="etalage_small_thumb" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/5/25_4_3.jpg" width="69" style="width: 69px;"></li></ul></li></ul>
+                                            <img src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/7/27_5_2.jpg" class="zoomImg" style="position: absolute; top: 0px; left: 0px; opacity: 0; width: 600px; height: 800px; border: none; max-width: none; max-height: none;">
+                                        </li>                                        
+                                    </ul>
                                     <div class="etalage-control">
                                         <a href="javascript:void(0)" class="etalage-prev"><i class="icon-angle-left"></i></a>
                                         <a href="javascript:void(0)" class="etalage-next"><i class="icon-angle-right"></i></a>
@@ -127,8 +179,7 @@
                                     </script>
                                     <div class="clear"></div>
                                 </div>
-                                <div class="product-shop col-sm-7">
-                                    
+                                <div class="product-shop col-sm-7">                                    
                                     <div class="product-name">
                                         <h1><?= $model->title; ?></h1>
                                     </div>
@@ -138,87 +189,51 @@
                                     </div>
                                     <div class="product-info">
                                         <div>
-                                            <div class="price-box">
-                                                <span class="regular-price" id="product-price-82">
-                                                    <span class="price">$49.00</span>                                    
-                                                </span>
-                                            </div>
                                             <p class="availability in-stock">Наличие:<span><?= $model->in_stock == 1 ? 'Есть в наличии' : 'Под заказ'; ?></span></p>
                                         </div>
-                                        <script type="text/javascript">
-                                            //<![CDATA[
-                                            var dailydealTimeCounters = new Array();
-                                            var i = 0;
-                                            //]]>
-                                        </script>
-                                        <p class="email-friend"><a href="http://www.newsmartwave.net/magento/porto/index.php/demo5_en/sendfriend/product/send/id/82/cat_id/23/">Email to a Friend</a></p>
                                     </div>
+
                                     <div class="clearer"></div>
                                     <div class="add-to-box">
                                         <div class="add-to-cart">
-                                            <label for="qty">Qty:</label>
-                                            <div class="qty-holder">
-                                                <input type="text" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="input-text qty">
-                                                <div class="qty-changer">
-                                                    <a href="javascript:void(0)" class="qty_inc"><i class="icon-up-dir"></i></a>
-                                                    <a href="javascript:void(0)" class="qty_dec"><i class="icon-down-dir"></i></a>
-                                                </div>
-                                            </div>
-                                            <button type="button" title="Add to Cart" class="button btn-cart" onclick="productAddToCartForm.submit(this)"><span><span><i class="icon-cart"></i>Add to Cart</span></span></button>
-                                            <span id="ajax_loader" style="display:none"><i class="ajax-loader small animate-spin"></i></span>
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <td>Выбор объема</td>
+                                                        <td>Цена со склада</td>
+                                                        <?php if (isset($volumes[0]) && $volumes[0]['price_pz'] > 0): ?>
+                                                            <td>Цена под заказ от 100шт.</td>
+                                                        <?php endif; ?>
+                                                        <td>Коли́чество</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php foreach ($volumes as $volume): ?>
+                                                        <tr>
+                                                            <td style="color: #08c;"><?= $volume['title']; ?> Гб</td>
+                                                            <td style="color: #08c;"><?= $volume['price']; ?> руб.</td>
+                                                            <?php if ($volume['price_pz'] > 0): ?>
+                                                                <td style="color: #08c;"><?= $volume['price_pz']; ?> руб.</td>
+                                                            <?php endif; ?>
+                                                            <td>
+                                                                <div class="qty-holder">
+                                                                    <input type="text" name="qty" id="qty" maxlength="1000" value="0" title="Qty" class="input-text qty">
+                                                                    <div class="qty-changer">
+                                                                        <a href="javascript:void(0)" class="qty_inc"><i class="icon-up-dir"></i></a>
+                                                                        <a href="javascript:void(0)" class="qty_dec"><i class="icon-down-dir"></i></a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    <?php endforeach; ?>
+                                                </tbody>
+                                                </thead>
+                                            </table>
+                                            <button type="button" title="Добавить в корзину" class="button btn-cart"><span><span><i class="icon-cart"></i>Добавить в корзину</span></span></button>
                                         </div>
-                                        <ul class="add-to-links">
-                                            <li>
-                                                <a href="#" onclick="ajaxWishlist(this, 'http://www.newsmartwave.net/magento/porto/index.php/demo5_en/wishlist/index/add/product/82/form_key/BixTzLDQ5sdTL6OO/', '82');
-                                                    return false;" class="link-wishlist"><i class="icon-wishlist"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" onclick="ajaxCompare(this, 'http://www.newsmartwave.net/magento/porto/index.php/demo5_en/catalog/product_compare/add/product/82/uenc/aHR0cDovL3d3dy5uZXdzbWFydHdhdmUubmV0L21hZ2VudG8vcG9ydG8vaW5kZXgucGhwL2RlbW81X2VuL2VsZWN0cm9uaWNzL2NhbWVyYXMvY2VsbC1waG9uZXMtYWNjZXNzb3JpZXMvbW90b3JvbGEta2lkcy1waG9uZS1icm93bi1zYW1zdW5nLWdhbGF4eS5odG1s/form_key/BixTzLDQ5sdTL6OO/', '82');
-                                                    return false;" class="link-compare"><i class="icon-compare"></i>
-                                                </a>
-                                            </li>
-
-                                        </ul>
                                     </div>
-
                                     <div class="clearer"></div>
                                     <!-- Check whether the plugin is enabled -->
-
-                                    <!-- AddThis Button BEGIN -->
-
-                                    <!-- AddThis API Config -->
-                                    <script type="text/javascript">
-                                        var addthis_product = 'mag-sp-2.0.0';
-                                        var addthis_config = {
-                                            pubid: 'xa-525fbbd6215b4f1a'
-                                        }
-                                    </script>
-                                    <!-- AddThis API Config END -->
-                                    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-                                        <a class="addthis_button_preferred_1"></a>
-                                        <a class="addthis_button_preferred_2"></a>
-                                        <a class="addthis_button_preferred_3"></a>
-                                        <a class="addthis_button_preferred_4"></a>
-                                        <a class="addthis_button_compact"></a>
-                                        <a class="addthis_counter addthis_bubble_style"></a>
-                                    </div>
-
-                                    <script>
-                                        var ats_widget = function () {
-                                            if (typeof addthis_conf == 'undefined') {
-                                                var at_script = document.createElement('script');
-                                                at_script.src = '//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-525fbbd6215b4f1a';
-                                                document.getElementsByTagName('head')[0].appendChild(at_script);
-                                                var addthis_product = 'mag-sp-2.1.0';
-                                            }
-                                        };
-                                        if (window.addEventListener)
-                                            window.addEventListener('load', ats_widget);
-                                        else
-                                            window.attachEvent('onload', ats_widget);
-                                    </script>	    
-                                    <!-- AddThis Button END -->
                                     <style>
                                         #at3win #at3winheader h3 {
                                             text-align:left !important;
