@@ -15,50 +15,13 @@
                     .btn.active span.glyphicon {				
                         opacity: 1;
                     }
-                </style>
-                <div class="container">
-
-                    <div class="well well-sm text-center">
-
-                        <h3>Checkbox</h3>
-
-                        <div class="btn-group" data-toggle="buttons">
-
-                            <label class="btn btn-success active">
-                                <input type="checkbox" autocomplete="off" checked>
-                                <span class="glyphicon glyphicon-ok"></span>
-                            </label>
-
-                            <label class="btn btn-primary">
-                                <input type="checkbox" autocomplete="off">
-                                <span class="glyphicon glyphicon-ok"></span>
-                            </label>			
-
-                            <label class="btn btn-info">
-                                <input type="checkbox" autocomplete="off">
-                                <span class="glyphicon glyphicon-ok"></span>
-                            </label>			
-
-                            <label class="btn btn-default">
-                                <input type="checkbox" autocomplete="off">
-                                <span class="glyphicon glyphicon-ok"></span>
-                            </label>			
-
-                            <label class="btn btn-warning">
-                                <input type="checkbox" autocomplete="off">
-                                <span class="glyphicon glyphicon-ok"></span>
-                            </label>			
-
-                            <label class="btn btn-danger">
-                                <input type="checkbox" autocomplete="off">
-                                <span class="glyphicon glyphicon-ok"></span>
-                            </label>			
-
-                        </div>
-
-                    </div>
-
-                </div>
+                    .btn-group input[type="checkbox"] {
+                        position: absolute;
+                        z-index: -1;
+                        filter: alpha(opacity=0);
+                        opacity: 0;
+                    }
+                </style>               
                 <div class="product-view ">
                     <div class="product-essential">
                         <form action="" method="post" id="product_addtocart_form">
@@ -106,11 +69,46 @@
                                         <a href="javascript:void(0)" class="etalage-prev"><i class="icon-angle-left"></i></a>
                                         <a href="javascript:void(0)" class="etalage-next"><i class="icon-angle-right"></i></a>
                                     </div>
+                                    <div class="clear"></div><br><br><br><br><br><br><br><br><br>
+                                    <span>Выбор цвета</span>
+                                    <div class="btn-group" data-toggle="buttons">
+                                        <label class="btn btn-success active">
+                                            <input type="checkbox" autocomplete="off" checked>
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </label>
+                                        <label class="btn btn-primary">
+                                            <input type="checkbox" autocomplete="off">
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </label>
+                                        <label class="btn btn-info">
+                                            <input type="checkbox" autocomplete="off">
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </label>
+                                        <label class="btn btn-default">
+                                            <input type="checkbox" autocomplete="off">
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </label>
+                                        <label class="btn btn-warning">
+                                            <input type="checkbox" autocomplete="off">
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </label>
+                                        <label class="btn btn-danger">
+                                            <input type="checkbox" autocomplete="off">
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </label>	
+                                    </div>
                                     <div class="product-view-zoom-area"></div>
                                     <script type="text/javascript">
                                         var zoom_enabled = false;
                                         var zoom_type = 0;
                                         jQuery(document).ready(function () {
+
+                                            jQuery("body").on("click", ".btn-group label input", function () {
+                                                if (jQuery(this).parent().hasClass("active"))
+                                                    jQuery(this).parent().removeClass("active");
+                                                else
+                                                    jQuery(this).parent().addClass("active");
+                                            });
                                             reloadEtalage();
                                             jQuery(".product-img-box .etalage li.etalage_thumb").zoom({
                                                 touch: false

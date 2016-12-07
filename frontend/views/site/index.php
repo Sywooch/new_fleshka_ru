@@ -360,8 +360,8 @@
                                 html += '</ol>';
                                 $('.topCartContent .inner-wrapper').html(html);                                
                                 var ttl = '<div class="totals"><span class="label">Итого: </span><span class="price-total"><span class="price">' + totalSum + '</span></span></div>';
-                                var buttons = '<div class="actions"><a class="btn btn-default" href=""><i class="icon-basket"></i>View Cart</a><a class="btn btn-default" href=""><i class="icon-right-thin"></i>Checkout</a>                         <div class="clearer"></div>';
-                    </div>';
+                                var buttons = '<div class="actions"><a class="btn btn-default" href=""><i class="icon-basket"></i>View Cart</a><a class="btn btn-default" href=""><i class="icon-right-thin"></i>Checkout</a><div class="clearer"></div>';
+                   
                                 $('.topCartContent .inner-wrapper').append(ttl);
                             }
                             isEmptyBasket();

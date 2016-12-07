@@ -98,13 +98,7 @@ $curRegion = \Yii::$app->session['region'];
         <script type="text/javascript" src="<?= $assets ?>/js/wow.min.js"></script>
         <script type="text/javascript" src="<?= $assets ?>/js/porto.js"></script>
         <script type="text/javascript" src="<?= $assets ?>/js/numeral.min.js"></script>
-        <script type="text/javascript">
-            //<![CDATA[
-            Mage.Cookies.path = '/magento/porto';
-            Mage.Cookies.domain = '.www.newsmartwave.net';
-            //]]>
-        </script>
-
+      
         <script type="text/javascript">
             //<![CDATA[
             optionalZipCountries = ["HK", "IE", "MO", "PA"];
