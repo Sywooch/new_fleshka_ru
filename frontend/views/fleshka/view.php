@@ -1,3 +1,4 @@
+<?php $assets = Yii::getAlias('@web'); ?>
 <div class="main-container col2-right-layout">
     <div class="main container">
         <div class="row">
@@ -28,42 +29,13 @@
                             <div class="row">
                                 <div class="product-img-box col-sm-5 ">
                                     <ul id="etalage_MTJhMzVlMTMxYTNlNTc0M2ZkYTBjYzYxOWJjY2ExNTU" class="etalage" style="display: block; width: 337px; height: 447px;">
-                                        <li class="etalage_thumb thumb_1 etalage_thumb_active" style="display: list-item; opacity: 1; position: absolute; overflow: hidden; background-image: none;">
-                                            <a rel="gallery" class="fancy-images fancy-images_MTJhMzVlMTMxYTNlNTc0M2ZkYTBjYzYxOWJjY2ExNTU" href="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/5/25_4_3.jpg"><span class="glyphicon glyphicon-search"></span></a>
-                                            <img class="etalage_thumb_image" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/5/25_4_3.jpg" alt="" style="display: inline; width: 329px; height: auto; opacity: 1;">
-                                            <img class="etalage_source_image" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/100x100/9df78eab33525d08d6e5fb8d27136e95/2/5/25_4_3.jpg" alt="">
-                                            <img src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/5/25_4_3.jpg" class="zoomImg" style="position: absolute; top: -119.246px; left: -93.2596px; opacity: 0; width: 600px; height: 800px; border: none; max-width: none; max-height: none;">
-                                        </li>
-                                        <li class="etalage_thumb thumb_2" style="position: absolute; overflow: hidden; background-image: none;">
-                                            <a rel="gallery" class="fancy-images fancy-images_MTJhMzVlMTMxYTNlNTc0M2ZkYTBjYzYxOWJjY2ExNTU" href="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/8/28_3_2.jpg"><span class="glyphicon glyphicon-search"></span></a>
-                                            <img class="etalage_thumb_image" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/8/28_3_2.jpg" alt="" style="display: inline; width: 329px; height: auto;">
-                                            <img class="etalage_source_image" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/100x100/9df78eab33525d08d6e5fb8d27136e95/2/8/28_3_2.jpg" alt="">
-                                            <img src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/8/28_3_2.jpg" class="zoomImg" style="position: absolute; top: 0px; left: 0px; opacity: 0; width: 600px; height: 800px; border: none; max-width: none; max-height: none;">
-                                        </li>
-                                        <li class="etalage_thumb thumb_3" style="position: absolute; overflow: hidden; background-image: none;">
-                                            <a rel="gallery" class="fancy-images fancy-images_MTJhMzVlMTMxYTNlNTc0M2ZkYTBjYzYxOWJjY2ExNTU" href="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/2/22_1_5.jpg"><span class="glyphicon glyphicon-search"></span></a>
-                                            <img class="etalage_thumb_image" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/2/22_1_5.jpg" alt="" style="display: inline; width: 329px; height: auto;">
-                                            <img class="etalage_source_image" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/100x100/9df78eab33525d08d6e5fb8d27136e95/2/2/22_1_5.jpg" alt="">
-                                            <img src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/2/22_1_5.jpg" class="zoomImg" style="position: absolute; top: 0px; left: 0px; opacity: 0; width: 600px; height: 800px; border: none; max-width: none; max-height: none;">
-                                        </li>
-                                        <li class="etalage_thumb thumb_4" style="position: absolute; overflow: hidden; background-image: none;">
-                                            <a rel="gallery" class="fancy-images fancy-images_MTJhMzVlMTMxYTNlNTc0M2ZkYTBjYzYxOWJjY2ExNTU" href="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/6/26_6_2.jpg"><span class="glyphicon glyphicon-search"></span></a>
-                                            <img class="etalage_thumb_image" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/6/26_6_2.jpg" alt="" style="display: inline; width: 329px; height: auto;">
-                                            <img class="etalage_source_image" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/100x100/9df78eab33525d08d6e5fb8d27136e95/2/6/26_6_2.jpg" alt="">
-                                            <img src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/6/26_6_2.jpg" class="zoomImg" style="position: absolute; top: 0px; left: 0px; opacity: 0; width: 600px; height: 800px; border: none; max-width: none; max-height: none;">
-                                        </li>
-                                        <li class="etalage_thumb thumb_5" style="position: absolute; overflow: hidden; background-image: none;">
-                                            <a rel="gallery" class="fancy-images fancy-images_MTJhMzVlMTMxYTNlNTc0M2ZkYTBjYzYxOWJjY2ExNTU" href="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/4/24_7_2.jpg"><span class="glyphicon glyphicon-search"></span></a>
-                                            <img class="etalage_thumb_image" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/4/24_7_2.jpg" alt="" style="display: inline; width: 329px; height: auto;">
-                                            <img class="etalage_source_image" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/100x100/9df78eab33525d08d6e5fb8d27136e95/2/4/24_7_2.jpg" alt="">
-                                            <img src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/4/24_7_2.jpg" class="zoomImg" style="position: absolute; top: 0px; left: 0px; opacity: 0; width: 600px; height: 800px; border: none; max-width: none; max-height: none;">
-                                        </li>
-                                        <li class="etalage_thumb thumb_6" style="position: absolute; overflow: hidden; background-image: none;">
-                                            <a rel="gallery" class="fancy-images fancy-images_MTJhMzVlMTMxYTNlNTc0M2ZkYTBjYzYxOWJjY2ExNTU" href="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/7/27_5_2.jpg"><span class="glyphicon glyphicon-search"></span></a>
-                                            <img class="etalage_thumb_image" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/7/27_5_2.jpg" alt="" style="display: inline; width: 329px; height: auto;">
-                                            <img class="etalage_source_image" src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/100x100/9df78eab33525d08d6e5fb8d27136e95/2/7/27_5_2.jpg" alt="">
-                                            <img src="http://www.newsmartwave.net/magento/porto/media/catalog/product/cache/9/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/2/7/27_5_2.jpg" class="zoomImg" style="position: absolute; top: 0px; left: 0px; opacity: 0; width: 600px; height: 800px; border: none; max-width: none; max-height: none;">
-                                        </li>                                        
+                                        <?php foreach ($colors as $color): ?>
+                                            <li class="etalage_thumb thumb_<?= $color['id']; ?> etalage_thumb_active" style="display: list-item; opacity: 1; position: absolute; overflow: hidden; background-image: none;">
+                                                <a rel="gallery" class="fancy-images fancy-images_<?= $color['id']; ?>" href="<?= $assets . '/uploads/images/' . $color['image']; ?>"><span class="glyphicon glyphicon-search"></span></a>
+                                                <img class="etalage_thumb_image" src="<?= $assets . '/uploads/images/' . $color['image']; ?>" alt="" style="display: inline; width: 329px; height: auto; opacity: 1;">
+                                                <img class="etalage_source_image" src="<?= $assets . '/uploads/images/' . $color['image']; ?>" alt="">                                                
+                                            </li>
+                                        <?php endforeach; ?>                                     
                                     </ul>
                                     <div class="etalage-control">
                                         <a href="javascript:void(0)" class="etalage-prev"><i class="icon-angle-left"></i></a>
@@ -73,7 +45,7 @@
                                     <span>Выбор цвета</span><br><br>
                                     <div class="btn-group" data-toggle="buttons">
                                         <?php foreach ($colors as $color): ?>
-                                        <label class="btn btn-success" style="border: 2px solid #08c;background-color: <?= $color['value']; ?>">
+                                            <label class="btn btn-success" style="border: 2px solid #08c;background-color: <?= $color['value']; ?>">
                                                 <input type="checkbox" autocomplete="off" checked>
                                                 <span class="glyphicon glyphicon-ok"></span>
                                             </label>
@@ -92,9 +64,7 @@
                                                     jQuery(this).parent().addClass("active");
                                             });
                                             reloadEtalage();
-                                            jQuery(".product-img-box .etalage li.etalage_thumb").zoom({
-                                                touch: false
-                                            });
+                                            
                                             zoom_enabled = true;
                                             setTimeout(function () {
                                                 reloadEtalage();
