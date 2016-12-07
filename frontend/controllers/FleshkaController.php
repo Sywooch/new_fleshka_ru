@@ -23,7 +23,8 @@ class FleshkaController extends CController {
             'content' => $pageInfo['meta_desc']
         ]);
         $volumes = \Yii::$app->db->createCommand('SELECT vl.title, pr.price, pr.price_pz FROM `yu_volume_to_page` pr LEFT JOIN yu_volumes vl ON vl.id = pr.volume_id WHERE pr.page_id = ' . (int) $id)->queryAll();
-        return $this->render('view', ['model' => $pageInfo, 'volumes' => $volumes]);
+        $colors = \Yii::$app->db->createCommand('SELECT cl.color_id, cl.image, cl.color_id, vl.title, vl.`value` FROM `yu_color_to_page` cl LEFT JOIN yu_colors vl ON vl.id = cl.color_id WHERE cl.page_id = ' . (int) $id)->queryAll();
+        return $this->render('view', ['model' => $pageInfo, 'volumes' => $volumes, 'colors' => $colors]);
     }
 
 }

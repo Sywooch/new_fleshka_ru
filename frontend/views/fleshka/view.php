@@ -70,32 +70,14 @@
                                         <a href="javascript:void(0)" class="etalage-next"><i class="icon-angle-right"></i></a>
                                     </div>
                                     <div class="clear"></div><br><br><br><br><br><br><br><br><br>
-                                    <span>Выбор цвета</span>
+                                    <span>Выбор цвета</span><br><br>
                                     <div class="btn-group" data-toggle="buttons">
-                                        <label class="btn btn-success active">
-                                            <input type="checkbox" autocomplete="off" checked>
-                                            <span class="glyphicon glyphicon-ok"></span>
-                                        </label>
-                                        <label class="btn btn-primary">
-                                            <input type="checkbox" autocomplete="off">
-                                            <span class="glyphicon glyphicon-ok"></span>
-                                        </label>
-                                        <label class="btn btn-info">
-                                            <input type="checkbox" autocomplete="off">
-                                            <span class="glyphicon glyphicon-ok"></span>
-                                        </label>
-                                        <label class="btn btn-default">
-                                            <input type="checkbox" autocomplete="off">
-                                            <span class="glyphicon glyphicon-ok"></span>
-                                        </label>
-                                        <label class="btn btn-warning">
-                                            <input type="checkbox" autocomplete="off">
-                                            <span class="glyphicon glyphicon-ok"></span>
-                                        </label>
-                                        <label class="btn btn-danger">
-                                            <input type="checkbox" autocomplete="off">
-                                            <span class="glyphicon glyphicon-ok"></span>
-                                        </label>	
+                                        <?php foreach ($colors as $color): ?>
+                                        <label class="btn btn-success" style="border: 2px solid #08c;background-color: <?= $color['value']; ?>">
+                                                <input type="checkbox" autocomplete="off" checked>
+                                                <span class="glyphicon glyphicon-ok"></span>
+                                            </label>
+                                        <?php endforeach; ?>
                                     </div>
                                     <div class="product-view-zoom-area"></div>
                                     <script type="text/javascript">
