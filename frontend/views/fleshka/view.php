@@ -30,8 +30,8 @@
                                 <div class="product-img-box col-sm-5 ">
                                     <ul id="etalage_MTJhMzVlMTMxYTNlNTc0M2ZkYTBjYzYxOWJjY2ExNTU" class="etalage" style="display: block; width: 337px; height: 447px;">
                                         <?php foreach ($colors as $color): ?>
-                                            <li class="etalage_thumb thumb_<?= $color['id']; ?> etalage_thumb_active" style="display: list-item; opacity: 1; position: absolute; overflow: hidden; background-image: none;">
-                                                <a rel="gallery" class="fancy-images fancy-images_<?= $color['id']; ?>" href="<?= $assets . '/uploads/images/' . $color['image']; ?>"><span class="glyphicon glyphicon-search"></span></a>
+                                            <li class="etalage_thumb thumb_<?= $color['color_id']; ?> etalage_thumb_active" style="display: list-item; opacity: 1; position: absolute; overflow: hidden; background-image: none;">
+                                                <a rel="gallery" class="fancy-images fancy-images_<?= $color['color_id']; ?>" href="<?= $assets . '/uploads/images/' . $color['image']; ?>"><span class="glyphicon glyphicon-search"></span></a>
                                                 <img class="etalage_thumb_image" src="<?= $assets . '/uploads/images/' . $color['image']; ?>" alt="" style="display: inline; width: 329px; height: auto; opacity: 1;">
                                                 <img class="etalage_source_image" src="<?= $assets . '/uploads/images/' . $color['image']; ?>" alt="">                                                
                                             </li>
