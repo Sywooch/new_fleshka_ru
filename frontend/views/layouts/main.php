@@ -48,7 +48,7 @@ $curRegion = \Yii::$app->session['region'];
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/animate.css" media="all" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/porto.css" media="all" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/animation.css" media="all" />
-        <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/local.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/local.css?v=1" media="all" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/responsive.css" media="all" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/design_demo5_en.css" media="all" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/settings_demo5_en.css" media="all" />
@@ -98,7 +98,7 @@ $curRegion = \Yii::$app->session['region'];
         <script type="text/javascript" src="<?= $assets ?>/js/wow.min.js"></script>
         <script type="text/javascript" src="<?= $assets ?>/js/porto.js"></script>
         <script type="text/javascript" src="<?= $assets ?>/js/numeral.min.js"></script>
-      
+
         <script type="text/javascript">
             //<![CDATA[
             optionalZipCountries = ["HK", "IE", "MO", "PA"];
@@ -479,7 +479,251 @@ $curRegion = \Yii::$app->session['region'];
                     }
                 } catch (e) {
                 }
-            })(document);/* ]]> */</script></body>
+            })(document);/* ]]> */</script>
+        <script type="text/javascript">
+            jQuery(function ($) {
+                $("#latest_news .owl-carousel").owlCarousel({
+                    lazyLoad: true,
+                    itemsCustom: [[0, 1], [320, 1], [480, 1], [640, 2], [768, 2], [992, 2], [1200, 2]],
+                    responsiveRefreshRate: 50,
+                    slideSpeed: 200,
+                    paginationSpeed: 500,
+                    scrollPerPage: false,
+                    stopOnHover: true,
+                    rewindNav: true,
+                    rewindSpeed: 600,
+                    pagination: false,
+                    navigation: true,
+                    autoPlay: true,
+                    navigationText: ["<i class='icon-left-open'></i>", "<i class='icon-right-open'></i>"]
+                });
+                function removeFromBasket(id) {
+                    if ($.cookie('basket')) {
+                        data = JSON.parse($.cookie('basket'));
+                        for (var i = 0; i < data.rows.length; i++) {
+                            if (data.rows[i] != null && data.rows[i]['id'] == id)
+                                delete data.rows[i];
+                        }
+                        $.cookie("basket", JSON.stringify(data), {expires: 31, path: '/'});
+                    }
+                }
+                $("body").on("click", ".btn-remove", function () {
+                    var id = $(this).data('id');
+                    removeFromBasket(id);
+                    showBasket();
+                });
+                function removeFromBasketSingle(id, c) {
+                    if ($.cookie('basket')) {
+                        data = JSON.parse($.cookie('basket'));
+                        var total = 0;
+                        for (var i = 0; i < data.rows.length; i++) {
+                            if (data.rows[i] != null && data.rows[i]['id'] == id) {
+                                total = parseInt(data.rows[i]['quantity']) - parseInt(c);
+                                if (total <= 0)
+                                    delete data.rows[i];
+                                else
+                                    data.rows[i]['quantity'] = total;
+                            }
+                        }
+                        $.cookie("basket", JSON.stringify(data), {expires: 31, path: '/'});
+                    }
+                }
+                function isEmptyBasket() {
+                    if ($.cookie('basket')) {
+                        var items = JSON.parse($.cookie("basket"));
+                        var totalCount = true;
+                        for (var i = 0; i < items.rows.length; i++) {
+                            if (items.rows[i] != null) {
+                                totalCount = false;
+                            }
+                        }
+                    } else 
+                        totalCount = false;
+                    if (totalCount) {
+                        $('.topCartContent .inner-wrapper').html('<p class="cart-empty">Ваша корзина пуста, пожалуйста добавьте товары</p>');
+                        return true;
+                    }
+                    return false;
+                }
+                function productsCount() {
+                    if ($.cookie('basket')) {
+                        var items = JSON.parse($.cookie("basket"));
+                        var totalCount = 0;
+                        for (var i = 0; i < items.rows.length; i++) {
+                            if (items.rows[i] != null) {
+                                totalCount += parseInt(items.rows[i]['quantity']);
+                            }
+                        }
+                        if (totalCount > 0)
+                            return totalCount;
+                        else
+                            return false;
+                    } else
+                        return false;
+                }
+                function showBasket() {
+                    if (isEmptyBasket()) {
+                        return false;
+                    }
+                    if ($.cookie('basket')) {
+                        items = JSON.parse($.cookie("basket"));
+                        $('#total').show();
+                        var totalItems = 0;
+                        var html = '<ol class="mini-products-list">';
+                        var totalSum = 0;
+                        for (var i = 0; i < items.rows.length; i++)
+                        {
+                            if (items.rows[i] != null) {
+                                totalItems += 1;
+                                totalSum += parseInt(items.rows[i]['prices']['total']) * parseInt(items.rows[i]['quantity']);
+                                var prices = items.rows[i]['prices'];
+                                var vols = '';
+                                for (var a = 0; a < prices.rows.length; a++) {
+                                    vols += '<p class="qty-price">' + prices.rows[a]['count'] + ' X ' + prices.rows[a]['vol'] + ' Гб = <span class="price">' + parseInt(prices.rows[a]['count']) * parseInt(prices.rows[a]['price']) + ' Руб.</span></p>';
+                                }
+                                html += '<li class="item">' +
+                                        '<a href="#" title="' + items.rows[i]['name'] + '" class="product-image"><img src="' + items.rows[i]['img'] + '" alt=""></a>' +
+                                        '<div class="product-details">' +
+                                        '<p class="product-name">' +
+                                        '<a href="#">' + items.rows[i]['name'] + '</a>' +
+                                        '</p>' + vols +
+                                        '<a href="#" title="' + items.rows[i]['name'] + '" data-id="' + items.rows[i]['id'] + '" class="btn-remove"><i class="icon-cancel"></i></a>' +
+                                        '</div>' +
+                                        '<div class="clearer"></div>' +
+                                        '</li>';
+
+                            }
+                        }
+                        html += '</ol>';
+                        $('.topCartContent .inner-wrapper').html(html);
+                        var ttl = '<div class="totals"><span class="label">Итого: </span><span class="price-total"><span class="price">' + totalSum + '</span></span></div>';
+                        var buttons = '<div class="actions"><a class="btn btn-default" href=""><i class="icon-basket"></i>View Cart</a><a class="btn btn-default" href=""><i class="icon-right-thin"></i>Checkout</a><div class="clearer"></div>';
+                        $(".cart-qty").text(totalItems);
+                        $('.topCartContent .inner-wrapper').append(ttl);
+                    }
+                    isEmptyBasket();
+                }
+
+                var data = {"total": 0, "rows": []};
+                var totalCost = 0;
+                function addProduct(id, name, prices, img, colors) {
+                    if ($.cookie('basket')) {
+                        var items = JSON.parse($.cookie("basket"));
+                        if (items.rows[0] != null)
+                            data = JSON.parse($.cookie('basket'));
+                    }
+                    function add() {
+                        for (var i = 0; i < data.total; i++) {
+                            if (items.rows[i] != null) {
+                                var row = data.rows[i];
+                                if (typeof row.id !== "undefined" && row.id == id) {
+                                    row.quantity += 1;
+                                    return;
+                                }
+                            }
+                        }
+                        data.total += 1;
+                        data.rows.push({
+                            id: id,
+                            quantity: 1,
+                            prices: prices,
+                            name: name,
+                            img: img,
+                            colors: colors,
+                        });
+                    }
+                    add();
+                    totalCost += prices.total;
+                    $.cookie("basket", JSON.stringify(data), {expires: 31, path: '/'});
+                }
+
+                $('.addtocart').on('click', function () {
+                    var colors = $("input:checkbox:checked");
+                    var prices = $(".qty-holder input.qty");
+                    var prod_id = $(this).data('id');
+                    var prod_title = $(this).data('title');
+
+                    var cart = $('.mini-cart');
+                    var prc = false;
+                    var imgtodrag = $('.etalage_thumb').find("img").eq(0);
+                    $("#error-message").hide();
+                    if (colors.length <= 0) {
+                        $("#error-message").text("Выберите интересующие вас цвета");
+                        $("#error-message").show();
+                        return;
+                    }
+
+                    var pricesList = {"total": 0, "rows": []};
+                    var colorsList = {"total": 0, "rows": []};
+                    $(prices).each(function (e, i) {
+                        if ($(this).val() > 0) {
+                            pricesList.total += parseInt($(this).val()) * parseInt($(this).data("price"));
+                            pricesList.rows.push({
+                                count: parseInt($(this).val()),
+                                vol: $(this).data("vol"),
+                                id: $(this).data("id"),
+                                price: $(this).data("price")
+                            });
+                            prc = true;
+                        }
+                    });
+                    if (!prc) {
+                        $("#error-message").text(" Выберите интересующие вас объемы");
+                        $("#error-message").show();
+                        return;
+                    }
+                    $(colors).each(function (e, i) {
+                        colorsList.total += 1;
+                        colorsList.rows.push({
+                            val: $(this).data("val"),
+                            id: $(this).data("id"),
+                            title: $(this).data("title")
+                        });
+                    });
+
+                    if (imgtodrag) {
+                        var imgclone = imgtodrag.clone()
+                                .offset({
+                                    top: $(this).offset().top,
+                                    left: $(this).offset().left
+                                })
+                                .css({
+                                    'opacity': '0.5',
+                                    'position': 'absolute',
+                                    'height': '150px',
+                                    'width': '150px',
+                                    'z-index': '100'
+                                })
+                                .appendTo($('body'))
+                                .animate({
+                                    'top': cart.offset().top + 10,
+                                    'left': cart.offset().left + 10,
+                                    'width': 75,
+                                    'height': 75
+                                }, 1000, 'easeInOutExpo');
+
+                        setTimeout(function () {
+                            addProduct(prod_id, prod_title, pricesList, imgtodrag.attr("src"), colorsList);
+                            showBasket();
+                            cart.effect("shake", {
+                                times: 2
+                            }, 200);
+                        }, 1500);
+
+                        imgclone.animate({
+                            'width': 0,
+                            'height': 0
+                        }, function () {
+                            $(this).detach()
+                        });
+                    }
+                    return false;
+                });
+                showBasket();
+            });
+
+        </script>    
+    </body>
 </html>
 <?php $this->endBody() ?>
 <?php $this->endPage() ?>

@@ -45,8 +45,8 @@
                                     <span>Выбор цвета</span><br><br>
                                     <div class="btn-group" data-toggle="buttons">
                                         <?php foreach ($colors as $color): ?>
-                                            <label class="btn btn-success" style="border: 2px solid #08c;background-color: <?= $color['value']; ?>">
-                                                <input type="checkbox" autocomplete="off" checked>
+                                            <label class="btn btn-success" for="check-<?= $color['color_id']; ?>" style="border: 2px solid #08c;background-color: <?= $color['value']; ?>">
+                                                <input id="check-<?= $color['color_id']; ?>" data-title="<?= $color['title']; ?>" data-val="<?= $color['value']; ?>" data-id="<?= $color['color_id']; ?>" type="checkbox" name="colors[]" autocomplete="off">
                                                 <span class="glyphicon glyphicon-ok"></span>
                                             </label>
                                         <?php endforeach; ?>
@@ -58,13 +58,17 @@
                                         jQuery(document).ready(function () {
 
                                             jQuery("body").on("click", ".btn-group label input", function () {
-                                                if (jQuery(this).parent().hasClass("active"))
+                                                if (jQuery(this).parent().hasClass("active")) {
+                                                    jQuery(this).attr('checked', false);
                                                     jQuery(this).parent().removeClass("active");
-                                                else
+                                                }
+                                                else {
+                                                    jQuery(this).attr('checked', true);
                                                     jQuery(this).parent().addClass("active");
+                                                }
                                             });
                                             reloadEtalage();
-                                            
+
                                             zoom_enabled = true;
                                             setTimeout(function () {
                                                 reloadEtalage();
@@ -167,7 +171,7 @@
                                                             <?php endif; ?>
                                                             <td>
                                                                 <div class="qty-holder">
-                                                                    <input type="text" name="qty" id="qty" maxlength="1000" value="0" title="Qty" class="input-text qty">
+                                                                    <input data-price="<?= $volume['price']; ?>" type="text" data-vol="<?= $volume['title']; ?>" data-id="<?= $volume['id']; ?>" maxlength="1000" value="0" title="Qty" class="input-text qty">
                                                                     <div class="qty-changer">
                                                                         <a href="javascript:void(0)" class="qty_inc"><i class="icon-up-dir"></i></a>
                                                                         <a href="javascript:void(0)" class="qty_dec"><i class="icon-down-dir"></i></a>
@@ -179,7 +183,11 @@
                                                 </tbody>
                                                 </thead>
                                             </table>
-                                            <button type="button" title="Добавить в корзину" class="button btn-cart"><span><span><i class="icon-cart"></i>Добавить в корзину</span></span></button>
+                                            <button data-title="<?= $model->title; ?>" data-id="<?= $model->id; ?>" type="button" title="Добавить в корзину" class="button btn-cart addtocart">
+                                                <span><span><i class="icon-cart"></i>Добавить в корзину</span></span>
+                                            </button>
+                                            <div style="padding: 10px;margin-top: 10px;border-radius: 5px; display:none;" id="error-message" class="alert alert-danger"></div>
+                                            
                                         </div>
                                     </div>
                                     <div class="clearer"></div>
