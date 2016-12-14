@@ -452,6 +452,329 @@ $curRegion = \Yii::$app->session['region'];
                 </div>
             </div>
         </div>
+        <script type="text/javascript">
+            //<![CDATA[
+            $$('.related-checkbox').each(function (elem) {
+                Event.observe(elem, 'click', addRelatedToProduct)
+            });
+
+            var relatedProductsCheckFlag = false;
+            function selectAllRelated(txt) {
+                if (relatedProductsCheckFlag == false) {
+                    $$('.related-checkbox').each(function (elem) {
+                        elem.checked = true;
+                    });
+                    relatedProductsCheckFlag = true;
+                    txt.innerHTML = "unselect all";
+                } else {
+                    $$('.related-checkbox').each(function (elem) {
+                        elem.checked = false;
+                    });
+                    relatedProductsCheckFlag = false;
+                    txt.innerHTML = "select all";
+                }
+                addRelatedToProduct();
+            }
+
+            function addRelatedToProduct() {
+                var checkboxes = $$('.related-checkbox');
+                var values = [];
+                for (var i = 0; i < checkboxes.length; i++) {
+                    if (checkboxes[i].checked)
+                        values.push(checkboxes[i].value);
+                }
+                if ($('related-products-field')) {
+                    $('related-products-field').value = values.join(',');
+                }
+            }
+            jQuery(function ($) {
+                $("#block-related").owlCarousel({
+                    navigation: true, // Show next and prev buttons
+                    slideSpeed: 300,
+                    paginationSpeed: 400,
+                    singleItem: true,
+                    pagination: false,
+                    navigationText: ["<i class='icon-left-open'></i>", "<i class='icon-right-open'></i>"]
+                });
+            });
+            jQuery(function ($) {
+                $("#latest_news .owl-carousel").owlCarousel({
+                    lazyLoad: true,
+                    itemsCustom: [[0, 1], [320, 1], [480, 1], [640, 2], [768, 2], [992, 2], [1200, 2]],
+                    responsiveRefreshRate: 50,
+                    slideSpeed: 200,
+                    paginationSpeed: 500,
+                    scrollPerPage: false,
+                    stopOnHover: true,
+                    rewindNav: true,
+                    rewindSpeed: 600,
+                    pagination: false,
+                    navigation: true,
+                    autoPlay: true,
+                    navigationText: ["<i class='icon-left-open'></i>", "<i class='icon-right-open'></i>"]
+                });
+                updateTotal();
+                function updateTotal() {
+                    if ($.cookie('basket')) {
+                        var totalProducts = 0;
+                        var totalSum = 0;
+                        data = JSON.parse($.cookie('basket'));
+                        for (var i = 0; i < data.rows.length; i++) {
+                            totalProducts++;
+                            if (data.rows[i] != null) {
+                                var pr = data.rows[i].prices;
+                                for (var a = 0; a < pr.rows.length; a++) {
+                                    totalSum += parseInt(pr.rows[a].count) * parseInt(pr.rows[a].price);
+                                }
+                            }
+                        }
+                        $("#pr-total").text(totalSum);
+                        $("#products-total").text(totalProducts);
+                    }
+                }
+                $("body").on("click", '.btn-remove2', function () {
+                    var id = $(this).data("id");
+                    $(this).parents("tr").remove();
+                    $(".btn-remove[data-id=" + id + "]").trigger("click");
+                    return false;
+                });
+                function removeFromBasket(id) {
+                    if ($.cookie('basket')) {
+                        data = JSON.parse($.cookie('basket'));
+                        for (var i = 0; i < data.rows.length; i++) {
+                            if (data.rows[i] != null && data.rows[i]['id'] == id)
+                                delete data.rows[i];
+                        }
+                        $.cookie("basket", JSON.stringify(data), {expires: 31, path: '/'});
+                    }
+                }
+                $("body").on("click", ".btn-remove", function () {
+                    var id = $(this).data('id');
+                    removeFromBasket(id);
+                    showBasket();
+                });
+                function removeFromBasketSingle(id, c) {
+                    if ($.cookie('basket')) {
+                        data = JSON.parse($.cookie('basket'));
+                        var total = 0;
+                        for (var i = 0; i < data.rows.length; i++) {
+                            if (data.rows[i] != null && data.rows[i]['id'] == id) {
+                                total = parseInt(data.rows[i]['quantity']) - parseInt(c);
+                                if (total <= 0)
+                                    delete data.rows[i];
+                                else
+                                    data.rows[i]['quantity'] = total;
+                            }
+                        }
+                        $.cookie("basket", JSON.stringify(data), {expires: 31, path: '/'});
+                    }
+                }
+                function isEmptyBasket() {
+                    if ($.cookie('basket')) {
+                        var items = JSON.parse($.cookie("basket"));
+                        var totalCount = true;
+                        for (var i = 0; i < items.rows.length; i++) {
+                            if (items.rows[i] != null) {
+                                totalCount = false;
+                            }
+                        }
+                    } else
+                        totalCount = false;
+                    if (totalCount) {
+                        $('.topCartContent .inner-wrapper').html('<p class="cart-empty">Ваша корзина пуста, пожалуйста добавьте товары</p>');
+                        return true;
+                    }
+                    return false;
+                }
+                function productsCount() {
+                    if ($.cookie('basket')) {
+                        var items = JSON.parse($.cookie("basket"));
+                        var totalCount = 0;
+                        for (var i = 0; i < items.rows.length; i++) {
+                            if (items.rows[i] != null) {
+                                totalCount += parseInt(items.rows[i]['quantity']);
+                            }
+                        }
+                        if (totalCount > 0)
+                            return totalCount;
+                        else
+                            return false;
+                    } else
+                        return false;
+                }
+                function showBasket() {
+                    if (isEmptyBasket()) {
+                        return false;
+                    }
+                    if ($.cookie('basket')) {
+                        items = JSON.parse($.cookie("basket"));
+                        $('#total').show();
+                        var totalItems = 0;
+                        var html = '<ol class="mini-products-list">';
+                        var totalSum = 0;
+                        for (var i = 0; i < items.rows.length; i++)
+                        {
+                            if (items.rows[i] != null) {
+                                totalItems += 1;
+                                totalSum += parseInt(items.rows[i]['prices']['total']) * parseInt(items.rows[i]['quantity']);
+                                var prices = items.rows[i]['prices'];
+                                var vols = '';
+                                for (var a = 0; a < prices.rows.length; a++) {
+                                    vols += '<p class="qty-price">' + prices.rows[a]['count'] + ' X ' + prices.rows[a]['vol'] + ' Гб = <span class="price">' + parseInt(prices.rows[a]['count']) * parseInt(prices.rows[a]['price']) + ' Руб.</span></p>';
+                                }
+                                html += '<li class="item">' +
+                                        '<a href="#" title="' + items.rows[i]['name'] + '" class="product-image"><img src="' + items.rows[i]['img'] + '" alt=""></a>' +
+                                        '<div class="product-details">' +
+                                        '<p class="product-name">' +
+                                        '<a href="#">' + items.rows[i]['name'] + '</a>' +
+                                        '</p>' + vols +
+                                        '<a href="#" title="' + items.rows[i]['name'] + '" data-id="' + items.rows[i]['id'] + '" class="btn-remove"><i class="icon-cancel"></i></a>' +
+                                        '</div>' +
+                                        '<div class="clearer"></div>' +
+                                        '</li>';
+
+                            }
+                        }
+                        html += '</ol>';
+                        $('.topCartContent .inner-wrapper').html(html);
+                        var ttl = '<div style="float:left;" class="totals"><span class="label">Итого: </span><span class="price-total"><span class="price">' + totalSum + '</span></span></div>';
+                        var buttons = '<div class="actions"><a class="btn btn-default" href="/cart"><i class="icon-basket"></i>Корзина</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-default" href="/order"><i class="icon-right-thin"></i>Оформить заказ</a><div class="clearer"></div>';
+                        $(".cart-qty").text(totalItems);
+                        $('.topCartContent .inner-wrapper').append(ttl + buttons);
+                    }
+                    isEmptyBasket();
+                }
+
+                var data = {"total": 0, "rows": []};
+                var totalCost = 0;
+                function addProduct(id, name, prices, img, colors) {
+                    if ($.cookie('basket')) {
+                        var items = JSON.parse($.cookie("basket"));
+                        if (items.rows[0] != null) {
+                            data = JSON.parse($.cookie('basket'));
+                        }
+                    }
+                    function add() {
+
+                        for (var i = 0; i < data.total; i++) {
+                            if (items.rows[i] != null) {
+                                var row = data.rows[i];
+                                if (typeof row.id !== "undefined" && row.id == id) {
+                                    row.quantity += 1;
+                                    for (var a = 0; a < row.prices.rows.length; a++) {
+
+                                        if (typeof row.prices !== "undefined" && typeof prices.rows[a].id !== "undefined" && row.prices.rows[a].id == prices.rows[a].id) {
+                                            prices.rows[a].count += row.prices.rows[a].count;
+                                        }
+                                    }
+                                    row.prices = prices;
+
+                                    return;
+                                }
+                            }
+                        }
+
+                        data.total += 1;
+                        data.rows.push({
+                            id: id,
+                            quantity: 1,
+                            prices: prices,
+                            name: name,
+                            img: img,
+                            colors: colors,
+                        });
+                    }
+                    add();
+                    totalCost += prices.total;
+                    $.cookie("basket", JSON.stringify(data), {expires: 31, path: '/'});
+                }
+
+                $('.addtocart').on('click', function () {
+                    var colors = $("input:checkbox:checked");
+                    var prices = $(".qty-holder input.qty");
+                    var prod_id = $(this).data('id');
+                    var prod_title = $(this).data('title');
+
+                    var cart = $('.mini-cart');
+                    var prc = false;
+                    var imgtodrag = $('.etalage_thumb').find("img").eq(0);
+                    $("#error-message").hide();
+                    if (colors.length <= 0) {
+                        $("#error-message").text("Выберите интересующие вас цвета");
+                        $("#error-message").show();
+                        return;
+                    }
+
+                    var pricesList = {"total": 0, "rows": []};
+                    var colorsList = {"total": 0, "rows": []};
+                    $(prices).each(function (e, i) {
+                        if ($(this).val() > 0) {
+                            pricesList.total += parseInt($(this).val()) * parseInt($(this).data("price"));
+                            pricesList.rows.push({
+                                count: parseInt($(this).val()),
+                                vol: $(this).data("vol"),
+                                id: $(this).data("id"),
+                                price: $(this).data("price")
+                            });
+                            prc = true;
+                        }
+                    });
+                    if (!prc) {
+                        $("#error-message").text(" Выберите интересующие вас объемы");
+                        $("#error-message").show();
+                        return;
+                    }
+                    $(colors).each(function (e, i) {
+                        colorsList.total += 1;
+                        colorsList.rows.push({
+                            val: $(this).data("val"),
+                            id: $(this).data("id"),
+                            title: $(this).data("title")
+                        });
+                    });
+
+                    if (imgtodrag) {
+                        var imgclone = imgtodrag.clone()
+                                .offset({
+                                    top: $(this).offset().top,
+                                    left: $(this).offset().left
+                                })
+                                .css({
+                                    'opacity': '0.5',
+                                    'position': 'absolute',
+                                    'height': '150px',
+                                    'width': '150px',
+                                    'z-index': '100'
+                                })
+                                .appendTo($('body'))
+                                .animate({
+                                    'top': cart.offset().top + 10,
+                                    'left': cart.offset().left + 10,
+                                    'width': 75,
+                                    'height': 75
+                                }, 1000, 'easeInOutExpo');
+
+                        setTimeout(function () {
+                            addProduct(prod_id, prod_title, pricesList, imgtodrag.attr("src"), colorsList);
+                            showBasket();
+                            cart.effect("shake", {
+                                times: 2
+                            }, 200);
+                        }, 1500);
+
+                        imgclone.animate({
+                            'width': 0,
+                            'height': 0
+                        }, function () {
+                            $(this).detach()
+                        });
+                    }
+                    return false;
+                });
+                showBasket();
+            });
+
+        </script> 
         <script type="text/javascript">/* <![CDATA[ */(function (d, s, a, i, j, r, l, m, t) {
                 try {
                     l = d.getElementsByTagName('a');
@@ -480,7 +803,7 @@ $curRegion = \Yii::$app->session['region'];
                 } catch (e) {
                 }
             })(document);/* ]]> */</script>
-          
+
     </body>
 </html>
 <?php $this->endBody() ?>

@@ -13,7 +13,7 @@ use app\components\CController;
 class SiteController extends CController {
 
     public function actionIndex() {
-        
+
         return $this->render('index');
     }
 
@@ -29,10 +29,14 @@ class SiteController extends CController {
         ]);
         return $this->render('search', ['page' => $pageInfo]);
     }
-	
-	public function actionError() {
+
+    public function actionError() {
         header("HTTP/1.0 404 Not Found");
-        return $this->render('error');
-    }   
+        $exception = Yii::$app->errorHandler->exception;
+       
+        if ($exception !== null) {
+            return $this->render('error', ['exception' => $exception]);
+        }
+    }
 
 }
