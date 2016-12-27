@@ -54,6 +54,7 @@ $curRegion = \Yii::$app->session['region'];
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/settings_demo5_en.css" media="all" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/custom.css" media="all" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/print.css" media="print" />
+        <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/opc.css" />
 
         <script type="text/javascript" src="<?= $assets ?>/js/prototype.js"></script>
         <script type="text/javascript" src="<?= $assets ?>/js/ccard.js"></script>

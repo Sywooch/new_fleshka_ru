@@ -14,6 +14,7 @@ $this->title = 'Страница не найдено';
         <section class="main-content">
             <div class="content">
                 <h1>Страница не найдено</h1>
+                <?php echo '<pre>'; print_r($exception); echo '</pre>'; ?>
             </div>                     
         </section>
     </div>

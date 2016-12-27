@@ -27,8 +27,8 @@
                                                 <tr class="first last odd">
                                                     <td class="action-td"><a href="#" data-id="<?= $product['id']; ?>" title="Удалить" class="btn-remove btn-remove2"></a></td>
                                                     <td class="pr-img-td">
-                                                        <input type="hidden" name="products[<?= $product['id']; ?>]" value="<?= $product['id']; ?>">
-                                                        <?php foreach ($product['colors']['rows'] as $color) {echo '<input type="hidden" name="colors[' . $product['id'] . ']" value="' . $color['id']. '">';} ?>
+                                                        <input type="hidden" name="products[]" value="<?= $product['id']; ?>">
+                                                        <?php foreach ($product['colors']['rows'] as $color) {echo '<input type="hidden" name="colors[' . $product['id'] . '][]" value="' . $color['id']. '">';} ?>
                                                         <a href="/fleshka/<?= app\components\CController::ru2lat($product['name']) . '-' . $product['id']; ?>" title="<?= $product['name']; ?>" class="product-image">
                                                             <img src="<?= $product['img']; ?>" width="80" height="80" alt="<?= $product['name']; ?>">
                                                         </a>
@@ -44,7 +44,7 @@
                                                             <div class="qty-holder">
                                                                 <?= $price['vol'] . 'Гб.'; ?>
                                                                 <a href="javascript:void(0)" class="table_qty_dec">-</a>
-                                                                <input name="prices[]" value="<?= $price['count']; ?>" size="4" class="input-text qty" maxlength="12">
+                                                                <input name="prices[<?= $product['id']; ?>][<?= $price['vol']; ?>]" value="<?= $price['count']; ?>" size="4" class="input-text qty" maxlength="12">
                                                                 <a href="javascript:void(0)" class="table_qty_inc">+</a>                                                            
                                                             </div>
                                                         <?php endforeach; ?>
