@@ -807,5 +807,9 @@ $curRegion = \Yii::$app->session['region'];
 
     </body>
 </html>
+<?php $this->registerJsFile($assets . '/js/jquery.inputmask.bundle.js'); ?>
+<?php $this->registerJsFile($assets . '/js/yii.js'); ?>
+<?php $this->registerJsFile($assets . '/js/yii.validation.js'); ?>
+<?php $this->registerJsFile($assets . '/js/yii.activeForm.js'); ?>
 <?php $this->endBody() ?>
 <?php $this->endPage() ?>

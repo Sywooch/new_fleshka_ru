@@ -14,32 +14,40 @@ class CartController extends CController {
 
     public function actionCheckout() {
         $checkout = array();
-        echo '<pre>';print_r($_POST);exit;
+        $orderID = uniqid();
         if (isset($_POST['products'])) {
             foreach ($_POST['products'] as $productId) {
-                $prices[] = array('count', 'vol', 'id', 'price');$_POST['prices'][$productId];
-                $colors[] = array('val', 'title', 'id');$_POST['colors'][$productId];
+                foreach ($_POST['prices'][$productId] as $prId => $pr)
+                    $prices[] = array('count' => $pr, 'vol' => FALSE, 'id' => $prId, 'price' => FALSE);
+                foreach ($_POST['colors'][$productId] as $clId => $cl)
+                    $colors[] = array('val' => FALSE, 'title' => FALSE, 'id' => $cl);
                 $checkout[$productId] = array('prices' => $prices, 'colors' => $colors);
             }
-            
         } else {
             $products = json_decode($_COOKIE['basket'], true);
-            echo '<pre>';print_r($products);exit;
-            foreach ($products['rows'] as $product) {                
+            foreach ($products['rows'] as $product) {
                 $checkout[$product['id']] = array('prices' => $product['prices']['rows'], 'colors' => $product['colors']['rows']);
             }
         }
         Yii::$app->session['checkout'] = $checkout;
+//        echo '<pre>';print_r(Yii::$app->session['checkout']);exit;
         $model = new \frontend\models\CheckoutForm();
-        if ($model->load(Yii::$app->request->post())) {
+        if ($model->load(Yii::$app->request->post()) && isset($_POST['user_fname']) && $_POST['user_fname'] == '') {
+            foreach (Yii::$app->session['checkout'] as $productId => $ch) {
+                Yii::$app->db->createCommand()->insert('{{%checkout}}', [
+                    'name' => $model->name,
+                    'email' => $model->email,
+                    'phone' => $model->phone,
+                    'comment' => $model->comment,
+                    'session_id' => $orderID,
+                    'product_id' => $productId,
+                    'prices' => json_encode($ch['prices']),
+                    'colors' => json_encode($ch['colors']),
+                ])->execute();
+            }
             \Yii::$app->getSession()->setFlash('success', 'seccess');
         }
-//        Yii::$app->db->createCommand()->insert('checkout', [
-//            'name' => 'Sam',
-//            'email' => 30,
-//        ])->execute();
-//        echo Yii::$app->session->getId();
-        return $this->render('checkout');
+        return $this->render('checkout', ['model' => $model, 'orderID' => $orderID]);
     }
 
     public function actionIndex() {

@@ -44,7 +44,7 @@
                                                             <div class="qty-holder">
                                                                 <?= $price['vol'] . 'Гб.'; ?>
                                                                 <a href="javascript:void(0)" class="table_qty_dec">-</a>
-                                                                <input name="prices[<?= $product['id']; ?>][<?= $price['vol']; ?>]" value="<?= $price['count']; ?>" size="4" class="input-text qty" maxlength="12">
+                                                                <input name="prices[<?= $product['id']; ?>][<?= $price['id']; ?>]" value="<?= $price['count']; ?>" size="4" class="input-text qty" maxlength="12">
                                                                 <a href="javascript:void(0)" class="table_qty_inc">+</a>                                                            
                                                             </div>
                                                         <?php endforeach; ?>
