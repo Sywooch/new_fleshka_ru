@@ -1,0 +1,318 @@
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : localhost-MySQL
+Source Server Version : 50541
+Source Host           : localhost:3306
+Source Database       : fleshka
+
+Target Server Type    : MYSQL
+Target Server Version : 50541
+File Encoding         : 65001
+
+Date: 2016-12-29 17:10:07
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for yu_articles
+-- ----------------------------
+DROP TABLE IF EXISTS `yu_articles`;
+CREATE TABLE `yu_articles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `short_description` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `date` datetime NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '1',
+  `image` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yu_articles
+-- ----------------------------
+INSERT INTO `yu_articles` VALUES ('1', 'test', 'qweqwe', '<p>qwqwqwe</p>\r\n', '2016-11-20 01:16:26', '1', 'ducklings_pair-1440x900.jpg');
+
+-- ----------------------------
+-- Table structure for yu_categories
+-- ----------------------------
+DROP TABLE IF EXISTS `yu_categories`;
+CREATE TABLE `yu_categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yu_categories
+-- ----------------------------
+INSERT INTO `yu_categories` VALUES ('1', 'Флешки по АКЦИИ');
+INSERT INTO `yu_categories` VALUES ('2', 'Флешки из металла оптом');
+INSERT INTO `yu_categories` VALUES ('3', 'Флешки из пластика оптом');
+
+-- ----------------------------
+-- Table structure for yu_category_to_page
+-- ----------------------------
+DROP TABLE IF EXISTS `yu_category_to_page`;
+CREATE TABLE `yu_category_to_page` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) NOT NULL,
+  `page_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yu_category_to_page
+-- ----------------------------
+INSERT INTO `yu_category_to_page` VALUES ('22', '2', '4');
+INSERT INTO `yu_category_to_page` VALUES ('23', '3', '4');
+INSERT INTO `yu_category_to_page` VALUES ('24', '2', '5');
+INSERT INTO `yu_category_to_page` VALUES ('25', '3', '5');
+
+-- ----------------------------
+-- Table structure for yu_checkout
+-- ----------------------------
+DROP TABLE IF EXISTS `yu_checkout`;
+CREATE TABLE `yu_checkout` (
+  `id` int(64) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `product_title` varchar(255) NOT NULL,
+  `prices` varchar(500) DEFAULT NULL,
+  `colors` varchar(500) DEFAULT NULL,
+  `session_id` varchar(128) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
+  `comment` varchar(500) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `status` tinyint(2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yu_checkout
+-- ----------------------------
+INSERT INTO `yu_checkout` VALUES ('1', '5', '', '[{\"count\":2,\"vol\":2,\"id\":1,\"price\":265},{\"count\":1,\"vol\":4,\"id\":2,\"price\":265}]', '[{\"val\":\"#fff\",\"id\":1,\"title\":\"\\u0411\\u0435\\u043b\\u044b\\u0439\"},{\"val\":\"#ff0000\",\"id\":2,\"title\":\"\\u041a\\u0440\\u0430\\u0441\\u043d\\u044b\\u0439\"}]', '5864e5d301679', 'test', 'wer@dfg.gdf', 't ert ert ert ert', '7777777', '1');
+INSERT INTO `yu_checkout` VALUES ('2', '5', '', '[{\"count\":2,\"vol\":2,\"id\":1,\"price\":265},{\"count\":1,\"vol\":4,\"id\":2,\"price\":265}]', '[{\"val\":\"#fff\",\"id\":1,\"title\":\"\\u0411\\u0435\\u043b\\u044b\\u0439\"},{\"val\":\"#ff0000\",\"id\":2,\"title\":\"\\u041a\\u0440\\u0430\\u0441\\u043d\\u044b\\u0439\"}]', '5864e61647268', 'test', 'wer@dfg.gdf', 't ert ert ert ert', '7777777', '1');
+INSERT INTO `yu_checkout` VALUES ('3', '5', '', '[{\"count\":2,\"vol\":2,\"id\":1,\"price\":265},{\"count\":1,\"vol\":4,\"id\":2,\"price\":265}]', '[{\"val\":\"#fff\",\"id\":1,\"title\":\"\\u0411\\u0435\\u043b\\u044b\\u0439\"},{\"val\":\"#ff0000\",\"id\":2,\"title\":\"\\u041a\\u0440\\u0430\\u0441\\u043d\\u044b\\u0439\"}]', '5864e661c2b6c', 'test', 'wer@dfg.gdf', 't ert ert ert ert', '7777777', '1');
+
+-- ----------------------------
+-- Table structure for yu_checkout_status
+-- ----------------------------
+DROP TABLE IF EXISTS `yu_checkout_status`;
+CREATE TABLE `yu_checkout_status` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yu_checkout_status
+-- ----------------------------
+INSERT INTO `yu_checkout_status` VALUES ('1', 'Новый');
+INSERT INTO `yu_checkout_status` VALUES ('2', 'В работе');
+INSERT INTO `yu_checkout_status` VALUES ('3', 'Доставлен и оплачен');
+INSERT INTO `yu_checkout_status` VALUES ('4', 'Клиент ждет товар');
+INSERT INTO `yu_checkout_status` VALUES ('5', 'на доставку');
+
+-- ----------------------------
+-- Table structure for yu_colors
+-- ----------------------------
+DROP TABLE IF EXISTS `yu_colors`;
+CREATE TABLE `yu_colors` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `value` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yu_colors
+-- ----------------------------
+INSERT INTO `yu_colors` VALUES ('1', 'Белый', '#fff');
+INSERT INTO `yu_colors` VALUES ('2', 'Красный', '#ff0000');
+
+-- ----------------------------
+-- Table structure for yu_color_to_page
+-- ----------------------------
+DROP TABLE IF EXISTS `yu_color_to_page`;
+CREATE TABLE `yu_color_to_page` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `page_id` int(11) NOT NULL,
+  `color_id` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yu_color_to_page
+-- ----------------------------
+INSERT INTO `yu_color_to_page` VALUES ('49', '4', '1', '58444dc1c8c61.jpg');
+INSERT INTO `yu_color_to_page` VALUES ('50', '4', '2', '58444dcb47a71.jpg');
+INSERT INTO `yu_color_to_page` VALUES ('51', '5', '1', '58444dc1c8c61.jpg');
+INSERT INTO `yu_color_to_page` VALUES ('52', '5', '2', '58444dcb47a71.jpg');
+
+-- ----------------------------
+-- Table structure for yu_migration
+-- ----------------------------
+DROP TABLE IF EXISTS `yu_migration`;
+CREATE TABLE `yu_migration` (
+  `version` varchar(180) NOT NULL,
+  `apply_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of yu_migration
+-- ----------------------------
+INSERT INTO `yu_migration` VALUES ('m000000_000000_base', '1462450073');
+INSERT INTO `yu_migration` VALUES ('m130524_201442_init', '1462450077');
+
+-- ----------------------------
+-- Table structure for yu_pages
+-- ----------------------------
+DROP TABLE IF EXISTS `yu_pages`;
+CREATE TABLE `yu_pages` (
+  `title` text NOT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `description` longtext,
+  `active` smallint(6) NOT NULL,
+  `sort` smallint(6) NOT NULL,
+  `meta_key` varchar(255) DEFAULT NULL,
+  `meta_desc` text,
+  `meta_title` varchar(255) DEFAULT NULL,
+  `meta_h1` varchar(255) DEFAULT NULL,
+  `type` varchar(20) NOT NULL,
+  `action` varchar(255) DEFAULT NULL,
+  `parent` int(11) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `in_stock` smallint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `url` (`url`(191))
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of yu_pages
+-- ----------------------------
+INSERT INTO `yu_pages` VALUES (' Флешка 501 TWIST Флешки оптом под нанесение логотипа', null, '<p>&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа</p>\r\n', '1', '1', '', '', '', '', 'fleshka', null, '0', '4', '0');
+INSERT INTO `yu_pages` VALUES (' Флешка 501 TWIST Флешки оптом под нанесение логотипа', null, '<p>&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа</p>\r\n', '1', '1', '', '', '', '', 'fleshka', null, '0', '5', '1');
+
+-- ----------------------------
+-- Table structure for yu_photo_to_color
+-- ----------------------------
+DROP TABLE IF EXISTS `yu_photo_to_color`;
+CREATE TABLE `yu_photo_to_color` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `file` varchar(255) NOT NULL,
+  `color_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yu_photo_to_color
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for yu_session
+-- ----------------------------
+DROP TABLE IF EXISTS `yu_session`;
+CREATE TABLE `yu_session` (
+  `id` char(40) NOT NULL,
+  `expire` int(11) DEFAULT NULL,
+  `data` blob,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of yu_session
+-- ----------------------------
+INSERT INTO `yu_session` VALUES ('0spqjrqflvo5vg247hbfe51g01', '1481886151', 0x5F5F666C6173687C613A303A7B7D726567696F6E7C613A353A7B733A353A227469746C65223B733A31323A22D09CD0BED181D0BAD0B2D0B0223B733A333A2274656C223B733A31373A2238202834393529203634362D38352D3037223B733A323A226964223B693A313B733A373A2261646472657373223B733A35333A22D183D0BB2E20D091D0B0D180D0BAD0BBD0B0D18F20372C20D091D0A620D0A0D183D0B1D0B8D0BD2C20D0BED184D0B8D18120353037223B733A343A226D6F6465223B733A33323A22D18120313020D0B4D0BE20323020D0B5D0B6D0B5D0B4D0BDD0B5D0B2D0BDD0BE223B7D);
+INSERT INTO `yu_session` VALUES ('6872c4ff918e6f5f8c619f18fb560d3d', '1480937715', 0x5F5F666C6173687C613A303A7B7D726567696F6E7C613A353A7B733A353A227469746C65223B733A31323A22D09CD0BED181D0BAD0B2D0B0223B733A333A2274656C223B733A31373A2238202834393529203634362D38352D3037223B733A323A226964223B693A313B733A373A2261646472657373223B733A35333A22D183D0BB2E20D091D0B0D180D0BAD0BBD0B0D18F20372C20D091D0A620D0A0D183D0B1D0B8D0BD2C20D0BED184D0B8D18120353037223B733A343A226D6F6465223B733A33323A22D18120313020D0B4D0BE20323020D0B5D0B6D0B5D0B4D0BDD0B5D0B2D0BDD0BE223B7D);
+INSERT INTO `yu_session` VALUES ('acrkjigjc27o6k5q3l4mqlduv0', '1481719176', 0x5F5F666C6173687C613A303A7B7D726567696F6E7C613A353A7B733A353A227469746C65223B733A31323A22D09CD0BED181D0BAD0B2D0B0223B733A333A2274656C223B733A31373A2238202834393529203634362D38352D3037223B733A323A226964223B693A313B733A373A2261646472657373223B733A35333A22D183D0BB2E20D091D0B0D180D0BAD0BBD0B0D18F20372C20D091D0A620D0A0D183D0B1D0B8D0BD2C20D0BED184D0B8D18120353037223B733A343A226D6F6465223B733A33323A22D18120313020D0B4D0BE20323020D0B5D0B6D0B5D0B4D0BDD0B5D0B2D0BDD0BE223B7D);
+INSERT INTO `yu_session` VALUES ('ahjr6oob3s4pve4ubb32sjo301', '1482817907', 0x5F5F666C6173687C613A303A7B7D726567696F6E7C613A353A7B733A353A227469746C65223B733A31323A22D09CD0BED181D0BAD0B2D0B0223B733A333A2274656C223B733A31373A2238202834393529203634362D38352D3037223B733A323A226964223B693A313B733A373A2261646472657373223B733A35333A22D183D0BB2E20D091D0B0D180D0BAD0BBD0B0D18F20372C20D091D0A620D0A0D183D0B1D0B8D0BD2C20D0BED184D0B8D18120353037223B733A343A226D6F6465223B733A33323A22D18120313020D0B4D0BE20323020D0B5D0B6D0B5D0B4D0BDD0B5D0B2D0BDD0BE223B7D);
+INSERT INTO `yu_session` VALUES ('dpu4qeahu3q3ajoki4j5fau2o4', '1481886151', 0x5F5F666C6173687C613A303A7B7D726567696F6E7C613A353A7B733A353A227469746C65223B733A31323A22D09CD0BED181D0BAD0B2D0B0223B733A333A2274656C223B733A31373A2238202834393529203634362D38352D3037223B733A323A226964223B693A313B733A373A2261646472657373223B733A35333A22D183D0BB2E20D091D0B0D180D0BAD0BBD0B0D18F20372C20D091D0A620D0A0D183D0B1D0B8D0BD2C20D0BED184D0B8D18120353037223B733A343A226D6F6465223B733A33323A22D18120313020D0B4D0BE20323020D0B5D0B6D0B5D0B4D0BDD0B5D0B2D0BDD0BE223B7D);
+INSERT INTO `yu_session` VALUES ('f5eb4b7gecgor9edkfp7e4ak92', '1481030509', 0x5F5F666C6173687C613A303A7B7D726567696F6E7C613A353A7B733A353A227469746C65223B733A31323A22D09CD0BED181D0BAD0B2D0B0223B733A333A2274656C223B733A31373A2238202834393529203634362D38352D3037223B733A323A226964223B693A313B733A373A2261646472657373223B733A35333A22D183D0BB2E20D091D0B0D180D0BAD0BBD0B0D18F20372C20D091D0A620D0A0D183D0B1D0B8D0BD2C20D0BED184D0B8D18120353037223B733A343A226D6F6465223B733A33323A22D18120313020D0B4D0BE20323020D0B5D0B6D0B5D0B4D0BDD0B5D0B2D0BDD0BE223B7D);
+INSERT INTO `yu_session` VALUES ('i3r5hd1oj5vilv74sc70qfdad5', '1483013485', 0x5F5F666C6173687C613A303A7B7D5F5F69647C693A313B);
+INSERT INTO `yu_session` VALUES ('rjq70haortbuac1q9p854gu0r2', '1482914594', 0x5F5F666C6173687C613A303A7B7D726567696F6E7C613A353A7B733A353A227469746C65223B733A31323A22D09CD0BED181D0BAD0B2D0B0223B733A333A2274656C223B733A31373A2238202834393529203634362D38352D3037223B733A323A226964223B693A313B733A373A2261646472657373223B733A35333A22D183D0BB2E20D091D0B0D180D0BAD0BBD0B0D18F20372C20D091D0A620D0A0D183D0B1D0B8D0BD2C20D0BED184D0B8D18120353037223B733A343A226D6F6465223B733A33323A22D18120313020D0B4D0BE20323020D0B5D0B6D0B5D0B4D0BDD0B5D0B2D0BDD0BE223B7D);
+INSERT INTO `yu_session` VALUES ('s0t8l2hkg85863v08rp06en167', '1482836801', 0x5F5F666C6173687C613A303A7B7D726567696F6E7C613A353A7B733A353A227469746C65223B733A31323A22D09CD0BED181D0BAD0B2D0B0223B733A333A2274656C223B733A31373A2238202834393529203634362D38352D3037223B733A323A226964223B693A313B733A373A2261646472657373223B733A35333A22D183D0BB2E20D091D0B0D180D0BAD0BBD0B0D18F20372C20D091D0A620D0A0D183D0B1D0B8D0BD2C20D0BED184D0B8D18120353037223B733A343A226D6F6465223B733A33323A22D18120313020D0B4D0BE20323020D0B5D0B6D0B5D0B4D0BDD0B5D0B2D0BDD0BE223B7D636865636B6F75747C613A313A7B693A353B613A323A7B733A363A22707269636573223B613A323A7B693A323B733A313A2232223B693A343B733A313A2231223B7D733A363A22636F6C6F7273223B613A323A7B693A303B733A313A2231223B693A313B733A313A2232223B7D7D7D);
+INSERT INTO `yu_session` VALUES ('tl1220tenrivmv9nsliedv9jh4', '1482912912', 0x5F5F666C6173687C613A303A7B7D726567696F6E7C613A353A7B733A353A227469746C65223B733A31323A22D09CD0BED181D0BAD0B2D0B0223B733A333A2274656C223B733A31373A2238202834393529203634362D38352D3037223B733A323A226964223B693A313B733A373A2261646472657373223B733A35333A22D183D0BB2E20D091D0B0D180D0BAD0BBD0B0D18F20372C20D091D0A620D0A0D183D0B1D0B8D0BD2C20D0BED184D0B8D18120353037223B733A343A226D6F6465223B733A33323A22D18120313020D0B4D0BE20323020D0B5D0B6D0B5D0B4D0BDD0B5D0B2D0BDD0BE223B7D);
+INSERT INTO `yu_session` VALUES ('uf4pcfaor5i45j17835uu75ma7', '1483002697', 0x5F5F666C6173687C613A303A7B7D726567696F6E7C613A353A7B733A353A227469746C65223B733A31323A22D09CD0BED181D0BAD0B2D0B0223B733A333A2274656C223B733A31373A2238202834393529203634362D38352D3037223B733A323A226964223B693A313B733A373A2261646472657373223B733A35333A22D183D0BB2E20D091D0B0D180D0BAD0BBD0B0D18F20372C20D091D0A620D0A0D183D0B1D0B8D0BD2C20D0BED184D0B8D18120353037223B733A343A226D6F6465223B733A33323A22D18120313020D0B4D0BE20323020D0B5D0B6D0B5D0B4D0BDD0B5D0B2D0BDD0BE223B7D);
+INSERT INTO `yu_session` VALUES ('uq8d180ev5pqdhkaknp7o62uc0', '1483008883', 0x5F5F666C6173687C613A313A7B733A373A2273756363657373223B693A313B7D726567696F6E7C613A353A7B733A353A227469746C65223B733A31323A22D09CD0BED181D0BAD0B2D0B0223B733A333A2274656C223B733A31373A2238202834393529203634362D38352D3037223B733A323A226964223B693A313B733A373A2261646472657373223B733A35333A22D183D0BB2E20D091D0B0D180D0BAD0BBD0B0D18F20372C20D091D0A620D0A0D183D0B1D0B8D0BD2C20D0BED184D0B8D18120353037223B733A343A226D6F6465223B733A33323A22D18120313020D0B4D0BE20323020D0B5D0B6D0B5D0B4D0BDD0B5D0B2D0BDD0BE223B7D636865636B6F75747C613A313A7B693A353B613A323A7B733A363A22707269636573223B613A323A7B693A303B613A343A7B733A353A22636F756E74223B693A323B733A333A22766F6C223B693A323B733A323A226964223B693A313B733A353A227072696365223B693A3236353B7D693A313B613A343A7B733A353A22636F756E74223B693A313B733A333A22766F6C223B693A343B733A323A226964223B693A323B733A353A227072696365223B693A3236353B7D7D733A363A22636F6C6F7273223B613A323A7B693A303B613A333A7B733A333A2276616C223B733A343A2223666666223B733A323A226964223B693A313B733A353A227469746C65223B733A31303A22D091D0B5D0BBD18BD0B9223B7D693A313B613A333A7B733A333A2276616C223B733A373A2223666630303030223B733A323A226964223B693A323B733A353A227469746C65223B733A31343A22D09AD180D0B0D181D0BDD18BD0B9223B7D7D7D7D737563636573737C733A373A2273656363657373223B);
+INSERT INTO `yu_session` VALUES ('v1bpqiv22u6stgk0ljchhpibb5', '1481114050', 0x5F5F666C6173687C613A303A7B7D726567696F6E7C613A353A7B733A353A227469746C65223B733A31323A22D09CD0BED181D0BAD0B2D0B0223B733A333A2274656C223B733A31373A2238202834393529203634362D38352D3037223B733A323A226964223B693A313B733A373A2261646472657373223B733A35333A22D183D0BB2E20D091D0B0D180D0BAD0BBD0B0D18F20372C20D091D0A620D0A0D183D0B1D0B8D0BD2C20D0BED184D0B8D18120353037223B733A343A226D6F6465223B733A33323A22D18120313020D0B4D0BE20323020D0B5D0B6D0B5D0B4D0BDD0B5D0B2D0BDD0BE223B7D);
+
+-- ----------------------------
+-- Table structure for yu_stranitsy
+-- ----------------------------
+DROP TABLE IF EXISTS `yu_stranitsy`;
+CREATE TABLE `yu_stranitsy` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `url` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yu_stranitsy
+-- ----------------------------
+INSERT INTO `yu_stranitsy` VALUES ('1', 'test', 'test', 'weqwe');
+
+-- ----------------------------
+-- Table structure for yu_user
+-- ----------------------------
+DROP TABLE IF EXISTS `yu_user`;
+CREATE TABLE `yu_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `auth_key` varchar(32) NOT NULL,
+  `password_hash` varchar(255) NOT NULL,
+  `password_reset_token` varchar(255) DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
+  `status` smallint(6) NOT NULL,
+  `created_at` int(11) NOT NULL,
+  `updated_at` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of yu_user
+-- ----------------------------
+INSERT INTO `yu_user` VALUES ('1', 'admin', 'rnhgk2mH5Qs2P-vQLQV_sZcFIu9Okfmh', '$2y$13$88XSQan5ah2/QQVQqRnpee6Z6Y01zy0u8DWiPlzXmb9QcAEg2XteG', null, 'dilshod-x@mail.ru', '10', '1462532619', '1462532619');
+
+-- ----------------------------
+-- Table structure for yu_volumes
+-- ----------------------------
+DROP TABLE IF EXISTS `yu_volumes`;
+CREATE TABLE `yu_volumes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yu_volumes
+-- ----------------------------
+INSERT INTO `yu_volumes` VALUES ('1', '2');
+INSERT INTO `yu_volumes` VALUES ('2', '4');
+
+-- ----------------------------
+-- Table structure for yu_volume_to_page
+-- ----------------------------
+DROP TABLE IF EXISTS `yu_volume_to_page`;
+CREATE TABLE `yu_volume_to_page` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `volume_id` int(11) NOT NULL,
+  `page_id` int(11) NOT NULL,
+  `price` decimal(10,0) NOT NULL,
+  `price_pz` decimal(10,0) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yu_volume_to_page
+-- ----------------------------
+INSERT INTO `yu_volume_to_page` VALUES ('33', '1', '4', '265', '300');
+INSERT INTO `yu_volume_to_page` VALUES ('34', '2', '4', '265', '300');
+INSERT INTO `yu_volume_to_page` VALUES ('35', '1', '5', '265', '300');
+INSERT INTO `yu_volume_to_page` VALUES ('36', '2', '5', '265', '300');
