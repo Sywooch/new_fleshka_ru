@@ -14,11 +14,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>    
 
-    <?= GridView::widget([
+    <?=
+    GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],            
+            ['class' => 'yii\grid\SerialColumn'],
             'id',
             //'product_id',
             //'product_title',
@@ -27,12 +28,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'session_id',
             'name',
             'email:email',
-            'status',
+            //'status',
+            [
+                'attribute' => 'status',
+                'value' => 'status.title'
+            ],
             // 'comment',
             // 'phone',
-
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn', 'template' => '{view} {delete}',],
         ],
-    ]); ?>
+    ]);
+    ?>
 
 </div>

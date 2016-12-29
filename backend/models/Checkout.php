@@ -18,21 +18,19 @@ use Yii;
  * @property string $comment
  * @property string $phone
  */
-class Checkout extends \yii\db\ActiveRecord
-{
+class Checkout extends \yii\db\ActiveRecord {
+
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'yu_checkout';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             [['product_id', 'product_title', 'session_id', 'email'], 'required'],
             [['product_id'], 'integer'],
@@ -46,8 +44,7 @@ class Checkout extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'status' => 'Статус заказа',
             'id' => 'ID',
@@ -62,4 +59,9 @@ class Checkout extends \yii\db\ActiveRecord
             'phone' => 'Телефон',
         ];
     }
+
+    public function getStatus() {
+        return $this->hasOne(Status::className(), ['id' => 'status']);
+    }
+
 }
