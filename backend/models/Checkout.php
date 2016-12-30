@@ -46,7 +46,7 @@ class Checkout extends \yii\db\ActiveRecord {
      */
     public function attributeLabels() {
         return [
-            'status' => 'Статус заказа',
+            'statusName' => 'Статус заказа',
             'id' => 'ID',
             'product_id' => 'Product ID',
             'product_title' => 'Product Title',
@@ -60,8 +60,12 @@ class Checkout extends \yii\db\ActiveRecord {
         ];
     }
 
-    public function getStatus() {
+    public function getStatusFull() {
         return $this->hasOne(Status::className(), ['id' => 'status']);
+    }
+
+    public function getStatusName() {
+        return $this->statusFull->title;
     }
 
 }

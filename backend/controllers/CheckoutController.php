@@ -1,6 +1,7 @@
 <?php
 
 namespace backend\controllers;
+
 use Yii;
 use app\models\Checkout;
 use app\models\CheckoutSearch;
@@ -11,10 +12,9 @@ use yii\filters\VerbFilter;
 /**
  * CheckoutController implements the CRUD actions for Checkout model.
  */
-class CheckoutController extends Controller
-{
-    public function behaviors()
-    {
+class CheckoutController extends Controller {
+
+    public function behaviors() {
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
@@ -29,14 +29,13 @@ class CheckoutController extends Controller
      * Lists all Checkout models.
      * @return mixed
      */
-    public function actionIndex()
-    {
+    public function actionIndex() {
         $searchModel = new CheckoutSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+                    'searchModel' => $searchModel,
+                    'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -45,10 +44,11 @@ class CheckoutController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionView($id)
-    {
+    public function actionView($id) {
+        $products = Checkout::find('session_id = ' . $id)->all();
         return $this->render('view', [
-            'model' => $this->findModel($id),
+                    'model' => $products[0],
+                    'products' => $products,
         ]);
     }
 
@@ -57,15 +57,14 @@ class CheckoutController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
-    {
+    public function actionCreate() {
         $model = new Checkout();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
-                'model' => $model,
+                        'model' => $model,
             ]);
         }
     }
@@ -76,15 +75,14 @@ class CheckoutController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($id)
-    {
+    public function actionUpdate($id) {
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
-                'model' => $model,
+                        'model' => $model,
             ]);
         }
     }
@@ -95,8 +93,7 @@ class CheckoutController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id)
-    {
+    public function actionDelete($id) {
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
@@ -109,12 +106,12 @@ class CheckoutController extends Controller
      * @return Checkout the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
-    {
-        if (($model = Checkout::findOne($id)) !== null) {
+    protected function findModel($id) {
+        if (($model = Checkout::find('session_id = ' . $id)->one()) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
 }

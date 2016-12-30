@@ -16,29 +16,45 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?=
+        Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
                 'method' => 'post',
             ],
-        ]) ?>
+        ])
+        ?>
     </p>
 
-    <?= DetailView::widget([
+    <?=
+    DetailView::widget([
         'model' => $model,
         'attributes' => [
             'id',
-            'product_id',
-            'product_title',
-            'prices',
-            'colors',
+            //'product_id',
+            //'product_title',
+            //'prices',
+            //'colors',
+//            [
+//                'label' => 'colors',
+//                'value' => $model->colors,
+//            ],
             'session_id',
             'name',
             'email:email',
             'comment',
             'phone',
         ],
-    ]) ?>
+    ])
+    ?>
+
+    <table id="w0" class="table table-striped table-bordered detail-view">
+        <tbody>
+            <?php foreach ($products as $product): ?>
+            <tr><th><?php echo \app\models\Pages::findOne($product['product_id'])->title; ?></th><td>4</td></tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 
 </div>

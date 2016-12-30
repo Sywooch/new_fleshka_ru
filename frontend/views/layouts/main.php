@@ -520,9 +520,9 @@ $curRegion = \Yii::$app->session['region'];
                         var totalProducts = 0;
                         var totalSum = 0;
                         data = JSON.parse($.cookie('basket'));
-                        for (var i = 0; i < data.rows.length; i++) {
-                            totalProducts++;
+                        for (var i = 0; i < data.rows.length; i++) {                            
                             if (data.rows[i] != null) {
+                                totalProducts++;
                                 var pr = data.rows[i].prices;
                                 for (var a = 0; a < pr.rows.length; a++) {
                                     totalSum += parseInt(pr.rows[a].count) * parseInt(pr.rows[a].price);

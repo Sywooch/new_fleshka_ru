@@ -12,14 +12,16 @@ use app\models\Checkout;
  */
 class CheckoutSearch extends Checkout {
 
-    public $status;
+    //public $status;
+    public $statusName;
+
     /**
      * @inheritdoc
      */
     public function rules() {
         return [
             [['id', 'product_id'], 'integer'],
-            [['product_title', 'prices', 'colors', 'session_id', 'name', 'email', 'comment', 'phone', 'status'], 'safe'],
+            [['product_title', 'prices', 'colors', 'session_id', 'name', 'email', 'comment', 'phone', 'statusFull'], 'safe'],
         ];
     }
 
@@ -44,13 +46,23 @@ class CheckoutSearch extends Checkout {
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
-        $query->joinWith(['status']);
+        $query->joinWith(['statusFull']);
         $this->load($params);
 
-        $dataProvider->sort->attributes['status'] = [
-            'asc' => ['yu_checkout_status.title' => SORT_ASC],
-            'desc' => ['yu_checkout_status.title' => SORT_DESC],
-        ];
+        $dataProvider->setSort([
+            'attributes' => [
+                'id',
+                'session_id',
+                'name',
+                'email',
+                'status',
+                'statusName' => [
+                    'asc' => ['yu_checkout_status.title' => SORT_ASC],
+                    'desc' => ['yu_checkout_status.title' => SORT_DESC],
+                ]
+            ]
+        ]);
+
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
@@ -62,6 +74,10 @@ class CheckoutSearch extends Checkout {
             'product_id' => $this->product_id,
         ]);
 
+//        $query->joinWith(['statusFull' => function ($q) {
+//                $q->where('yu_checkout_status.title LIKE "%' . $this->statusName . '%"');
+//            }]);
+
         $query->andFilterWhere(['like', 'product_title', $this->product_title])
                 ->andFilterWhere(['like', 'prices', $this->prices])
                 ->andFilterWhere(['like', 'colors', $this->colors])
@@ -69,7 +85,8 @@ class CheckoutSearch extends Checkout {
                 ->andFilterWhere(['like', 'name', $this->name])
                 ->andFilterWhere(['like', 'email', $this->email])
                 ->andFilterWhere(['like', 'comment', $this->comment])
-                ->andFilterWhere(['like', 'phone', $this->phone])->andFilterWhere(['like', 'yu_checkout_status.title', $this->status]);;
+                ->andFilterWhere(['like', 'phone', $this->phone])
+                ->andFilterWhere(['like', 'status', $this->status]);
 
         return $dataProvider;
     }

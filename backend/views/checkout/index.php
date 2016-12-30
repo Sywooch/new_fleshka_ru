@@ -9,6 +9,7 @@ use yii\grid\GridView;
 
 $this->title = 'Checkouts';
 $this->params['breadcrumbs'][] = $this->title;
+print_r(yii\helpers\ArrayHelper::map(app\models\Status::find()->all(), 'id', 'title'));
 ?>
 <div class="checkout-index">
 
@@ -28,16 +29,25 @@ $this->params['breadcrumbs'][] = $this->title;
             'session_id',
             'name',
             'email:email',
-            //'status',
+            'status',
             [
-                'attribute' => 'status',
-                'value' => 'status.title'
+                'attribute' => 'statusName',
+                //'format' => 'html',
+                'value' => 'statusName',
+                'filterInputOptions' => ['class' => 'form-control',],
+                'filter' => yii\bootstrap\Html::activeDropDownList($searchModel, 'statusName', yii\helpers\ArrayHelper::map(app\models\Status::find()->asArray()->all(), 'id', 'title'), ['multiple' => false]),
             ],
             // 'comment',
             // 'phone',
-            ['class' => 'yii\grid\ActionColumn', 'template' => '{view} {delete}',],
-        ],
-    ]);
-    ?>
+            ['class' => 'yii\grid\ActionColumn', 'template' => '{view} {delete}',
+                'buttons' => [
+                    'view' => function ($url, $model) {                        
+                        $url = \yii\helpers\Url::toRoute(['checkout/view', 'id' => $model->session_id]);
+                        return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', $url, ['title' => Yii::t('app', 'Info'),]);
+                    }
+                        ],],
+                ],
+            ]);
+            ?>
 
 </div>
