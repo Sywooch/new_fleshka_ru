@@ -8,13 +8,12 @@ use app\components\CController;
 
 class LastNews extends Widget {
 
-    public $parent;
-    public $type = 'service';
-
     public function run() {
-        $sql = 'select id, title, url, date from {{%pages}} where type = \'news\' order by id desc limit 1';
-        $row = \Yii::$app->db->createCommand($sql)->queryOne();
-        return $this->render('lastNews', ['model' => $row]);
+        \Yii::$app->formatter->locale = 'ru-RU';
+echo \Yii::$app->formatter->asDate('2014-01-01');
+        $sql = 'select id, title, image, date, short_description from {{%articles}} where active = 1 order by date desc limit 2';
+        $rows = \Yii::$app->db->createCommand($sql)->queryAll();
+        return $this->render('lastNews', ['rows' => $rows]);
     }
 
 }

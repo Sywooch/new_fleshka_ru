@@ -35,7 +35,7 @@ AppAsset::register($this);
             ]);
             $menuItems = [
                 ['label' => 'Главная', 'url' => ['/site/index']],
-                ['label' => 'Заказы', 'url' => ['/orders/index']],
+                ['label' => 'Заказы', 'url' => ['/checkout/index']],
                 ['label' => 'Флешки', 'url' => ['/page/index']],
                 ['label' => 'Категории', 'url' => ['/categories/index']],
                 ['label' => 'Объемы', 'url' => ['/volumes/index']],

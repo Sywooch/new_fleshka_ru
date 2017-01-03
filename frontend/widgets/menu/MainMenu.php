@@ -8,9 +8,11 @@ use app\components\CController;
 
 class MainMenu extends Widget {
 
+    public $mobile = false;
+
     public function run() {
-        $rows = CController::$menu;
-        return $this->render('mainMenu', ['rows' => $rows, 'cnt' => count($rows)]);
+        $rows = \Yii::$app->db->createCommand('SELECT * from {{%categories}}')->queryAll();
+        return $this->render('mainMenu', ['rows' => $rows, 'mobile' => $this->mobile]);
     }
 
 }

@@ -184,8 +184,16 @@ $curRegion = \Yii::$app->session['region'];
                         </h1>
                         <div class="cart-area">
                             <div class="custom-block">
-                                <i class="icon-phone" style="margin-right: 5px;"></i>
-                                <span>(+404) 158 14 25 78</span>
+                                <i class="icon-phone" style="margin-right: 5px;">
+                                    <span>                                        
+                                        <a href="tel:+7 (964) 797-42-38">+7 (964) 797-42-38</a>
+                                    </span>
+                                </i>
+                                <i class="icon-phone" style="margin-right: 5px;">
+                                    <span>
+                                        <a href="tel:+7 (495) 780-80-93">+7 (495) 780-80-93</a>
+                                    </span>
+                                </i>
                                 <span class="split"></span>
                                 <a href="/kontakty">Контакты</a></div>            
                             <div class="mini-cart">
@@ -234,38 +242,7 @@ $curRegion = \Yii::$app->session['region'];
                             <div class="container">            
                                 <div class="menu-wrapper">
                                     <div class="menu-all-pages-container">
-                                        <ul class="menu">
-                                            <li class="act">
-                                                <a href="/">
-                                                    <span>Главная</span>
-                                                </a>
-                                            </li>
-                                            <li class="menu-item menu-item-has-children menu-parent-item  " >
-                                                <a href="">Motors</a>
-                                                <div class="nav-sublist-dropdown" style="display: none;">
-                                                    <div class="container">
-                                                        <ul>
-                                                            <li class="menu-item">
-                                                                <a class="level1" data-id="31" href=""><span>Cars and Trucks</span></a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a class="level1" data-id="32" href="">
-                                                                    <span>Motorcycles &amp; Powersports</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a class="level1" data-id="33" href="">
-                                                                    <span>Parts &amp; Accessories</span>
-                                                                </a>
-                                                            </li>                                                            
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="menu-item">
-                                                <a href="">Home &amp; Garden</a>
-                                            </li>
-                                        </ul>
+                                        <?= MainMenu::widget(); ?>
                                     </div>
                                 </div>
                             </div>
@@ -284,31 +261,7 @@ $curRegion = \Yii::$app->session['region'];
                 </div>
                 <div class="mobile-nav side-block container">
                     <div class="menu-all-pages-container">
-                        <ul class="menu">
-                            <li class="act">
-                                <a href="/">
-                                    <span>Главная</span>
-                                </a>
-                            </li> 
-                            <li class="menu-item menu-item-has-children menu-parent-item" >
-                                <a href="">Motors</a>
-                                <ul>
-                                    <li class="menu-item">
-                                        <a class="level1" data-id="31" href="">
-                                            <span>Cars and Trucks</span>
-                                        </a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a class="level1" data-id="32" href="">
-                                            <span>Motorcycles &amp; Powersports</span>
-                                        </a>
-                                    </li>                                    
-                                </ul>
-                            </li>
-                            <li class="menu-item">
-                                <a href="">Home &amp; Garden</a>
-                            </li>
-                        </ul>
+                        <?= MainMenu::widget(['mobile' => true]); ?>
                     </div>
                 </div>
                 <div class="mobile-nav-overlay close-mobile-nav"></div>        
@@ -425,32 +378,7 @@ $curRegion = \Yii::$app->session['region'];
                     jQuery(function ($) {
                         $(".cms-index-index .footer-container.fixed-position .footer-top,.cms-index-index .footer-container.fixed-position .footer-middle").remove();
                     });
-                </script>                
-
-                <div class="block block-subscribe" id="newsletter_popup">
-                    <form action="http://www.newsmartwave.net/magento/porto/index.php/demo5_en/newsletter/subscriber/new/" method="post" id="newsletter-popup-validate-detail" onsubmit="setNewsletterCookie()">
-                        <div class="block-content">
-                            <img src="http://www.newsmartwave.net/magento/porto/skin/frontend/smartwave/porto/images/logo.png" alt="" />
-                            <h2>BE THE FIRST TO KNOW</h2><p>Subscribe to the Porto eCommerce newsletter to receive timely updates from your favorite products.</p>            <div class="input-box">
-                                <input type="text" name="email" id="newsletter_popup_email" title="Sign up for our newsletter" class="input-text required-entry validate-email" placeholder="Email Address" />
-                                <button type="submit" title="Go!" class="button"><span><span>Go!</span></span></button>
-                                <div class="clearer"></div>
-                            </div>
-                        </div>
-                    </form>
-                    <script type="text/javascript">
-                        //<![CDATA[
-                        var newsletterpopupSubscriberFormDetail = new VarienForm('newsletter-popup-validate-detail');
-                        document.getElementById("newsletter-popup-validate-detail").onsubmit = function () {
-                            jQuery.cookie('newsletter_popup', 'dontshowitagain');
-                        }
-                        //]]>
-                    </script>
-                    <div class="subscribe-bottom">
-                        <input type="checkbox" id="newsletter_popup_dont_show_again"/>
-                        <label for="newsletter_popup_dont_show_again">Don't show this popup again</label>
-                    </div>
-                </div>
+                </script> 
             </div>
         </div>
         <script type="text/javascript">
@@ -520,7 +448,7 @@ $curRegion = \Yii::$app->session['region'];
                         var totalProducts = 0;
                         var totalSum = 0;
                         data = JSON.parse($.cookie('basket'));
-                        for (var i = 0; i < data.rows.length; i++) {                            
+                        for (var i = 0; i < data.rows.length; i++) {
                             if (data.rows[i] != null) {
                                 totalProducts++;
                                 var pr = data.rows[i].prices;

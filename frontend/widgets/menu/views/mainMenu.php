@@ -1,24 +1,29 @@
-<dl class="services">
-    <dt class="services__title">
-        <i class="fa fa-bars"></i>Наши услуги
-    </dt>
-    <dd class="services__content">
-        <div class="services__content__in">
-            <?php foreach ($rows as $key => $row): ?>
-                <h3><?php echo $row['title']; ?></h3>
-                <div class="links__list three-col<?php echo $key == $cnt ? ' indent-bt-none' : ''; ?>">
-                    <ul>
-                        <?php foreach ($row['catChilds'] as $child): ?>
-                            <li>
-                                <i class="fa <?php echo $child['icon']; ?>"></i>
-                                <span>
-                                    <a href="/<?php echo $child['url']; ?>"><?php echo $child['title']; ?></a>
-                                </span>    
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>   
-            <?php endforeach; ?>
-        </div>
-    </dd>
-</dl>
+<ul class="menu">
+    <li class="act">
+        <a href="/">
+            <span>Главная</span>
+        </a>
+    </li>
+    <li class="menu-item menu-item-has-children menu-parent-item  " >
+        <a href="/category">Каталог</a>
+        <?php if (!$mobile): ?>
+            <div class="nav-sublist-dropdown" style="display: none;">
+                <div class="container">
+                <?php endif; ?>        
+                <ul>
+                    <?php foreach ($rows as $row): ?>
+                        <?php $url = '/category/' . \app\components\CController::ru2lat($row['title']) . '-' . $row['id']; ?>
+                        <li class="menu-item">
+                            <a class="level1" href="<?= $url; ?>"><span><?= $row['title']; ?></span></a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+                <?php if (!$mobile): ?>
+                </div>
+            </div>
+        <?php endif; ?>
+    </li>
+    <li class="menu-item">
+        <a href="">Home &amp; Garden</a>
+    </li>
+</ul>

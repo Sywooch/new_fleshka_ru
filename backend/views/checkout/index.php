@@ -7,9 +7,9 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\CheckoutSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Checkouts';
+$this->title = 'Заказы';
 $this->params['breadcrumbs'][] = $this->title;
-print_r(yii\helpers\ArrayHelper::map(app\models\Status::find()->all(), 'id', 'title'));
+//print_r(yii\helpers\ArrayHelper::map(app\models\Status::find()->all(), 'id', 'title'));
 ?>
 <div class="checkout-index">
 
@@ -29,7 +29,7 @@ print_r(yii\helpers\ArrayHelper::map(app\models\Status::find()->all(), 'id', 'ti
             'session_id',
             'name',
             'email:email',
-            'status',
+            //'status',
             [
                 'attribute' => 'statusName',
                 //'format' => 'html',
@@ -41,7 +41,7 @@ print_r(yii\helpers\ArrayHelper::map(app\models\Status::find()->all(), 'id', 'ti
             // 'phone',
             ['class' => 'yii\grid\ActionColumn', 'template' => '{view} {delete}',
                 'buttons' => [
-                    'view' => function ($url, $model) {                        
+                    'view' => function ($url, $model) {
                         $url = \yii\helpers\Url::toRoute(['checkout/view', 'id' => $model->session_id]);
                         return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', $url, ['title' => Yii::t('app', 'Info'),]);
                     }

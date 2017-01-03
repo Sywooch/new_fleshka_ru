@@ -1,20 +1,20 @@
-<?php 
+<?php
 $assets = Yii::getAlias('@web');
 ?>
 <div id="banner-slider-demo-5" class="owl-carousel owl-theme owl-middle-narrow owl-banner-carousel">
-    <div class="item" style="background:url(<?= $assets ?>/images/banners/bb1.jpg) repeat;">
+    <div class="item">
         <div class="container" style="position:relative">
-            <img src="<?= $assets ?>/images/02.png" width="1140" height="500" alt="" />
+            <img src="<?= $assets ?>/images/banners/bb1.jpg" alt="" />
         </div>
     </div>
-    <div class="item" style="background:url(<?= $assets ?>/images/banners/bb2.jpg) center center no-repeat;background-size:cover;">
+    <div class="item">
         <div class="container" style="position:relative">
-            <img src="<?= $assets ?>/images/02.png" width="1140" height="500" alt="" />
+            <img src="<?= $assets ?>/images/banners/bb2.jpg" alt="" />
         </div>
     </div>
-    <div class="item" style="background:url(<?= $assets ?>/images/banners/bb3.jpg) center center no-repeat;background-size:cover;">
+    <div class="item">
         <div class="container" style="position:relative">
-            <img src="<?= $assets ?>/images/02.png" width="1140" height="500" alt="" />
+            <img src="<?= $assets ?>/images/banners/bb3.jpg" alt="" />
         </div>
     </div>
 </div>
@@ -26,7 +26,7 @@ $assets = Yii::getAlias('@web');
             stopOnHover: true,
             pagination: false,
             autoPlay:true,
-                    navigation: true,
+            navigation: true,
             navigationText: ["<i class='icon-chevron-left'></i>", "<i class='icon-chevron-right'></i>"],
             slideSpeed: 500,
             paginationSpeed: 500,
