@@ -3,7 +3,6 @@
         <strong>Статьи</strong>
     </span>
 </h2>
-<?php \Yii::$app->formatter->locale = 'ru-RU'; ?>
 <div id="latest_news" class="owl-top-narrow">
     <div class="recent-posts">
         <div class="owl-carousel">

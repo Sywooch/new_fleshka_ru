@@ -77,7 +77,6 @@
                     </script>
                 </div>
                 <?= \app\widgets\lists\LastNews::widget(); ?>
-
             </div>                
         </div>
     </div>

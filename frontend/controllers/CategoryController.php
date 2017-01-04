@@ -12,60 +12,32 @@ use app\components\CController;
  */
 class CategoryController extends CController {
 
-    public function actionIndex() {
-        $pageInfo = $_GET['data'];
-
+    public function actionView() {
         \Yii::$app->view->registerMetaTag([
             'name' => 'keywords',
-            'content' => $pageInfo['meta_key']
+            'content' => ''
         ]);
         \Yii::$app->view->registerMetaTag([
             'name' => 'description',
-            'content' => $pageInfo['meta_desc']
+            'content' => ''
         ]);
-        return $this->render('index', ['page' => $pageInfo]);
-    }
+        $where = ['active' => 1];
+        $order = 'id DESC';
 
-    public function actionServices() {
-        $pageInfo = $_GET['data'];
-        \Yii::$app->view->registerMetaTag([
-            'name' => 'keywords',
-            'content' => $pageInfo['meta_key']
-        ]);
-        \Yii::$app->view->registerMetaTag([
-            'name' => 'description',
-            'content' => $pageInfo['meta_desc']
-        ]);
-        return $this->render('services', ['page' => $pageInfo]);
-    }
+        $query = \frontend\models\Pages::find();
+        
+        $query->where($where);
+        $countQuery = clone $query;
+        $query->orderBy($order);
+        $pages = new \yii\data\Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 1]);
+        $models = $query->offset($pages->offset)
+                ->limit($pages->limit)
+                ->all();
 
-    public function actionService() {
-        $pageInfo = $_GET['data'];
-        \Yii::$app->view->registerMetaTag([
-            'name' => 'keywords',
-            'content' => $pageInfo['meta_key']
+        return $this->render('view', [
+                    'models' => $models,
+                    'pagination' => $pages,
         ]);
-        \Yii::$app->view->registerMetaTag([
-            'name' => 'description',
-            'content' => $pageInfo['meta_desc']
-        ]);
-        return $this->render('service', ['page' => $pageInfo]);
-    }
-
-    public function actionPriceList() {
-        $pageInfo = $_GET['data'];
-        \Yii::$app->view->registerMetaTag([
-            'name' => 'keywords',
-            'content' => $pageInfo['meta_key']
-        ]);
-        \Yii::$app->view->registerMetaTag([
-            'name' => 'description',
-            'content' => $pageInfo['meta_desc']
-        ]);
-        $model = new \frontend\models\ServiceForm();        
-        $yurCats = \Yii::$app->db->createCommand('SELECT * FROM {{%pages}} WHERE parent = 4')->queryAll();
-        $fizCats = \Yii::$app->db->createCommand('SELECT * FROM {{%pages}} WHERE parent = 3')->queryAll();
-        return $this->render('price-list', ['page' => $pageInfo, 'yurCats' => $yurCats, 'fizCats' => $fizCats, 'model' => $model]);
     }
 
 }

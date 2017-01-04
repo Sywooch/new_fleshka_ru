@@ -4,7 +4,7 @@
         <aside class="sidebar">
             <div class="widget">
                 <div class="widget__in">
-                    <span><?= date('d.m.Y', strtotime($model['title'])); ?></span>
+                    <span><?= date('d.m.Y', strtotime($model['date'])); ?></span>
                     <p>
                         <a href="/<?= $model['url']; ?>"><?= $model['title']; ?></a>
                     </p>
