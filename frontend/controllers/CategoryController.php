@@ -38,9 +38,9 @@ class CategoryController extends CController {
                         ) AS image
                 FROM
                         yu_category_to_page cp
-                JOIN yu_pages p1 ON cp.page_id = p1.id
-                JOIN yu_color_to_page cl ON cl.page_id = p1.id
-                JOIN yu_volume_to_page vl ON vl.page_id = p1.id
+                LEFT JOIN yu_pages p1 ON cp.page_id = p1.id
+                LEFT JOIN yu_color_to_page cl ON cl.page_id = p1.id
+                LEFT JOIN yu_volume_to_page vl ON vl.page_id = p1.id
                 WHERE 1=1' . (isset($_GET['id']) ? ' AND cp.category_id = ' . (int) $_GET['id'] : '') . '' . (isset($_GET['vl']) ? ' AND vl.volume_id = ' . (int) $_GET['vl'] : '') . '' . (isset($_GET['cl']) ? ' AND cl.color_id = ' . (int) $_GET['cl'] : '') . '' . (isset($_GET['p1']) && isset($_GET['p2']) ? ' AND vl.price >= ' . (int) $_GET['p1'] . ' AND vl.price <= ' . (int) $_GET['p2'] : '') . ' GROUP BY p1.id';
 
         $cnt = count(\Yii::$app->db->createCommand($sql)->queryAll());

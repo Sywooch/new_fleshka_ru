@@ -34,7 +34,7 @@ foreach ($colors as $color) {
 }
 $catOptions = '';
 foreach ($cats as $cat) {
-    $catOptions .= '<option value="' . $cat['id'] . '">' . $cat['title'] . ' Гб</option>';
+    $catOptions .= '<option value="' . $cat['id'] . '">' . $cat['title'] . '</option>';
 }
 ?>
 <div class="pages-form">

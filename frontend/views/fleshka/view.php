@@ -29,28 +29,36 @@
                             <div class="row">
                                 <div class="product-img-box col-sm-5 ">
                                     <ul id="etalage_MTJhMzVlMTMxYTNlNTc0M2ZkYTBjYzYxOWJjY2ExNTU" class="etalage" style="display: block; width: 337px; height: 447px;">
-                                        <?php foreach ($colors as $color): ?>
-                                            <li class="etalage_thumb thumb_<?= $color['color_id']; ?> etalage_thumb_active" style="display: list-item; opacity: 1; position: absolute; overflow: hidden; background-image: none;">
-                                                <a rel="gallery" class="fancy-images fancy-images_<?= $color['color_id']; ?>" href="<?= $assets . '/uploads/images/' . $color['image']; ?>"><span class="glyphicon glyphicon-search"></span></a>
-                                                <img class="etalage_thumb_image" src="<?= $assets . '/uploads/images/' . $color['image']; ?>" alt="" style="display: inline; width: 329px; height: auto; opacity: 1;">
-                                                <img class="etalage_source_image" src="<?= $assets . '/uploads/images/' . $color['image']; ?>" alt="">                                                
-                                            </li>
-                                        <?php endforeach; ?>                                     
+                                        <?php if (!empty($colors)): ?>
+                                            <?php foreach ($colors as $color): ?>
+                                                <li class="etalage_thumb thumb_<?= $color['color_id']; ?> etalage_thumb_active" style="display: list-item; opacity: 1; position: absolute; overflow: hidden; background-image: none;">
+                                                    <a rel="gallery" class="fancy-images fancy-images_<?= $color['color_id']; ?>" href="<?= $assets . '/uploads/images/' . $color['image']; ?>"><span class="glyphicon glyphicon-search"></span></a>
+                                                    <img class="etalage_thumb_image" src="<?= $assets . '/uploads/images/' . $color['image']; ?>" alt="" style="display: inline; width: 329px; height: auto; opacity: 1;">
+                                                    <img class="etalage_source_image" src="<?= $assets . '/uploads/images/' . $color['image']; ?>" alt="">                                                
+                                                </li>
+                                            <?php endforeach; ?>
+                                        <?php else: ?>
+                                                <li class="etalage_thumb" style="display: list-item; opacity: 1; position: absolute; overflow: hidden; background-image: none;">                                                    
+                                                    <img src="/images/no-image.png" alt="" style="display: inline; width: 329px; height: auto; opacity: 1;">                                                                                            
+                                                </li>
+                                        <?php endif; ?>
                                     </ul>
                                     <div class="etalage-control">
                                         <a href="javascript:void(0)" class="etalage-prev"><i class="icon-angle-left"></i></a>
                                         <a href="javascript:void(0)" class="etalage-next"><i class="icon-angle-right"></i></a>
                                     </div>
                                     <div class="clear"></div><br><br><br><br><br><br><br><br><br>
-                                    <span>Выбор цвета</span><br><br>
-                                    <div class="btn-group" data-toggle="buttons">
-                                        <?php foreach ($colors as $color): ?>
-                                            <label class="btn btn-success" for="check-<?= $color['color_id']; ?>" style="border: 2px solid #08c;background-color: <?= $color['value']; ?>">
-                                                <input id="check-<?= $color['color_id']; ?>" data-title="<?= $color['title']; ?>" data-val="<?= $color['value']; ?>" data-id="<?= $color['color_id']; ?>" type="checkbox" name="colors[]" autocomplete="off">
-                                                <span class="glyphicon glyphicon-ok"></span>
-                                            </label>
-                                        <?php endforeach; ?>
-                                    </div>
+                                    <?php if (!empty($colors)): ?>
+                                        <span>Выбор цвета</span><br><br>
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <?php foreach ($colors as $color): ?>
+                                                <label class="btn btn-success" for="check-<?= $color['color_id']; ?>" style="border: 2px solid #08c;background-color: <?= $color['value']; ?>">
+                                                    <input id="check-<?= $color['color_id']; ?>" data-title="<?= $color['title']; ?>" data-val="<?= $color['value']; ?>" data-id="<?= $color['color_id']; ?>" type="checkbox" name="colors[]" autocomplete="off">
+                                                    <span class="glyphicon glyphicon-ok"></span>
+                                                </label>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    <?php endif; ?>
                                     <div class="product-view-zoom-area"></div>
                                     <script type="text/javascript">
                                         var zoom_enabled = false;
@@ -146,50 +154,52 @@
                                             <p class="availability in-stock">Наличие:<span><?= $model->in_stock == 1 ? 'Есть в наличии' : 'Под заказ'; ?></span></p>
                                         </div>
                                     </div>
-
-                                    <div class="clearer"></div>
+                                    <div class="clearer"></div>                                    
                                     <div class="add-to-box">
                                         <div class="add-to-cart">
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <td>Выбор объема</td>
-                                                        <td>Цена со склада</td>
-                                                        <?php if (isset($volumes[0]) && $volumes[0]['price_pz'] > 0): ?>
-                                                            <td>Цена под заказ от 100шт.</td>
-                                                        <?php endif; ?>
-                                                        <td>Коли́чество</td>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php foreach ($volumes as $volume): ?>
+                                            <?php if (!empty($volumes)): ?>
+                                                <table class="table table-bordered">
+                                                    <thead>
                                                         <tr>
-                                                            <td style="color: #08c;"><?= $volume['title']; ?> Гб</td>
-                                                            <td style="color: #08c;"><?= $volume['price']; ?> руб.</td>
-                                                            <?php if ($volume['price_pz'] > 0): ?>
-                                                                <td style="color: #08c;"><?= $volume['price_pz']; ?> руб.</td>
+                                                            <td>Выбор объема</td>
+                                                            <td>Цена со склада</td>
+                                                            <?php if (isset($volumes[0]) && $volumes[0]['price_pz'] > 0): ?>
+                                                                <td>Цена под заказ от 100шт.</td>
                                                             <?php endif; ?>
-                                                            <td>
-                                                                <div class="qty-holder">
-                                                                    <input data-price="<?= $volume['price']; ?>" type="text" data-vol="<?= $volume['title']; ?>" data-id="<?= $volume['id']; ?>" maxlength="1000" value="0" title="Qty" class="input-text qty">
-                                                                    <div class="qty-changer">
-                                                                        <a href="javascript:void(0)" class="qty_inc"><i class="icon-up-dir"></i></a>
-                                                                        <a href="javascript:void(0)" class="qty_dec"><i class="icon-down-dir"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
+                                                            <td>Коли́чество</td>
                                                         </tr>
-                                                    <?php endforeach; ?>
-                                                </tbody>
-                                                </thead>
-                                            </table>
-                                            <button data-title="<?= $model->title; ?>" data-id="<?= $model->id; ?>" type="button" title="Добавить в корзину" class="button btn-cart addtocart">
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php foreach ($volumes as $volume): ?>
+                                                            <tr>
+                                                                <td style="color: #08c;"><?= $volume['title']; ?> Гб</td>
+                                                                <td style="color: #08c;"><?= $volume['price']; ?> руб.</td>
+                                                                <?php if ($volume['price_pz'] > 0): ?>
+                                                                    <td style="color: #08c;"><?= $volume['price_pz']; ?> руб.</td>
+                                                                <?php endif; ?>
+                                                                <td>
+                                                                    <div class="qty-holder">
+                                                                        <input data-price="<?= $volume['price']; ?>" type="text" data-vol="<?= $volume['title']; ?>" data-id="<?= $volume['id']; ?>" maxlength="1000" value="0" title="Qty" class="input-text qty">
+                                                                        <div class="qty-changer">
+                                                                            <a href="javascript:void(0)" class="qty_inc"><i class="icon-up-dir"></i></a>
+                                                                            <a href="javascript:void(0)" class="qty_dec"><i class="icon-down-dir"></i></a>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        <?php endforeach; ?>
+                                                    </tbody>
+                                                    </thead>
+                                                </table>
+                                            <?php endif; ?>
+                                            <button data-title="<?= $model->title; ?>" data-id="<?= $model->id; ?>" type="button" title="Добавить в корзину" class="button btn-cart <?= $model->type == 'upakovka' ? 'addtocart2' : 'addtocart'; ?>">
                                                 <span><span><i class="icon-cart"></i>Добавить в корзину</span></span>
                                             </button>
                                             <div style="padding: 10px;margin-top: 10px;border-radius: 5px; display:none;" id="error-message" class="alert alert-danger"></div>
 
                                         </div>
                                     </div>
+
                                     <div class="clearer"></div>
                                     <!-- Check whether the plugin is enabled -->
                                     <style>

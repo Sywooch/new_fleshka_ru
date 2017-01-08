@@ -415,6 +415,7 @@ $curRegion = \Yii::$app->session['region'];
                         var totalProducts = 0;
                         var totalSum = 0;
                         data = JSON.parse($.cookie('basket'));
+                        //console.log(data);return;
                         for (var i = 0; i < data.rows.length; i++) {
                             if (data.rows[i] != null) {
                                 totalProducts++;
@@ -522,7 +523,7 @@ $curRegion = \Yii::$app->session['region'];
                                     vols += '<p class="qty-price">' + prices.rows[a]['count'] + ' X ' + prices.rows[a]['vol'] + ' Гб = <span class="price">' + parseInt(prices.rows[a]['count']) * parseInt(prices.rows[a]['price']) + ' Руб.</span></p>';
                                 }
                                 html += '<li class="item">' +
-                                        '<a href="#" title="' + items.rows[i]['name'] + '" class="product-image"><img src="' + items.rows[i]['img'] + '" alt=""></a>' +
+                                        '<a href="#" title="' + items.rows[i]['name'] + '" class="product-image"><img style="width: 90px;" src="' + items.rows[i]['img'] + '" alt=""></a>' +
                                         '<div class="product-details">' +
                                         '<p class="product-name">' +
                                         '<a href="#">' + items.rows[i]['name'] + '</a>' +
@@ -587,6 +588,53 @@ $curRegion = \Yii::$app->session['region'];
                     totalCost += prices.total;
                     $.cookie("basket", JSON.stringify(data), {expires: 31, path: '/'});
                 }
+                
+                $('.addtocart2').on('click', function () {                    
+                    var prod_id = $(this).data('id');
+                    var prod_title = $(this).data('title');
+                    var pricesList = {"total": 0, "rows": []};
+                    var colorsList = {"total": 0, "rows": []};
+                    var cart = $('.mini-cart');
+                    var prc = false;
+                    var imgtodrag = $('.etalage_thumb').find("img").eq(0);
+                    if (imgtodrag) {
+                        var imgclone = imgtodrag.clone()
+                                .offset({
+                                    top: $(this).offset().top,
+                                    left: $(this).offset().left
+                                })
+                                .css({
+                                    'opacity': '0.5',
+                                    'position': 'absolute',
+                                    'height': '150px',
+                                    'width': '150px',
+                                    'z-index': '100'
+                                })
+                                .appendTo($('body'))
+                                .animate({
+                                    'top': cart.offset().top + 10,
+                                    'left': cart.offset().left + 10,
+                                    'width': 75,
+                                    'height': 75
+                                }, 1000, 'easeInOutExpo');
+
+                        setTimeout(function () {
+                            addProduct(prod_id, prod_title, pricesList, imgtodrag.attr("src"), colorsList);
+                            showBasket();
+                            cart.effect("shake", {
+                                times: 2
+                            }, 200);
+                        }, 1500);
+
+                        imgclone.animate({
+                            'width': 0,
+                            'height': 0
+                        }, function () {
+                            $(this).detach()
+                        });
+                    }
+                    return false;
+                });
 
                 $('.addtocart').on('click', function () {
                     var colors = $("input:checkbox:checked");

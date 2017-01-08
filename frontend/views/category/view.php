@@ -17,7 +17,7 @@ use yii\helpers;
                                 <div class="item-area">
                                     <div class="product-image-area">                                    
                                         <a href="<?= $url; ?>" title="<?php echo $row['title']; ?>" class="product-image">
-                                            <img src="/uploads/images/<?php echo $row['image']; ?>" width="300" alt="<?php echo $row['title']; ?>">
+                                            <img src="<?= isset($row['image']) ? '/uploads/images/' . $row['image'] : '/images/no-image.png'; ?>" style="width: <?= !isset($row['image']) ? '182px' : '100px' ?>;" alt="<?php echo $row['title']; ?>">
                                         </a>
                                     </div>
                                     <div class="details-area">

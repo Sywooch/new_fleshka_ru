@@ -49,8 +49,10 @@ $itog = 0;
                     <td>
                         <?php
                         foreach ($prices as $key => $price) {
-                            $itog += $price['count'] * $price['price'];
-                            echo ($key >= 1 ? '<br>' : '') . $price['vol'] . ' Гб. х ' . $price['count'] . ' = ' . ($price['count'] * $price['price']) . ' Руб.';
+                            $sql = 'select p.price, vl.title from yu_volume_to_page p join yu_volumes vl on vl.id = p.volume_id WHERE p.volume_id = ' . $price['id'] . ' AND p.page_id = ' . $product['product_id'];
+                            $pr = \Yii::$app->db->createCommand($sql)->queryOne();
+                            $itog += $price['count'] * $pr['price'];
+                            echo ($key >= 1 ? '<br>' : '') . $pr['title'] . ' Гб. х ' . $price['count'] . ' = ' . ($price['count'] * $pr['price']) . ' Руб.';
                         }
                         ?>
                     </td>

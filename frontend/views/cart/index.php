@@ -31,7 +31,7 @@
                                                         <input type="hidden" name="products[]" value="<?= $product['id']; ?>">
                                                         <?php foreach ($product['colors']['rows'] as $color) {echo '<input type="hidden" name="colors[' . $product['id'] . '][]" value="' . $color['id']. '">';} ?>
                                                         <a href="/fleshka/<?= app\components\CController::ru2lat($product['name']) . '-' . $product['id']; ?>" title="<?= $product['name']; ?>" class="product-image">
-                                                            <img src="<?= $product['img']; ?>" width="80" height="80" alt="<?= $product['name']; ?>">
+                                                            <img src="<?= isset($product['img']) ? $product['img'] : '/images/no-image.png'; ?>" width="80" height="80" alt="<?= $product['name']; ?>">
                                                         </a>
                                                     </td>
                                                     <td class="product-name-td">
