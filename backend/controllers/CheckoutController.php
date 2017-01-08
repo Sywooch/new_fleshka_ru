@@ -45,7 +45,7 @@ class CheckoutController extends Controller {
      * @return mixed
      */
     public function actionView($id) {
-        $products = Checkout::find('session_id = ' . $id)->where(['session_id' => $id])->all();
+        $products = Checkout::find()->where(['session_id' => $id])->all();
         //echo '<pre>';print_r($products);exit;
         return $this->render('view', [
                     'model' => $products[0],
@@ -95,8 +95,8 @@ class CheckoutController extends Controller {
      * @return mixed
      */
     public function actionDelete($id) {
-        $this->findModel($id)->delete();
-
+        $m = $this->findModel($id);
+        Checkout::deleteAll('session_id = ' . "'" . $m->session_id . "'");
         return $this->redirect(['index']);
     }
 
@@ -108,7 +108,7 @@ class CheckoutController extends Controller {
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id) {
-        if (($model = Checkout::find('session_id = ' . $id)->one()) !== null) {
+        if (($model = Checkout::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

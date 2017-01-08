@@ -25,7 +25,7 @@ class CartController extends CController {
                     $checkout[$productId] = array('prices' => $prices, 'colors' => $colors);
                 }
             }
-        } else {
+        } elseif(isset ($_COOKIE['basket'])) {
             $products = json_decode($_COOKIE['basket'], true);
             foreach ($products['rows'] as $product) {
                 if (!empty($product['prices']['rows']))
@@ -51,9 +51,10 @@ class CartController extends CController {
                     'colors' => json_encode($ch['colors']),
                 ])->execute();
             }
-            $_COOKIE['basket'] = '';
-            unset($_COOKIE['basket']);
+            $cookies = Yii::$app->response->cookies;
+            $cookies->remove('basket');
             \Yii::$app->getSession()->setFlash('success', 'seccess');
+            return $this->redirect('/cart/checkout',302);
         }
         return $this->render('checkout', ['model' => $model, 'orderID' => $orderID]);
     }
