@@ -33,7 +33,7 @@ class CartController extends CController {
         } elseif (!isset($_POST['user_fname']) && isset ($_COOKIE['basket'])) {
             $products = json_decode($_COOKIE['basket'], true);
             foreach ($products['rows'] as $product) {
-                if (!empty($productId))
+                //if (!empty($productId))
                     $checkout[$product['id']] = array('prices' => $product['prices']['rows'], 'colors' => $product['colors']['rows']);
             }
             Yii::$app->session['checkout'] = $checkout;

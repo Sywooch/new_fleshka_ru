@@ -59,7 +59,7 @@ $itog = 0;
                     <td>
                         <div class="btn-group" data-toggle="buttons">
                             <?php foreach ($colors as $color): ?>
-                                <label class="btn btn-success" style="background-color: <?= $color['val']; ?>">                                    
+                            <label class="btn btn-success" style="background-color: <?= \app\models\Colors::findOne($color['id'])->value; ?>">                                    
                                     <span class="glyphicon "></span>
                                 </label>
                             <?php endforeach; ?>
