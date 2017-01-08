@@ -24,6 +24,18 @@
         <?php endif; ?>
     </li>
     <li class="menu-item">
-        <a href="">Home &amp; Garden</a>
+        <a href="/article">Статьи</a>
+    </li>
+    <li class="menu-item">
+        <a href="/page/metody-naneseniya-logotipa">Методы нанесения логотипа</a>
+    </li>
+    <li class="menu-item">
+        <a href="/page/usloviya-prodazhi">Условия продажи</a>
+    </li>
+    <li class="menu-item">
+        <a href="/page/dostavka-po-rossii-i-sng">Доставка по России и СНГ</a>
+    </li>
+    <li class="menu-item">
+        <a href="/page/garantiya">Гарантия</a>
     </li>
 </ul>

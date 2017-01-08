@@ -59,6 +59,7 @@ return [
             //'enableStrictParsing' => true,
             'rules' => [
                 '<controller:\w+>/<url:.*?>-<id:\d+>' => '<controller>/view',
+                'page/<url:.*?>' => 'page/view',
                 'category' => 'category/view',
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',

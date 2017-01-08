@@ -186,16 +186,16 @@ $curRegion = \Yii::$app->session['region'];
                             <div class="custom-block">
                                 <i class="icon-phone" style="margin-right: 5px;">
                                     <span>                                        
-                                        <a href="tel:+7 (964) 797-42-38">+7 (964) 797-42-38</a>
+                                        <a href="tel:79647974238">+7 (964) 797-42-38</a>
                                     </span>
                                 </i>
                                 <i class="icon-phone" style="margin-right: 5px;">
                                     <span>
-                                        <a href="tel:+7 (495) 780-80-93">+7 (495) 780-80-93</a>
+                                        <a href="tel:74957808093">+7 (495) 780-80-93</a>
                                     </span>
                                 </i>
                                 <span class="split"></span>
-                                <a href="/kontakty">Контакты</a></div>            
+                                <a href="/page/kontakty">Контакты</a></div>            
                             <div class="mini-cart">
                                 <a href="#" class="mybag-link">
                                     <i class="icon-mini-cart"></i>
@@ -274,86 +274,53 @@ $curRegion = \Yii::$app->session['region'];
                                     <span>Ribbon Text</span>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-3"><div class="block">
-                                            <div class="block-title"><strong><span>My Account</span></strong></div>
+                                    <div class="col-sm-3" style="width: 100%;">
+                                        <div class="block">                                            
                                             <div class="block-content">
                                                 <ul class="links">
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://www.newsmartwave.net/magento/porto/index.php/demo5_en/about-porto" title="About us">About us</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://www.newsmartwave.net/magento/porto/index.php/demo5_en/contacts" title="Contact us">Contact us</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://www.newsmartwave.net/magento/porto/index.php/demo5_en/customer/account" title="My account">My account</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://www.newsmartwave.net/magento/porto/index.php/demo5_en/sales/order/history" title="Orders history">Orders history</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://www.newsmartwave.net/magento/porto/index.php/demo5_en/catalogsearch/advanced" title="Advanced search">Advanced search</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://FLESHKA.RU">FLESHKA.RU</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://USB-FLESHKI.RU">USB-FLESHKI.RU</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://FLESHKI-OPTOM.RU">FLESHKI-OPTOM.RU</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://FRISBE.RU">FRISBE.RU</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://USBFLASH.RU">USBFLASH.RU</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://USB-FLASHKA.RU">USB-FLASHKA.RU</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ФЛАШКА.РФ">ФЛАШКА.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ФЛАШКИ.РФ">ФЛАШКИ.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://FLASHKIOPTOM.RU">FLASHKIOPTOM.RU</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://FLESHKIOPTOM.RU">FLESHKIOPTOM.RU</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ФЛЕШКА.РФ">ФЛЕШКА.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ФЛЕШКИ.РФ">ФЛЕШКИ.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ФЛЕШКИ-ЛОГОТИП.РФ">ФЛЕШКИ-ЛОГОТИП.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ФЛЕШКИ-ОПТОМ.РФ">ФЛЕШКИ-ОПТОМ.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ФЛЭШКА.РФ">ФЛЭШКА.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ФЛЭШ-КАРТЫ.РФ">ФЛЭШ-КАРТЫ.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ФЛЭШКИ.РФ">ФЛЭШКИ.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ФЛЭШКИОПТОМ.РФ">ФЛЭШКИОПТОМ.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ФЛЭШКИ-ОПТОМ.РФ">ФЛЭШКИ-ОПТОМ.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ФРИСБИ-ОПТОМ.РФ">ФРИСБИ-ОПТОМ.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ЛЕТАЮЩИЕ-ТАРЕЛКИ.РФ">ЛЕТАЮЩИЕ-ТАРЕЛКИ.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://СУВЕНИРЫ-КИТАЙ.РФ">СУВЕНИРЫ-КИТАЙ.РФ</a></li>
                                                 </ul>
                                             </div>
-                                        </div></div>                <div class="col-sm-3"><div class="block">
-                                            <div class="block-title"><strong><span>Contact Information</span></strong></div>
-                                            <div class="block-content">
-                                                <ul class="contact-info">
-                                                    <li><i class="icon-location">&nbsp;</i><p><b>Address:</b><br/>123 Street Name, City, England</p></li>
-                                                    <li><i class="icon-phone">&nbsp;</i><p><b>Phone:</b><br/>(123) 456-7890</p></li>
-                                                    <li><i class="icon-mail">&nbsp;</i><p><b>Email:</b><br/><a href="/cdn-cgi/l/email-protection#8ae7ebe3e6caeff2ebe7fae6efa4e9e5e7"><span class="__cf_email__" data-cfemail="204d41494c604558414d504c450e434f4d">[email&#160;protected]</span><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function (t, e, r, n, c, a, p) {
-                                                            try {
-                                                                t = document.currentScript || function () {
-                                                                    for (t = document.getElementsByTagName('script'), e = t.length; e--; )
-                                                                        if (t[e].getAttribute('data-cfhash'))
-                                                                            return t[e]
-                                                                }();
-                                                                if (t && (c = t.previousSibling)) {
-                                                                    p = t.parentNode;
-                                                                    if (a = c.getAttribute('data-cfemail')) {
-                                                                        for (e = '', r = '0x' + a.substr(0, 2) | 0, n = 2; a.length - n; n += 2)
-                                                                            e += '%' + ('0' + ('0x' + a.substr(n, 2) ^ r).toString(16)).slice(-2);
-                                                                        p.replaceChild(document.createTextNode(decodeURIComponent(e)), c)
-                                                                    }
-                                                                    p.removeChild(t)
-                                                                }
-                                                            } catch (u) {
-                                                            }
-                                                        }()/* ]]> */</script></a></p></li>
-                                                    <li><i class="icon-clock">&nbsp;</i><p><b>Working Days/Hours:</b><br/>Mon - Sun / 9:00AM - 8:00PM</p></li>
-                                                </ul>
-                                            </div>
-                                        </div></div>                <div class="col-sm-3"><div class="block">
-                                            <div class="block-title"><strong><span>Main Features</span></strong></div>
-                                            <div class="block-content">
-                                                <ul class="features">
-                                                    <li><i class="icon-ok theme-color"></i><a href="#">Super Fast Magento Theme</a></li>
-                                                    <li><i class="icon-ok  theme-color"></i><a href="#">1st Fully working Ajax Theme</a></li>
-                                                    <li><i class="icon-ok  theme-color"></i><a href="#">10 Unique Homepage Layouts</a></li>
-                                                    <li><i class="icon-ok  theme-color"></i><a href="#">Powerful Admin Panel</a></li>
-                                                    <li><i class="icon-ok  theme-color"></i><a href="#">Mobile &amp; Retina Optimized</a></li>
-                                                </ul>
-                                            </div>
-                                        </div></div>                <div class="col-sm-3"><div class="block block-subscribe">
-                                            <div class="block-title">
-                                                <strong><span>Be the First to Know</span></strong>
-                                            </div>
-                                            <form action="http://www.newsmartwave.net/magento/porto/index.php/demo5_en/newsletter/subscriber/new/" method="post" id="footer-newsletter-validate-detail" onsubmit="setNewsletterCookie()">
-                                                <div class="block-content">
-                                                    <p>Get all the latest information on Events,<br/>Sales and Offers. Sign up for newsletter today.</p>
-                                                    <div class="input-box">
-                                                        <p class="label">Enter your e-mail Address</p>
-                                                        <input type="text" name="email" id="newsletter_footer" title="Sign up for our newsletter" class="input-text required-entry validate-email" />
-                                                        <button type="submit" title="Submit" class="button"><span><span>Submit</span></span></button>
-                                                        <div class="clearer"></div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            <script type="text/javascript">
-                                                //<![CDATA[
-                                                var footernewsletterSubscriberFormDetail = new VarienForm('footer-newsletter-validate-detail');
-                                                //]]>
-                                            </script>
                                         </div>
-                                    </div>                                </div>
+                                    </div>                  
+                                    <style>
+                                        .links li {
+                                           width: 16%;
+                                           float: left;
+                                        }
+                                    </style>
+                                </div>
                             </div>
                         </div>
                         <div class="footer-bottom">
                             <div class="container">
-                                <a href="http://www.newsmartwave.net/magento/porto/index.php/demo5_en/" class="logo"><img src="http://www.newsmartwave.net/magento/porto/skin/frontend/smartwave/porto/images/logo_footer.png" alt=""/></a>
-                                <div class="social-icons">
-                                    <a href="http://www.example.com/" style="background-position:-60px 0; width:30px; height:30px;" class="icon1-class" title="Facebook" target="_blank">&nbsp;</a><a href="http://www.example.com/" style="background-position:0 0; width:30px; height:30px;" class="icon2-class" title="" target="_blank">&nbsp;</a><a href="http://www.example.com/" style="background-position:-300px 0; width:30px; height:30px;" class="icon3-class" title="" target="_blank">&nbsp;</a></div>
-                                <div class="custom-block"><img src="http://www.newsmartwave.net/magento/porto/media/wysiwyg/smartwave/footer/payments.png" width="359" height="28" alt="" style="max-width: 100%;" /></div>                                <address>&copy;Copyright 2015 by SW-THEMES. All Rights Reserved.</address>
+                                <div class="custom-block">
+                                    <img src="/images/payments.png" width="359" height="28" alt="" style="max-width: 100%;" />
+                                </div>                                
+                                <address>
+                                    Наш адрес: г. Москва, М. Пражская, ул. 1й Дорожный проезд, д.6 © 2007–<?= date("Y"); ?> Компания FLESHKA.RU
+                                </address>
                             </div>
                         </div>
                     </div>
@@ -457,8 +424,9 @@ $curRegion = \Yii::$app->session['region'];
                                 }
                             }
                         }
-                        $("#pr-total").text(totalSum);
+                        $("#pr-total").text(totalSum + ' Руб.');
                         $("#products-total").text(totalProducts);
+                        $(".cart-qty").text(totalProducts);
                     }
                 }
                 $("body").on("click", '.btn-remove2', function () {
@@ -481,6 +449,7 @@ $curRegion = \Yii::$app->session['region'];
                     var id = $(this).data('id');
                     removeFromBasket(id);
                     showBasket();
+                    updateTotal();
                 });
                 function removeFromBasketSingle(id, c) {
                     if ($.cookie('basket')) {
@@ -532,6 +501,7 @@ $curRegion = \Yii::$app->session['region'];
                         return false;
                 }
                 function showBasket() {
+                    updateTotal();
                     if (isEmptyBasket()) {
                         return false;
                     }
@@ -566,9 +536,9 @@ $curRegion = \Yii::$app->session['region'];
                         }
                         html += '</ol>';
                         $('.topCartContent .inner-wrapper').html(html);
-                        var ttl = '<div style="float:left;" class="totals"><span class="label">Итого: </span><span class="price-total"><span class="price">' + totalSum + '</span></span></div>';
-                        var buttons = '<div class="actions"><a class="btn btn-default" href="/cart"><i class="icon-basket"></i>Корзина</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-default" href="/order"><i class="icon-right-thin"></i>Оформить заказ</a><div class="clearer"></div>';
-                        $(".cart-qty").text(totalItems);
+                        var ttl = '<div style="float:left;" class="totals"><span class="label">Итого: </span><span class="price-total"><span class="price">' + totalSum + ' Руб.</span></span></div>';
+                        var buttons = '<div class="actions"><a class="btn btn-default" href="/cart"><i class="icon-basket"></i>Корзина</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-default" href="/cart/checkout"><i class="icon-right-thin"></i>Оформить заказ</a><div class="clearer"></div>';
+                        //$(".cart-qty").text(totalItems);
                         $('.topCartContent .inner-wrapper').append(ttl + buttons);
                     }
                     isEmptyBasket();

@@ -17,20 +17,25 @@ class CartController extends CController {
         $orderID = uniqid();
         if (isset($_POST['products'])) {
             foreach ($_POST['products'] as $productId) {
-                foreach ($_POST['prices'][$productId] as $prId => $pr)
-                    $prices[] = array('count' => $pr, 'vol' => FALSE, 'id' => $prId, 'price' => FALSE);
-                foreach ($_POST['colors'][$productId] as $clId => $cl)
-                    $colors[] = array('val' => FALSE, 'title' => FALSE, 'id' => $cl);
-                $checkout[$productId] = array('prices' => $prices, 'colors' => $colors);
+                if (!empty($_POST['prices'][$productId])) {
+                    foreach ($_POST['prices'][$productId] as $prId => $pr)
+                        $prices[] = array('count' => $pr, 'vol' => FALSE, 'id' => $prId, 'price' => FALSE);
+                    foreach ($_POST['colors'][$productId] as $clId => $cl)
+                        $colors[] = array('val' => FALSE, 'title' => FALSE, 'id' => $cl);
+                    $checkout[$productId] = array('prices' => $prices, 'colors' => $colors);
+                }
             }
         } else {
             $products = json_decode($_COOKIE['basket'], true);
             foreach ($products['rows'] as $product) {
-                $checkout[$product['id']] = array('prices' => $product['prices']['rows'], 'colors' => $product['colors']['rows']);
+                if (!empty($product['prices']['rows']))
+                    $checkout[$product['id']] = array('prices' => $product['prices']['rows'], 'colors' => $product['colors']['rows']);
             }
         }
         Yii::$app->session['checkout'] = $checkout;
-//        echo '<pre>';print_r(Yii::$app->session['checkout']);exit;
+//        echo '<pre>';
+//        print_r(Yii::$app->session['checkout']);
+//        exit;
         $model = new \frontend\models\CheckoutForm();
         if ($model->load(Yii::$app->request->post()) && isset($_POST['user_fname']) && $_POST['user_fname'] == '') {
             foreach (Yii::$app->session['checkout'] as $productId => $ch) {
@@ -46,6 +51,8 @@ class CartController extends CController {
                     'colors' => json_encode($ch['colors']),
                 ])->execute();
             }
+            $_COOKIE['basket'] = '';
+            unset($_COOKIE['basket']);
             \Yii::$app->getSession()->setFlash('success', 'seccess');
         }
         return $this->render('checkout', ['model' => $model, 'orderID' => $orderID]);
@@ -53,6 +60,10 @@ class CartController extends CController {
 
     public function actionIndex() {
         $products = json_decode($_COOKIE['basket'], true);
+        foreach ($products['rows'] as $key => $product) {
+            if (empty($product['id']))
+                unset($products['rows'][$key]);
+        }
         //echo '<pre>';print_r($products);exit;
         return $this->render('index', ['products' => $products]);
     }

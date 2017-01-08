@@ -23,7 +23,7 @@
                                         <tbody>
                                             <?php 
                                             //echo '<pre>';print_r($products['rows']);exit;
-                                            if(!empty($products['rows'][0])) {
+                                            if(!empty($products['rows'])) {
                                                 foreach ($products['rows'] as $product): if (empty($product)) break; ?>                                                
                                                 <tr class="first last odd">
                                                     <td class="action-td"><a href="#" data-id="<?= $product['id']; ?>" title="Удалить" class="btn-remove btn-remove2"></a></td>

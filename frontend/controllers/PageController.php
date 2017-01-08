@@ -12,16 +12,16 @@ use app\components\CController;
  */
 class PageController extends CController {
 
-    public function actionView() {
-        $pageInfo = $_GET['data'];
-		\Yii::$app->view->registerMetaTag([
-			'name' => 'keywords',
-			'content' => $pageInfo['meta_key']
-		]);
-		\Yii::$app->view->registerMetaTag([
-			'name' => 'description',
-			'content' => $pageInfo['meta_desc']
-		]);
+    public function actionView($url) {
+        $pageInfo = \app\models\Stranitsy::find()->where(['url' => $url])->one();
+        \Yii::$app->view->registerMetaTag([
+            'name' => 'keywords',
+            'content' => $pageInfo['meta_key']
+        ]);
+        \Yii::$app->view->registerMetaTag([
+            'name' => 'description',
+            'content' => $pageInfo['meta_desc']
+        ]);
         return $this->render('view', ['model' => $pageInfo]);
     }
 

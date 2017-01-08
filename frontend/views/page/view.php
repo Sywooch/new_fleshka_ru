@@ -1,23 +1,16 @@
-<?php
-$sql = 'select id, title, url from {{%pages}} where parent =:parent and type =:type and active = 1 order by sort';
-$childs = \Yii::$app->db->createCommand($sql)->bindValues(['parent' => $model['id'], 'type' => 'page'])->queryAll();
- $this->title = $model['meta_title'];
-?>
-<div class="container">
-    <?php if (!empty($childs)): ?>
-        <br>
-        <div class="page__top-panel modified">
-            <dl>
-                <dt class="pos-top <?= $model['icon']; ?>"><?= $model['title']; ?></dt>
-                <dd>
-                    <div class="links__list three-col">
-                        <?= app\widgets\lists\Services::widget(['parent' => $model['id'], 'type' => 'page']); ?>
-                    </div> 
-                </dd>
-            </dl>
+<div class="main-container col2-right-layout">
+    <div class="main container">
+        <div class="row">
+            <div class="col-main col-sm-9">
+                <div class="postWrapper">                    
+                    <div class="postTitle">
+                        <h1><?= $model['title']; ?></h1>                        
+                    </div>
+                    <div class="postContent">
+                        <?= $model['description']; ?>
+                    </div>
+                </div>                
+            </div>
         </div>
-    <?php endif; ?>
-    <div class="page__in">            
-        <?= $model['full_description']; ?>
     </div>
-</div> 
+</div>
