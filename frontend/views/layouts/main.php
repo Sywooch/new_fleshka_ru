@@ -26,7 +26,7 @@ $curRegion = \Yii::$app->session['region'];
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/ajaxaddto.css" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/calendar-win2k-1.css" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/etalage.css" />
-        <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/bootstrap.min.css?v=2" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/bootstrap-theme.min.css" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/owl.carousel.css" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/owl.theme.css" />
@@ -179,7 +179,7 @@ $curRegion = \Yii::$app->session['region'];
                     <div class="header container">
                         <h1 class="logo"><strong>Fleshka.ru</strong>
                             <a href="/" title="Fleshka.ru" class="logo">
-                                <img src="<?= $assets ?>/images/header.png" alt="Fleshka.ru" />
+                                <img src="<?= $assets ?>/img/logo4.png" alt="Fleshka.ru" />
                             </a>
                         </h1>
                         <div class="cart-area">
