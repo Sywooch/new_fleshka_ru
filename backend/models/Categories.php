@@ -10,23 +10,21 @@ use Yii;
  * @property integer $id
  * @property string $title
  */
-class Categories extends \yii\db\ActiveRecord
-{
+class Categories extends \yii\db\ActiveRecord {
+
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'yu_categories';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
-            [['title'], 'required'],
+            [['title', 'parent'], 'required'],
             [['title'], 'string', 'max' => 255]
         ];
     }
@@ -34,11 +32,21 @@ class Categories extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'id' => 'Айди',
             'title' => 'Название',
         ];
     }
+
+    public function getDropdownItems($parentId = 0, $level = 0) {
+        $itemsFormatted = array();
+        $items = $this->find()->where(['parent' => $parentId])->asArray()->all();
+        foreach ($items as $item) {
+            $itemsFormatted[$item['id']] = str_repeat('&nbsp;&nbsp;&nbsp;&nbsp;', $level) . $item['title'];
+            $itemsFormatted += $this->getDropdownItems($item['id'], $level + 1);
+        }
+        return $itemsFormatted;
+    }
+
 }

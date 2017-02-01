@@ -11,7 +11,9 @@ use yii\widgets\ActiveForm;
 <div class="categories-form">
 
     <?php $form = ActiveForm::begin(); ?>
-
+    
+    <?= $form->field($model, 'parent')->dropDownList([0 => 'Нет'] + $model->getDropdownItems(), ['encode' => false]); ?>
+    
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
