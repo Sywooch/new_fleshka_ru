@@ -28,6 +28,12 @@ class CController extends \yii\web\Controller {
         );
         return strtolower(strtr(trim($str), $tr));
     }
+    
+    public static function haveChildren($id) {
+        $sql = 'SELECT id FROM {{%categories}} WHERE parent = ' . (int) $id;
+        $models = \Yii::$app->db->createCommand($sql)->queryAll();
+        return count($models) > 0 ? true : false;
+    }
 
     public function beforeAction($event) {
 

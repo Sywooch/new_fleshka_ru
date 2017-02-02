@@ -5,10 +5,7 @@ use yii\helpers;
 <div class="main-container col2-left-layout">
     <div class="main container">
         <div class="row">
-            <div class="col-main col-sm-9 f-right">
-                <div class="page-title category-title">
-                    <h1>Fashion</h1>
-                </div>
+            <div class="col-main col-sm-9 f-right">                
                 <div class="category-products">
                     <ul class="products-grid  columns4">                        
                         <?php foreach ($rows as $row): ?>

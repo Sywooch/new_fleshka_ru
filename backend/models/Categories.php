@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "yu_categories".
@@ -47,6 +48,18 @@ class Categories extends \yii\db\ActiveRecord {
             $itemsFormatted += $this->getDropdownItems($item['id'], $level + 1);
         }
         return $itemsFormatted;
+    }
+    
+    public function beforeSave($insert) {
+        if (parent::beforeSave($insert)) {
+            $this->image = UploadedFile::getInstance($this, 'image');
+            $path = Yii::getAlias('@frontend') . '/web/uploads/images/categories/';
+            $file = $this->image->baseName . '.' . $this->image->extension;
+            $this->image->saveAs($path . $file);
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

@@ -60,6 +60,8 @@ return [
             'rules' => [
                 '<controller:\w+>/<url:.*?>-<id:\d+>' => '<controller>/view',
                 'page/<url:.*?>' => 'page/view',
+                'catalog' => 'catalog/index',
+                'catalog/<id:\d+>' => 'catalog/index',
                 'category' => 'category/view',
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',

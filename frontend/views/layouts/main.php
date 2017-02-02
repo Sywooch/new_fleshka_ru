@@ -306,8 +306,8 @@ $curRegion = \Yii::$app->session['region'];
                                     </div>                  
                                     <style>
                                         .links li {
-                                           width: 16%;
-                                           float: left;
+                                            width: 16%;
+                                            float: left;
                                         }
                                     </style>
                                 </div>
@@ -348,6 +348,18 @@ $curRegion = \Yii::$app->session['region'];
                 </script> 
             </div>
         </div>
+        <style>
+            .menu-left {
+                display: inline-block;
+                width: 33%;
+            }
+            .z-index-1000 {
+                z-index: 1000;
+            }
+            .width-400 {
+                width: 400px;
+            }
+        </style>
         <script type="text/javascript">
             //<![CDATA[
             $$('.related-checkbox').each(function (elem) {
@@ -588,8 +600,8 @@ $curRegion = \Yii::$app->session['region'];
                     totalCost += prices.total;
                     $.cookie("basket", JSON.stringify(data), {expires: 31, path: '/'});
                 }
-                
-                $('.addtocart2').on('click', function () {                    
+
+                $('.addtocart2').on('click', function () {
                     var prod_id = $(this).data('id');
                     var prod_title = $(this).data('title');
                     var pricesList = {"total": 0, "rows": []};
