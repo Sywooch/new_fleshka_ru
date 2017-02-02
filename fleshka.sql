@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50541
 File Encoding         : 65001
 
-Date: 2017-02-01 17:30:08
+Date: 2017-02-02 14:52:27
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -45,63 +45,64 @@ CREATE TABLE `yu_categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `parent` int(255) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yu_categories
 -- ----------------------------
-INSERT INTO `yu_categories` VALUES ('4', 'Флешки', '0');
-INSERT INTO `yu_categories` VALUES ('5', 'Пластиковые', '4');
-INSERT INTO `yu_categories` VALUES ('6', 'Металлические', '4');
-INSERT INTO `yu_categories` VALUES ('7', 'ПВХ (резиновые флешки)', '4');
-INSERT INTO `yu_categories` VALUES ('8', 'Карточки', '4');
-INSERT INTO `yu_categories` VALUES ('9', 'Кожаные', '4');
-INSERT INTO `yu_categories` VALUES ('10', 'Стеклянные', '4');
-INSERT INTO `yu_categories` VALUES ('11', 'Деревянные', '4');
-INSERT INTO `yu_categories` VALUES ('12', 'Флешки-браслеты', '4');
-INSERT INTO `yu_categories` VALUES ('13', 'Пластик-металл', '4');
-INSERT INTO `yu_categories` VALUES ('14', 'Бумажные', '4');
-INSERT INTO `yu_categories` VALUES ('15', 'С мини чипом', '4');
-INSERT INTO `yu_categories` VALUES ('16', 'OTG-флешки', '4');
-INSERT INTO `yu_categories` VALUES ('17', 'Флешка-буклет', '4');
-INSERT INTO `yu_categories` VALUES ('18', 'Флешки-ручки', '4');
-INSERT INTO `yu_categories` VALUES ('19', 'Флешки-часы', '4');
-INSERT INTO `yu_categories` VALUES ('20', 'Светящиеся флешки', '4');
-INSERT INTO `yu_categories` VALUES ('21', 'Аквафлешки', '4');
-INSERT INTO `yu_categories` VALUES ('22', 'Металлические по индивидуальному дизайну', '4');
-INSERT INTO `yu_categories` VALUES ('23', 'Детские флешки', '4');
-INSERT INTO `yu_categories` VALUES ('24', 'Сувенирные флешки', '4');
-INSERT INTO `yu_categories` VALUES ('25', 'Оригинальные флешки', '4');
-INSERT INTO `yu_categories` VALUES ('26', 'Подарочные флешки', '4');
-INSERT INTO `yu_categories` VALUES ('27', 'Флешки-брелки', '4');
-INSERT INTO `yu_categories` VALUES ('28', 'Зарядные устройства (powerbank)', '0');
-INSERT INTO `yu_categories` VALUES ('29', 'Зарядные устройства Xiaomi', '0');
-INSERT INTO `yu_categories` VALUES ('30', 'Подарочные наборы', '0');
-INSERT INTO `yu_categories` VALUES ('31', 'Фитнес-браслеты Xiaomi', '0');
-INSERT INTO `yu_categories` VALUES ('32', 'Продукция Xiaomi', '0');
-INSERT INTO `yu_categories` VALUES ('33', 'IP-камера Xiaomi MiJia 360° Home Camera', '0');
-INSERT INTO `yu_categories` VALUES ('34', 'Видеорегистратор Xiaomi Car Yi WiFi DVR', '0');
-INSERT INTO `yu_categories` VALUES ('35', 'Гибкая USB-лампа Xiaomi', '0');
-INSERT INTO `yu_categories` VALUES ('36', 'Камера Xiaomi Yi Action Camera', '0');
-INSERT INTO `yu_categories` VALUES ('37', 'Наушники и гарнитуры Xiaomi', '0');
-INSERT INTO `yu_categories` VALUES ('38', 'Портативные колонки Xiaomi', '0');
-INSERT INTO `yu_categories` VALUES ('39', 'Умные напольные весы Xiaomi', '0');
-INSERT INTO `yu_categories` VALUES ('40', 'Power Bank (по индивидуальному дизайну)', '0');
-INSERT INTO `yu_categories` VALUES ('41', 'Фитнес-браслеты', '0');
-INSERT INTO `yu_categories` VALUES ('42', 'Умные часы (Smart watch)', '0');
-INSERT INTO `yu_categories` VALUES ('43', 'Жесткие диски', '0');
-INSERT INTO `yu_categories` VALUES ('44', 'Чехлы для мобильных телефонов', '0');
-INSERT INTO `yu_categories` VALUES ('45', 'Тестеры СОЭКС', '0');
-INSERT INTO `yu_categories` VALUES ('46', 'Power Bank на солнечных батареях', '0');
-INSERT INTO `yu_categories` VALUES ('47', 'Power Bank - чехол', '0');
-INSERT INTO `yu_categories` VALUES ('48', 'Power Bank с беспроводной зарядкой (индукционный)', '0');
-INSERT INTO `yu_categories` VALUES ('49', 'Беспроводная зарядка (индукционная)', '0');
-INSERT INTO `yu_categories` VALUES ('50', 'Карты памяти', '0');
-INSERT INTO `yu_categories` VALUES ('51', 'Упаковка', '0');
-INSERT INTO `yu_categories` VALUES ('52', 'Power Bank - колонка', '0');
-INSERT INTO `yu_categories` VALUES ('53', 'Компьютерные мышки', '0');
-INSERT INTO `yu_categories` VALUES ('54', 'Монопод', '0');
+INSERT INTO `yu_categories` VALUES ('4', 'Флешки', '0', '');
+INSERT INTO `yu_categories` VALUES ('5', 'Пластиковые', '4', null);
+INSERT INTO `yu_categories` VALUES ('6', 'Металлические', '4', null);
+INSERT INTO `yu_categories` VALUES ('7', 'ПВХ (резиновые флешки)', '4', null);
+INSERT INTO `yu_categories` VALUES ('8', 'Карточки', '4', null);
+INSERT INTO `yu_categories` VALUES ('9', 'Кожаные', '4', null);
+INSERT INTO `yu_categories` VALUES ('10', 'Стеклянные', '4', null);
+INSERT INTO `yu_categories` VALUES ('11', 'Деревянные', '4', null);
+INSERT INTO `yu_categories` VALUES ('12', 'Флешки-браслеты', '4', null);
+INSERT INTO `yu_categories` VALUES ('13', 'Пластик-металл', '4', null);
+INSERT INTO `yu_categories` VALUES ('14', 'Бумажные', '4', null);
+INSERT INTO `yu_categories` VALUES ('15', 'С мини чипом', '4', null);
+INSERT INTO `yu_categories` VALUES ('16', 'OTG-флешки', '4', null);
+INSERT INTO `yu_categories` VALUES ('17', 'Флешка-буклет', '4', null);
+INSERT INTO `yu_categories` VALUES ('18', 'Флешки-ручки', '4', null);
+INSERT INTO `yu_categories` VALUES ('19', 'Флешки-часы', '4', null);
+INSERT INTO `yu_categories` VALUES ('20', 'Светящиеся флешки', '4', null);
+INSERT INTO `yu_categories` VALUES ('21', 'Аквафлешки', '4', null);
+INSERT INTO `yu_categories` VALUES ('22', 'Металлические по индивидуальному дизайну', '4', null);
+INSERT INTO `yu_categories` VALUES ('23', 'Детские флешки', '4', null);
+INSERT INTO `yu_categories` VALUES ('24', 'Сувенирные флешки', '4', null);
+INSERT INTO `yu_categories` VALUES ('25', 'Оригинальные флешки', '4', null);
+INSERT INTO `yu_categories` VALUES ('26', 'Подарочные флешки', '4', null);
+INSERT INTO `yu_categories` VALUES ('27', 'Флешки-брелки', '4', null);
+INSERT INTO `yu_categories` VALUES ('28', 'Зарядные устройства (powerbank)', '0', null);
+INSERT INTO `yu_categories` VALUES ('29', 'Зарядные устройства Xiaomi', '0', null);
+INSERT INTO `yu_categories` VALUES ('30', 'Подарочные наборы', '0', null);
+INSERT INTO `yu_categories` VALUES ('31', 'Фитнес-браслеты Xiaomi', '0', null);
+INSERT INTO `yu_categories` VALUES ('32', 'Продукция Xiaomi', '0', null);
+INSERT INTO `yu_categories` VALUES ('33', 'IP-камера Xiaomi MiJia 360° Home Camera', '0', null);
+INSERT INTO `yu_categories` VALUES ('34', 'Видеорегистратор Xiaomi Car Yi WiFi DVR', '0', null);
+INSERT INTO `yu_categories` VALUES ('35', 'Гибкая USB-лампа Xiaomi', '0', null);
+INSERT INTO `yu_categories` VALUES ('36', 'Камера Xiaomi Yi Action Camera', '0', null);
+INSERT INTO `yu_categories` VALUES ('37', 'Наушники и гарнитуры Xiaomi', '0', null);
+INSERT INTO `yu_categories` VALUES ('38', 'Портативные колонки Xiaomi', '0', null);
+INSERT INTO `yu_categories` VALUES ('39', 'Умные напольные весы Xiaomi', '0', null);
+INSERT INTO `yu_categories` VALUES ('40', 'Power Bank (по индивидуальному дизайну)', '0', null);
+INSERT INTO `yu_categories` VALUES ('41', 'Фитнес-браслеты', '0', null);
+INSERT INTO `yu_categories` VALUES ('42', 'Умные часы (Smart watch)', '0', null);
+INSERT INTO `yu_categories` VALUES ('43', 'Жесткие диски', '0', null);
+INSERT INTO `yu_categories` VALUES ('44', 'Чехлы для мобильных телефонов', '0', null);
+INSERT INTO `yu_categories` VALUES ('45', 'Тестеры СОЭКС', '0', null);
+INSERT INTO `yu_categories` VALUES ('46', 'Power Bank на солнечных батареях', '0', null);
+INSERT INTO `yu_categories` VALUES ('47', 'Power Bank - чехол', '0', null);
+INSERT INTO `yu_categories` VALUES ('48', 'Power Bank с беспроводной зарядкой (индукционный)', '0', null);
+INSERT INTO `yu_categories` VALUES ('49', 'Беспроводная зарядка (индукционная)', '0', null);
+INSERT INTO `yu_categories` VALUES ('50', 'Карты памяти', '0', null);
+INSERT INTO `yu_categories` VALUES ('51', 'Упаковка', '0', null);
+INSERT INTO `yu_categories` VALUES ('52', 'Power Bank - колонка', '0', null);
+INSERT INTO `yu_categories` VALUES ('53', 'Компьютерные мышки', '0', null);
+INSERT INTO `yu_categories` VALUES ('54', 'Монопод', '0', null);
 
 -- ----------------------------
 -- Table structure for yu_category_to_page
@@ -297,7 +298,9 @@ CREATE TABLE `yu_session` (
 INSERT INTO `yu_session` VALUES ('7bde19b01a4821c440bb6c0975a8d015', '1483898058', 0x5F5F666C6173687C613A303A7B7D726567696F6E7C613A353A7B733A353A227469746C65223B733A31323A22D09CD0BED181D0BAD0B2D0B0223B733A333A2274656C223B733A31373A2238202834393529203634362D38352D3037223B733A323A226964223B693A313B733A373A2261646472657373223B733A35333A22D183D0BB2E20D091D0B0D180D0BAD0BBD0B0D18F20372C20D091D0A620D0A0D183D0B1D0B8D0BD2C20D0BED184D0B8D18120353037223B733A343A226D6F6465223B733A33323A22D18120313020D0B4D0BE20323020D0B5D0B6D0B5D0B4D0BDD0B5D0B2D0BDD0BE223B7D636865636B6F75747C613A303A7B7D);
 INSERT INTO `yu_session` VALUES ('7e2bf4ccb22f202ee7e540ad85dc46f6', '1483897764', 0x5F5F666C6173687C613A303A7B7D5F5F69647C693A313B);
 INSERT INTO `yu_session` VALUES ('d51fsb5kj1nv7o1uaja1g3gq55', '1485953556', 0x5F5F666C6173687C613A303A7B7D5F5F69647C693A313B);
-INSERT INTO `yu_session` VALUES ('er54eda35pnl3qd95h5k6vt9n5', '1485953565', 0x5F5F666C6173687C613A303A7B7D726567696F6E7C613A353A7B733A353A227469746C65223B733A31323A22D09CD0BED181D0BAD0B2D0B0223B733A333A2274656C223B733A31373A2238202834393529203634362D38352D3037223B733A323A226964223B693A313B733A373A2261646472657373223B733A35333A22D183D0BB2E20D091D0B0D180D0BAD0BBD0B0D18F20372C20D091D0A620D0A0D183D0B1D0B8D0BD2C20D0BED184D0B8D18120353037223B733A343A226D6F6465223B733A33323A22D18120313020D0B4D0BE20323020D0B5D0B6D0B5D0B4D0BDD0B5D0B2D0BDD0BE223B7D);
+INSERT INTO `yu_session` VALUES ('er54eda35pnl3qd95h5k6vt9n5', '1485953719', 0x5F5F666C6173687C613A303A7B7D726567696F6E7C613A353A7B733A353A227469746C65223B733A31323A22D09CD0BED181D0BAD0B2D0B0223B733A333A2274656C223B733A31373A2238202834393529203634362D38352D3037223B733A323A226964223B693A313B733A373A2261646472657373223B733A35333A22D183D0BB2E20D091D0B0D180D0BAD0BBD0B0D18F20372C20D091D0A620D0A0D183D0B1D0B8D0BD2C20D0BED184D0B8D18120353037223B733A343A226D6F6465223B733A33323A22D18120313020D0B4D0BE20323020D0B5D0B6D0B5D0B4D0BDD0B5D0B2D0BDD0BE223B7D);
+INSERT INTO `yu_session` VALUES ('pr1i8homv3rasett9gr62ilbq6', '1486029987', 0x5F5F666C6173687C613A303A7B7D5F5F69647C693A313B);
+INSERT INTO `yu_session` VALUES ('qa7vp6f429jrd5lhplniqr4hc2', '1486029731', 0x5F5F666C6173687C613A303A7B7D726567696F6E7C613A353A7B733A353A227469746C65223B733A31323A22D09CD0BED181D0BAD0B2D0B0223B733A333A2274656C223B733A31373A2238202834393529203634362D38352D3037223B733A323A226964223B693A313B733A373A2261646472657373223B733A35333A22D183D0BB2E20D091D0B0D180D0BAD0BBD0B0D18F20372C20D091D0A620D0A0D183D0B1D0B8D0BD2C20D0BED184D0B8D18120353037223B733A343A226D6F6465223B733A33323A22D18120313020D0B4D0BE20323020D0B5D0B6D0B5D0B4D0BDD0B5D0B2D0BDD0BE223B7D);
 INSERT INTO `yu_session` VALUES ('vdsc4je9rkch5t7sj27q9e7d85', '1483943076', 0x5F5F666C6173687C613A303A7B7D726567696F6E7C613A353A7B733A353A227469746C65223B733A31323A22D09CD0BED181D0BAD0B2D0B0223B733A333A2274656C223B733A31373A2238202834393529203634362D38352D3037223B733A323A226964223B693A313B733A373A2261646472657373223B733A35333A22D183D0BB2E20D091D0B0D180D0BAD0BBD0B0D18F20372C20D091D0A620D0A0D183D0B1D0B8D0BD2C20D0BED184D0B8D18120353037223B733A343A226D6F6465223B733A33323A22D18120313020D0B4D0BE20323020D0B5D0B6D0B5D0B4D0BDD0B5D0B2D0BDD0BE223B7D);
 
 -- ----------------------------

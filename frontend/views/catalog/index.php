@@ -11,7 +11,7 @@
                                 <div class="item-area">
                                     <div class="product-image-area">                                    
                                         <a href="<?= $url; ?>" title="<?php echo $row['title']; ?>" class="product-image">
-                                            <img src="<?= isset($row['image']) && !empty($row['image']) ? '/uploads/images/' . $row['image'] : '/images/no-image.png'; ?>" alt="<?php echo $row['title']; ?>">
+                                            <img src="<?= isset($row['image']) && !empty($row['image']) ? '/uploads/images/categories/' . $row['image'] : '/images/no-image.png'; ?>" alt="<?php echo $row['title']; ?>">
                                         </a>
                                     </div>
                                     <div class="details-area">
