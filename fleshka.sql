@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50541
 File Encoding         : 65001
 
-Date: 2017-02-02 14:52:27
+Date: 2017-02-03 17:19:33
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -178,13 +178,22 @@ CREATE TABLE `yu_colors` (
   `title` varchar(255) NOT NULL,
   `value` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yu_colors
 -- ----------------------------
-INSERT INTO `yu_colors` VALUES ('1', 'Белый', '#fff');
-INSERT INTO `yu_colors` VALUES ('2', 'Красный', '#ff0000');
+INSERT INTO `yu_colors` VALUES ('1', 'Белый', '#FFFFFF');
+INSERT INTO `yu_colors` VALUES ('2', 'Красный', '#FF0000');
+INSERT INTO `yu_colors` VALUES ('3', 'Синий', '#0000FF');
+INSERT INTO `yu_colors` VALUES ('4', 'Зеленый', '#008000');
+INSERT INTO `yu_colors` VALUES ('5', 'Желтый', '#FFFF00');
+INSERT INTO `yu_colors` VALUES ('6', 'Черный', '#000000');
+INSERT INTO `yu_colors` VALUES ('7', 'Фиолетовый', '#8B00FF');
+INSERT INTO `yu_colors` VALUES ('8', 'Голубой', '#87CEEB');
+INSERT INTO `yu_colors` VALUES ('9', 'Коричневый', '#734A12');
+INSERT INTO `yu_colors` VALUES ('10', 'Серый', '#808080');
+INSERT INTO `yu_colors` VALUES ('11', 'Оранжевый', '#FF7600');
 
 -- ----------------------------
 -- Table structure for yu_color_to_page
@@ -241,6 +250,7 @@ CREATE TABLE `yu_pages` (
   `parent` int(11) NOT NULL,
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `in_stock` smallint(1) NOT NULL,
+  `old_id` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `url` (`url`(191))
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
@@ -248,8 +258,8 @@ CREATE TABLE `yu_pages` (
 -- ----------------------------
 -- Records of yu_pages
 -- ----------------------------
-INSERT INTO `yu_pages` VALUES (' Флешка 501 TWIST Флешки оптом под нанесение логотипа', null, '<p>&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа</p>\r\n', '1', '1', '', '', '', '', 'fleshka', null, '0', '4', '0');
-INSERT INTO `yu_pages` VALUES (' Флешка 234234 2 34 234', null, '<p>&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа</p>\r\n', '1', '1', '', '', '', '', 'fleshka', null, '0', '5', '1');
+INSERT INTO `yu_pages` VALUES (' Флешка 501 TWIST Флешки оптом под нанесение логотипа', null, '<p>&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа</p>\r\n', '1', '1', '', '', '', '', 'fleshka', null, '0', '4', '0', null);
+INSERT INTO `yu_pages` VALUES (' Флешка 234234 2 34 234', null, '<p>&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа&nbsp;Флешка 501 TWIST Флешки оптом под нанесение логотипа</p>\r\n', '1', '1', '', '', '', '', 'fleshka', null, '0', '5', '1', null);
 
 -- ----------------------------
 -- Table structure for yu_photo_to_color
