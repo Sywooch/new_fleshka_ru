@@ -23,6 +23,7 @@ class CategoryController extends CController {
         ]);
         $sql = 'SELECT DISTINCT
                         p1.id AS id,
+                        p1.old_id AS old_id,
                         p1.title AS title,
                         vl.price,
                         (
@@ -41,10 +42,10 @@ class CategoryController extends CController {
                 LEFT JOIN yu_pages p1 ON cp.page_id = p1.id
                 LEFT JOIN yu_color_to_page cl ON cl.page_id = p1.id
                 LEFT JOIN yu_volume_to_page vl ON vl.page_id = p1.id
-                WHERE 1=1' . (isset($_GET['id']) ? ' AND cp.category_id = ' . (int) $_GET['id'] : '') . '' . (isset($_GET['vl']) ? ' AND vl.volume_id = ' . (int) $_GET['vl'] : '') . '' . (isset($_GET['cl']) ? ' AND cl.color_id = ' . (int) $_GET['cl'] : '') . '' . (isset($_GET['p1']) && isset($_GET['p2']) ? ' AND vl.price >= ' . (int) $_GET['p1'] . ' AND vl.price <= ' . (int) $_GET['p2'] : '') . ' GROUP BY p1.id';
+                WHERE 1=1' . (isset($_GET['id']) ? ' AND cp.category_id = ' . (int) $_GET['id'] : '') . '' . (isset($_GET['vl']) ? ' AND vl.volume_id = ' . (int) $_GET['vl'] : '') . '' . (isset($_GET['cl']) ? ' AND cl.color_id = ' . (int) $_GET['cl'] : '') . '' . (isset($_GET['p1']) && isset($_GET['p2']) ? ' AND vl.price >= ' . (int) $_GET['p1'] . ' AND vl.price <= ' . (int) $_GET['p2'] : '') . ' GROUP BY p1.id ORDER BY p1.sort';
 
         $cnt = count(\Yii::$app->db->createCommand($sql)->queryAll());
-        $pages = new \yii\data\Pagination(['totalCount' => $cnt, 'pageSize' => 10]);
+        $pages = new \yii\data\Pagination(['totalCount' => $cnt, 'pageSize' => 20]);
         $models = \Yii::$app->db->createCommand($sql . ' LIMIT ' . (int) $pages->limit . ' OFFSET ' . (int) $pages->offset)->queryAll();
         $volumes = \Yii::$app->db->createCommand('select id, title from {{%volumes}}')->queryAll();
         $colors = \Yii::$app->db->createCommand('select id, title, value from {{%colors}}')->queryAll();

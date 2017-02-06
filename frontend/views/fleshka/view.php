@@ -48,10 +48,10 @@
                                         <a href="javascript:void(0)" class="etalage-next"><i class="icon-angle-right"></i></a>
                                     </div>
                                     <div class="clear"></div><br><br><br><br><br><br><br><br><br>
-                                    <?php if (!empty($colors)): ?>
+                                    <?php if (!empty($colorButtons)): ?>
                                         <span>Выбор цвета</span><br><br>
                                         <div class="btn-group" data-toggle="buttons">
-                                            <?php foreach ($colors as $color): ?>
+                                            <?php foreach ($colorButtons as $color): ?>
                                                 <label class="btn btn-success" for="check-<?= $color['color_id']; ?>" style="border: 2px solid #08c;background-color: <?= $color['value']; ?>">
                                                     <input id="check-<?= $color['color_id']; ?>" data-title="<?= $color['title']; ?>" data-val="<?= $color['value']; ?>" data-id="<?= $color['color_id']; ?>" type="checkbox" name="colors[]" autocomplete="off">
                                                     <span class="glyphicon glyphicon-ok"></span>

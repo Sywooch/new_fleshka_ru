@@ -14,19 +14,21 @@ use yii\helpers;
                                 <div class="item-area">
                                     <div class="product-image-area">                                    
                                         <a href="<?= $url; ?>" title="<?php echo $row['title']; ?>" class="product-image">
-                                            <img src="<?= isset($row['image']) ? '/uploads/images/' . $row['image'] : '/images/no-image.png'; ?>" style="width: <?= !isset($row['image']) ? '182px' : '100px' ?>;" alt="<?php echo $row['title']; ?>">
+                                            <img src="<?= isset($row['image']) ? '/uploads/images/' . $row['image'] : '/images/no-image.png'; ?>" style="width: <?= !isset($row['image']) ? '182px' : '200px' ?>;" alt="<?php echo $row['title']; ?>">
                                         </a>
                                     </div>
                                     <div class="details-area">
-                                        <h2 class="product-name"><a href="<?= $url; ?>" title="<?php echo $row['title']; ?>"><?php echo $row['title']; ?></a></h2>
-                                        <div class="price-box">
-                                            <p class="special-price">
-                                                <span class="price-label">Special Price</span>
-                                                <span class="price" id="product-price-2">
-                                                    от <?php echo $row['price']; ?> Руб.
-                                                </span>
-                                            </p>
-                                        </div>
+                                        <h2 style="height: 50px;" class="product-name"><a href="<?= $url; ?>" title="<?php echo $row['title']; ?>"><?php echo $row['title']; ?> #<?php echo $row['old_id']; ?></a></h2>
+                                        
+                                            <div class="price-box">
+                                                <p class="special-price">
+                                                    <span class="price-label">Special Price</span>
+                                                    <span class="price" id="product-price-2">
+                                                        <?php if (!empty($row['price'])): ?>от <?php echo $row['price']; ?> Руб.<?php else: ?>&nbsp;<?php endif; ?>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        
                                         <div class="actions">
                                             <a href="<?= $url; ?>" class="addtocart"><i class="icon-cart"></i><span>&nbsp;Купить</span></a>                                        
                                             <div class="clearer"></div>
