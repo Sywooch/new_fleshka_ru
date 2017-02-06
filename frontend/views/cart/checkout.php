@@ -52,7 +52,7 @@ use yii\widgets\MaskedInput;
                                                 <div class="clear"></div>
                                                 <li class="wide">
                                                     <label for="checkoutform-phone">Ваш телефон</label>
-                                                    <?= $form->field($model, 'phone')->textInput()->hint('Ваш телефон')->label('Ваш телефон'); ?>                                                
+                                                    <?= $form->field($model, 'phone')->widget(\yii\widgets\MaskedInput::className(), ['mask' => '+7 (999) 999-99-99']); ?>                                                
                                                 </li>
                                                 <li class="fields">
                                                     <div class="fields">
