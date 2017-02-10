@@ -66,6 +66,7 @@ foreach ($cats as $cat) {
         ]
     ])
     ?>
+    <?= $form->field($model, 'price')->textInput(['maxlength' => true]) ?>
     <hr/>
     <div class="form-group field-pages-meta_key">
         <label class="control-label" for="pages-meta_key">Обемы и цены:</label>
@@ -85,7 +86,8 @@ foreach ($cats as $cat) {
             }
             ?>
         </div>
-    </div>    
+    </div>
+
     <hr/>
     <div class="form-group field-pages-meta_key">
         <label class="control-label" for="pages-meta_key">Цвета и фотографии флешки:</label>

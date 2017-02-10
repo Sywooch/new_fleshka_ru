@@ -24,7 +24,7 @@
                                             <?php 
                                             //echo '<pre>';print_r($products['rows']);exit;
                                             if(!empty($products['rows'])) {
-                                                foreach ($products['rows'] as $product): if (empty($product)) break; ?>                                                
+                                                foreach ($products['rows'] as $product): if (empty($product)) break; ?>
                                                 <tr class="first last odd">
                                                     <td class="action-td"><a href="#" data-id="<?= $product['id']; ?>" title="Удалить" class="btn-remove btn-remove2"></a></td>
                                                     <td class="pr-img-td">
@@ -40,8 +40,11 @@
                                                         </h2>
                                                     </td>                                                    
                                                     <td>
-                                                        <?php $total = 0; foreach ($product['prices']['rows'] as $price): ?>
-                                                        <?php $total += ($price['count'] * $price['price']); ?>
+                                                        <?php $total = 0; $total += $product['prod_price']; foreach ($product['prices']['rows'] as $price): ?>
+                                                        <?php
+                                                            $total += ($price['count'] * $price['price']);
+
+                                                        ?>
                                                             <div class="qty-holder">
                                                                 <?= $price['vol'] . 'Гб.'; ?>
                                                                 <a href="javascript:void(0)" class="table_qty_dec">-</a>

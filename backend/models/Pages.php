@@ -42,7 +42,7 @@ class Pages extends \yii\db\ActiveRecord {
             [['title', 'sort', 'type', ], 'required'],
             [['url'], 'default', 'value' => null],
             [['description'], 'string'],
-            [['active', 'in_stock', 'sort'], 'integer'],
+            [['active', 'in_stock', 'sort', 'price'], 'integer'],
             [['title'], 'string', 'max' => 1000],
             [['url', 'meta_key', 'meta_title', 'meta_h1'], 'string', 'max' => 255],
             [['meta_desc'], 'string', 'max' => 500],
@@ -68,6 +68,7 @@ class Pages extends \yii\db\ActiveRecord {
             'meta_h1' => 'Meta H1',
             //'image' => 'Image',
             'type' => 'Тип',
+            'price' => 'Цена для упаковки'
         ];
     }
 

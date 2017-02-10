@@ -192,6 +192,7 @@
                                                     </thead>
                                                 </table>
                                             <?php endif; ?>
+                                            <?php if(!empty($model->price)): ?><h2 id="up-price" data-price="<?= $model->price; ?>">Цена: <?= $model->price; ?> руб.</h2><?php endif; ?>
                                             <button data-title="<?= $model->title; ?>" data-id="<?= $model->id; ?>" type="button" title="Добавить в корзину" class="button btn-cart <?= $model->type == 'upakovka' ? 'addtocart2' : 'addtocart'; ?>">
                                                 <span><span><i class="icon-cart"></i>Добавить в корзину</span></span>
                                             </button>

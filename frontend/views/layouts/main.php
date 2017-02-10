@@ -226,10 +226,10 @@ $curRegion = \Yii::$app->session['region'];
                         </div>
                         <div class="search-area">
                             <a href="#" class="search-icon"><i class="icon-search"></i></a>
-                            <form id="search_mini_form" action="" method="get">
+                            <form id="search_mini_form" action="/site/search" method="get">
                                 <div class="form-search ">
                                     <label for="search">Поиск</label>
-                                    <input placeholder="Поиск" id="search" type="text" name="q" class="input-text" />                                    
+                                    <input placeholder="Поиск" id="search" type="text" name="text" class="input-text" />
                                     <button type="submit" title="Search" class="button"><i class="icon-search"></i></button>
                                     <div class="clearer"></div>
                                 </div>
@@ -274,32 +274,32 @@ $curRegion = \Yii::$app->session['region'];
                                     <span>Ribbon Text</span>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-3" style="width: 100%;">
+                                    <div class="col-sm-3">
                                         <div class="block">                                            
                                             <div class="block-content">
                                                 <ul class="links">
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://FLESHKA.RU">FLESHKA.RU</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://USB-FLESHKI.RU">USB-FLESHKI.RU</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://FLESHKI-OPTOM.RU">FLESHKI-OPTOM.RU</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://FRISBE.RU">FRISBE.RU</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://USBFLASH.RU">USBFLASH.RU</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://USB-FLASHKA.RU">USB-FLASHKA.RU</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ФЛАШКА.РФ">ФЛАШКА.РФ</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ФЛАШКИ.РФ">ФЛАШКИ.РФ</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://FLASHKIOPTOM.RU">FLASHKIOPTOM.RU</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://FLESHKIOPTOM.RU">FLESHKIOPTOM.RU</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ФЛЕШКА.РФ">ФЛЕШКА.РФ</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ФЛЕШКИ.РФ">ФЛЕШКИ.РФ</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ФЛЕШКИ-ЛОГОТИП.РФ">ФЛЕШКИ-ЛОГОТИП.РФ</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ФЛЕШКИ-ОПТОМ.РФ">ФЛЕШКИ-ОПТОМ.РФ</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ФЛЭШКА.РФ">ФЛЭШКА.РФ</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ФЛЭШ-КАРТЫ.РФ">ФЛЭШ-КАРТЫ.РФ</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ФЛЭШКИ.РФ">ФЛЭШКИ.РФ</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ФЛЭШКИОПТОМ.РФ">ФЛЭШКИОПТОМ.РФ</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ФЛЭШКИ-ОПТОМ.РФ">ФЛЭШКИ-ОПТОМ.РФ</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ФРИСБИ-ОПТОМ.РФ">ФРИСБИ-ОПТОМ.РФ</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://ЛЕТАЮЩИЕ-ТАРЕЛКИ.РФ">ЛЕТАЮЩИЕ-ТАРЕЛКИ.РФ</a></li>
-                                                    <li><i class="icon-right-dir theme-color"></i><a href="http://СУВЕНИРЫ-КИТАЙ.РФ">СУВЕНИРЫ-КИТАЙ.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a target="_blank" href="http://FLESHKA.RU">FLESHKA.RU</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a target="_blank" href="http://USB-FLESHKI.RU">USB-FLESHKI.RU</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a target="_blank" href="http://FLESHKI-OPTOM.RU">FLESHKI-OPTOM.RU</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a target="_blank" href="http://FRISBE.RU">FRISBE.RU</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a target="_blank" href="http://USBFLASH.RU">USBFLASH.RU</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a target="_blank" href="http://USB-FLASHKA.RU">USB-FLASHKA.RU</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a target="_blank" href="http://ФЛАШКА.РФ">ФЛАШКА.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a target="_blank" href="http://ФЛАШКИ.РФ">ФЛАШКИ.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a target="_blank" href="http://FLASHKIOPTOM.RU">FLASHKIOPTOM.RU</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a target="_blank" href="http://FLESHKIOPTOM.RU">FLESHKIOPTOM.RU</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a target="_blank" href="http://ФЛЕШКА.РФ">ФЛЕШКА.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a target="_blank" href="http://ФЛЕШКИ.РФ">ФЛЕШКИ.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a target="_blank" href="http://ФЛЕШКИ-ЛОГОТИП.РФ">ФЛЕШКИ-ЛОГОТИП.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a target="_blank" href="http://ФЛЕШКИ-ОПТОМ.РФ">ФЛЕШКИ-ОПТОМ.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a target="_blank" href="http://ФЛЭШКА.РФ">ФЛЭШКА.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a target="_blank" href="http://ФЛЭШ-КАРТЫ.РФ">ФЛЭШ-КАРТЫ.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a target="_blank" href="http://ФЛЭШКИ.РФ">ФЛЭШКИ.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a target="_blank" href="http://ФЛЭШКИОПТОМ.РФ">ФЛЭШКИОПТОМ.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a target="_blank" href="http://ФЛЭШКИ-ОПТОМ.РФ">ФЛЭШКИ-ОПТОМ.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a target="_blank" href="http://ФРИСБИ-ОПТОМ.РФ">ФРИСБИ-ОПТОМ.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a target="_blank" href="http://ЛЕТАЮЩИЕ-ТАРЕЛКИ.РФ">ЛЕТАЮЩИЕ-ТАРЕЛКИ.РФ</a></li>
+                                                    <li><i class="icon-right-dir theme-color"></i><a target="_blank" href="http://СУВЕНИРЫ-КИТАЙ.РФ">СУВЕНИРЫ-КИТАЙ.РФ</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -432,6 +432,9 @@ $curRegion = \Yii::$app->session['region'];
                             if (data.rows[i] != null) {
                                 totalProducts++;
                                 var pr = data.rows[i].prices;
+                                if(data.rows[i].prod_price != null && data.rows[i].prod_price > 0)
+                                    totalSum += parseInt(data.rows[i].prod_price);
+
                                 for (var a = 0; a < pr.rows.length; a++) {
                                     totalSum += parseInt(pr.rows[a].count) * parseInt(pr.rows[a].price);
                                 }
@@ -529,6 +532,8 @@ $curRegion = \Yii::$app->session['region'];
                             if (items.rows[i] != null) {
                                 totalItems += 1;
                                 totalSum += parseInt(items.rows[i]['prices']['total']) * parseInt(items.rows[i]['quantity']);
+                                if(data.rows[i]['prod_price'] != null && data.rows[i]['prod_price'] > 0)
+                                    totalSum += parseInt(items.rows[i]['prod_price']);
                                 var prices = items.rows[i]['prices'];
                                 var vols = '';
                                 for (var a = 0; a < prices.rows.length; a++) {
@@ -559,7 +564,7 @@ $curRegion = \Yii::$app->session['region'];
 
                 var data = {"total": 0, "rows": []};
                 var totalCost = 0;
-                function addProduct(id, name, prices, img, colors) {
+                function addProduct(id, name, prices, img, colors, prod_price = '') {
                     if ($.cookie('basket')) {
                         var items = JSON.parse($.cookie("basket"));
                         if (items.rows[0] != null) {
@@ -594,6 +599,7 @@ $curRegion = \Yii::$app->session['region'];
                             name: name,
                             img: img,
                             colors: colors,
+                            prod_price: prod_price,
                         });
                     }
                     add();
@@ -604,6 +610,7 @@ $curRegion = \Yii::$app->session['region'];
                 $('.addtocart2').on('click', function () {
                     var prod_id = $(this).data('id');
                     var prod_title = $(this).data('title');
+                    var prod_price = $("#up-price").data('price');
                     var pricesList = {"total": 0, "rows": []};
                     var colorsList = {"total": 0, "rows": []};
                     var cart = $('.mini-cart');
@@ -631,7 +638,7 @@ $curRegion = \Yii::$app->session['region'];
                                 }, 1000, 'easeInOutExpo');
 
                         setTimeout(function () {
-                            addProduct(prod_id, prod_title, pricesList, imgtodrag.attr("src"), colorsList);
+                            addProduct(prod_id, prod_title, pricesList, imgtodrag.attr("src"), colorsList, prod_price);
                             showBasket();
                             cart.effect("shake", {
                                 times: 2
