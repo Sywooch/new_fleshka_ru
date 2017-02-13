@@ -196,6 +196,7 @@
                                             <button data-title="<?= $model->title; ?>" data-id="<?= $model->id; ?>" type="button" title="Добавить в корзину" class="button btn-cart <?= $model->type == 'upakovka' ? 'addtocart2' : 'addtocart'; ?>">
                                                 <span><span><i class="icon-cart"></i>Добавить в корзину</span></span>
                                             </button>
+                                            <a class="btn btn-success btn-sm" href="#" data-toggle="modal" data-target="#order" style="    height: 37px;">Заказ в один клик</a>
                                             <div style="padding: 10px;margin-top: 10px;border-radius: 5px; display:none;" id="error-message" class="alert alert-danger"></div>
 
                                         </div>

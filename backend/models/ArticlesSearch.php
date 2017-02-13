@@ -65,6 +65,7 @@ class ArticlesSearch extends Articles
             ->andFilterWhere(['like', 'short_description', $this->short_description])
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'image', $this->image]);
+        $query->orderBy('id desc');
 
         return $dataProvider;
     }

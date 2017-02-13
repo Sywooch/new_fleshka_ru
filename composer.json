@@ -12,7 +12,7 @@
         "irc": "irc://irc.freenode.net/yii",
         "source": "https://github.com/yiisoft/yii2"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
 		"himiklab/yii2-ipgeobase-component" : "*",
         "php": ">=5.4.0",
@@ -24,7 +24,8 @@
         "kartik-v/yii2-widget-fileinput": "@dev",
         "kartik-v/yii2-widget-datetimepicker": "*",
         "2amigos/yii2-date-time-picker-widget": "~1.0",
-        "kartik-v/yii2-widget-select2": "@dev"
+        "kartik-v/yii2-widget-select2": "@dev",
+        "nterms/yii2-listjs-widget": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

@@ -26,7 +26,7 @@ $curRegion = \Yii::$app->session['region'];
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/ajaxaddto.css" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/calendar-win2k-1.css" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/etalage.css" />
-        <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/bootstrap.min.css?v=2" />
+        <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/bootstrap.min.css?v=3" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/bootstrap-theme.min.css" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/owl.carousel.css" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/owl.theme.css" />
@@ -89,7 +89,7 @@ $curRegion = \Yii::$app->session['region'];
         <script type="text/javascript" src="<?= $assets ?>/js/jquery.parallax.js"></script>
         <script type="text/javascript" src="<?= $assets ?>/js/jquery.cookie.js"></script>
         <script type="text/javascript" src="<?= $assets ?>/js/owl.carousel.min.js"></script>
-        <script type="text/javascript" src="<?= $assets ?>/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="<?= $assets ?>/js/bootstrap.js"></script>
         <script type="text/javascript" src="<?= $assets ?>/js/imagesloaded.js"></script>
         <script type="text/javascript" src="<?= $assets ?>/js/app.js"></script>
         <script type="text/javascript" src="<?= $assets ?>/js/megamenu.js"></script>
@@ -165,6 +165,7 @@ $curRegion = \Yii::$app->session['region'];
     </head>
     <body class=" cms-index-index cms-porto-home-5">
         <?php $this->beginBody() ?>
+
         <div class="wrapper">
             <div class="page">
                 <div class="header-container type4">
@@ -274,7 +275,7 @@ $curRegion = \Yii::$app->session['region'];
                                     <span>Ribbon Text</span>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-3" style="width: 100%;">
                                         <div class="block">                                            
                                             <div class="block-content">
                                                 <ul class="links">
@@ -321,6 +322,41 @@ $curRegion = \Yii::$app->session['region'];
                                 <address>
                                     Наш адрес: г. Москва, М. Пражская, ул. 1й Дорожный проезд, д.6 © 2007–<?= date("Y"); ?> Компания FLESHKA.RU
                                 </address>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="order" class="fade modal" role="dialog" tabindex="-1" style="display: none;">
+                    <div class="modal-dialog ">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button style="float: right;" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h4>Заказ в один клик</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="_order">
+                                    <p>Оставьте заявку! Мы предоставим Вам коммерческое предложение в ближайшее время.</p>
+                                    <form id="contact-form" method="post">
+                                        <input type="hidden" name="fname" value="">
+                                        <div class="input-group field-contactform-name required">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span><input type="text" id="contactform-name" class="form-control" name="ContactForm[name]" placeholder="Ваше имя">
+                                        </div>
+                                        <div class="input-group field-contactform-email required">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span><input type="text" id="contactform-email" class="form-control" name="ContactForm[email]" placeholder="Ваша почта">
+                                        </div>
+                                        <div class="input-group field-contactform-subject required">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span><input type="text" id="contactform-subject" class="form-control" name="ContactForm[subject]" placeholder="Ваш телефон">
+                                        </div>
+                                        <div class="form-group field-contactform-body required">
+                                            <label class="control-label" for="contactform-body">Сообщение</label>
+                                            <textarea id="contactform-body" class="form-control" name="ContactForm[body]" rows="6" placeholder="Введите Ваше сообщение"></textarea>
+                                            <p class="help-block help-block-error"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="button" class="btn btn-success" id="send" name="contact-button">Отправить</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -532,8 +568,7 @@ $curRegion = \Yii::$app->session['region'];
                             if (items.rows[i] != null) {
                                 totalItems += 1;
                                 totalSum += parseInt(items.rows[i]['prices']['total']) * parseInt(items.rows[i]['quantity']);
-                                if(data.rows[i]['prod_price'] != null && data.rows[i]['prod_price'] > 0)
-                                    totalSum += parseInt(items.rows[i]['prod_price']);
+                                totalSum += parseInt(items.rows[i]['prod_price']);
                                 var prices = items.rows[i]['prices'];
                                 var vols = '';
                                 for (var a = 0; a < prices.rows.length; a++) {

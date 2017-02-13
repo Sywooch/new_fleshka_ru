@@ -65,20 +65,29 @@ AppAsset::register($this);
                     'class' => 'navbar-inverse navbar-fixed-top',
                 ],
             ]);
-            $menuItems = [
-                ['label' => 'Главная', 'url' => ['/site/index']],
-                ['label' => 'Заказы', 'url' => ['/checkout/index']],
-                ['label' => 'Флешки', 'url' => ['/page/index']],
-                ['label' => 'Категории', 'url' => ['/categories/index']],
-                ['label' => 'Объемы', 'url' => ['/volumes/index']],
-                ['label' => 'Цвета', 'url' => ['/colors/index']],
-                ['label' => 'Статьи', 'url' => ['/articles/index']],
-                ['label' => 'Страницы', 'url' => ['/stranitsy/index']],
-                    //['label' => 'Services', 'url' => ['/services/index']],
-            ];
+
             if (Yii::$app->user->isGuest) {
                 $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
             } else {
+                $menuItems = [
+                    [
+                        'label' => 'Главная',
+                        'items' => [
+                            ['label' => 'Популярные флешки', 'url' => '/site/popular?p=popular'],
+                            ['label' => 'Специальные предложения', 'url' => '/site/popular?p=special'],
+                        ],
+                    ],
+                    ['label' => 'Заказы', 'url' => ['/checkout/index']],
+                    ['label' => 'Флешки', 'url' => ['/page/index']],
+                    ['label' => 'Категории', 'url' => ['/categories/index']],
+                    ['label' => 'Объемы', 'url' => ['/volumes/index']],
+                    ['label' => 'Цвета', 'url' => ['/colors/index']],
+                    ['label' => 'Статьи', 'url' => ['/articles/index']],
+                    ['label' => 'Страницы', 'url' => ['/stranitsy/index']],
+                    //['label' => 'Services', 'url' => ['/services/index']],
+
+
+                ];
                 $menuItems[] = '<li>'
                         . Html::beginForm(['/site/logout'], 'post')
                         . Html::submitButton(
@@ -176,6 +185,38 @@ AppAsset::register($this);
 </html>
 <?php $this->endPage() ?>
 <script>
+    $("#save-list").on("click", function() {
+        var json = {
+            result: []
+        };
+        $(".added-drvs li").each(function (i, li) {
+            json.result.push($(this).data('id'));
+        });
+        $.ajax({
+            type:"POST",
+            url: "/site/popular?p=<?= isset($_GET['p']) ? $_GET['p'] : ''; ?>",
+            data: json,
+            success: function(data) {
+                alert("Изменения были успешно сохранены");
+            }
+        });
+    });
+    $("body").on("hover", ".popular-list li", function() {
+        $(".list li button").hide();
+        $(this).find("button").show();
+    });
+    $("body").on("click", ".added-drvs li", function() {
+        var title = $(this).find("span").text();
+        var id = $(this).data("id");
+        $(".popular-list").prepend('<li style="cursor: pointer;" data-id="' + id + '"><span>' + title + '</span></li>');
+        $(this).remove();
+    });
+    $("body").on("click", ".popular-list li", function() {
+        var title = $(this).find("span").text();
+        var id = $(this).data("id");
+        $(".added-drvs").append('<li style="cursor: pointer;" data-id="' + id + '"><span>' + title + '</span></li>');
+        $(this).remove();
+    });
     function submitForm(colorId, appendTo, th) {
         $("#loading-mask").show();
         var fd = new FormData($("#news-form")[0]);

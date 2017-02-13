@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <h2 class="filter-title"><span class="content"><strong>Специальные предложения</strong></span></h2>
-                <div id="new_product" class="owl-top-narrow hide-addtolinks">
+                <div id="featured_product" class="owl-top-narrow">
                     <div class="filter-products">
                         <div class="products owl-carousel">
                             <?php foreach ($rows as $row): ?>

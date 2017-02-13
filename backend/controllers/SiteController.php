@@ -12,12 +12,14 @@ use yii\web\UploadedFile;
 /**
  * Site controller
  */
-class SiteController extends Controller {
+class SiteController extends Controller
+{
 
     /**
      * @inheritdoc
      */
-    public function behaviors() {
+    public function behaviors()
+    {
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -27,7 +29,7 @@ class SiteController extends Controller {
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'url'],
+                        'actions' => ['logout', 'index', 'url', 'popular'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -45,7 +47,8 @@ class SiteController extends Controller {
     /**
      * @inheritdoc
      */
-    public function actions() {
+    public function actions()
+    {
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
@@ -53,7 +56,47 @@ class SiteController extends Controller {
         ];
     }
 
-    public function actionUrl() {
+    public function actionPopular()
+    {
+
+        $tblName = '';
+        if (isset($_GET['p']) && $_GET['p'] == 'popular') {
+            $tblName = 'popular_pages';
+            $sql = 'SELECT * FROM {{%popular}} LIMIT 8';
+        } elseif (isset($_GET['p']) && $_GET['p'] == 'special') {
+            $tblName = 'special_pages';
+            $sql = 'SELECT * FROM {{%special}} LIMIT 8';
+        }
+        if (isset($_POST['result'])) {
+            if (!empty($tblName)) {
+                foreach ($_POST['result'] as $id) {
+                    $sql = 'INSERT INTO {{%' . $tblName . '}} (page_id) VALUES(' . (int) $id . ')';
+                    $models = \Yii::$app->db->createCommand($sql)->execute();
+                }
+            }
+            echo 'success';
+            exit;
+        }
+        $rows = \Yii::$app->db->createCommand($sql)->queryAll();
+        $wh = '';
+        if (!empty($rows)) {
+            $notIN = [];
+            foreach ($rows as $row) {
+                $notIN[] = $row['id'];
+            }
+            $wh = ' WHERE id NOT IN(' . implode(',', $notIN) . ')';
+        }
+        $sql = 'SELECT title, id, old_id FROM {{%pages}}' . $wh . ' ORDER BY id DESC';
+        $models = \Yii::$app->db->createCommand($sql)->queryAll();
+
+        return $this->render('popular', [
+            'models' => $models,
+            'rows' => $rows,
+        ]);
+    }
+
+    public function actionUrl()
+    {
         $uploadedFile = UploadedFile::getInstanceByName('upload');
         $mime = \yii\helpers\FileHelper::getMimeType($uploadedFile->tempName);
         $file = time() . "_" . $uploadedFile->name;
@@ -80,11 +123,13 @@ class SiteController extends Controller {
         echo "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction($funcNum, '$url', '$message');</script>";
     }
 
-    public function actionIndex() {
+    public function actionIndex()
+    {
         return $this->render('index');
     }
 
-    public function actionLogin() {
+    public function actionLogin()
+    {
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -94,12 +139,13 @@ class SiteController extends Controller {
             return $this->goBack();
         } else {
             return $this->render('login', [
-                        'model' => $model,
+                'model' => $model,
             ]);
         }
     }
 
-    public function actionLogout() {
+    public function actionLogout()
+    {
         Yii::$app->user->logout();
 
         return $this->goHome();
