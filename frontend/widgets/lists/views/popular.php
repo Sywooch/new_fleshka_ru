@@ -26,7 +26,7 @@
                                             </h2>
                                             <div class="price-box">
                                                 <span class="regular-price">
-                                                    <span class="price">Цена от <?php echo $row['price']; ?> Руб.</span>                                    
+                                                    <?php if (!empty($row['price'])): ?>от <?php echo $row['price']; ?> Руб.<?php else: ?>&nbsp;<?php endif; ?>
                                                 </span>
                                             </div>
                                             <div class="actions">
