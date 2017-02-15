@@ -16,10 +16,10 @@
                             </div>
                         </div>
                         <div class="col-sm-7">
-                            <div class="post-date">
+<!--                            <div class="post-date">
                                 <span class="day"><?= date('d', strtotime($row['date'])); ?></span>
                                 <span class="month"><?= date('Y-m', strtotime($row['date'])); ?></span>
-                            </div>
+                            </div>-->
                             <div class="postTitle">
                                 <h2><a href="<?= $url; ?>" ><?= $row['title']; ?></a></h2>
                             </div>
