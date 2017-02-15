@@ -20,7 +20,7 @@
         <a href="/article">Новости</a>
     </li>
     <li class="menu-item">
-        <a href="/page/metody-naneseniya-logotipa">Нанесения</a>
+        <a href="/page/metody-naneseniya-logotipa">Нанесение</a>
     </li>
     <li class="menu-item">
         <a href="/page/usloviya-prodazhi">Условия продажи</a>
