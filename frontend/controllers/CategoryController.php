@@ -45,7 +45,7 @@ class CategoryController extends CController {
                 WHERE 1=1' . (isset($_GET['id']) ? ' AND cp.category_id = ' . (int) $_GET['id'] : '') . '' . (isset($_GET['vl']) ? ' AND vl.volume_id = ' . (int) $_GET['vl'] : '') . '' . (isset($_GET['cl']) ? ' AND cl.color_id = ' . (int) $_GET['cl'] : '') . '' . (isset($_GET['p1']) && isset($_GET['p2']) ? ' AND vl.price >= ' . (int) $_GET['p1'] . ' AND vl.price <= ' . (int) $_GET['p2'] : '') . ' GROUP BY p1.id ORDER BY p1.sort';
 
         $cnt = count(\Yii::$app->db->createCommand($sql)->queryAll());
-        $pages = new \yii\data\Pagination(['totalCount' => $cnt, 'pageSize' => 20]);
+        $pages = new \yii\data\Pagination(['totalCount' => $cnt, 'pageSize' => 200]);
         $models = \Yii::$app->db->createCommand($sql . ' LIMIT ' . (int) $pages->limit . ' OFFSET ' . (int) $pages->offset)->queryAll();
         $volumes = \Yii::$app->db->createCommand('select id, title from {{%volumes}}')->queryAll();
         $colors = \Yii::$app->db->createCommand('select id, title, value from {{%colors}}')->queryAll();

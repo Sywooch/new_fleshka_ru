@@ -38,9 +38,9 @@
                                                 </li>
                                             <?php endforeach; ?>
                                         <?php else: ?>
-                                                <li class="etalage_thumb" style="display: list-item; opacity: 1; position: absolute; overflow: hidden; background-image: none;">                                                    
-                                                    <img src="/images/no-image.png" alt="" style="display: inline; width: 329px; height: auto; opacity: 1;">                                                                                            
-                                                </li>
+                                            <li class="etalage_thumb" style="display: list-item; opacity: 1; position: absolute; overflow: hidden; background-image: none;">                                                    
+                                                <img src="/images/no-image.png" alt="" style="display: inline; width: 329px; height: auto; opacity: 1;">                                                                                            
+                                            </li>
                                         <?php endif; ?>
                                     </ul>
                                     <div class="etalage-control">
@@ -61,16 +61,16 @@
                                     <?php endif; ?>
                                     <div class="product-view-zoom-area"></div>
                                     <script type="text/javascript">
+
                                         var zoom_enabled = false;
                                         var zoom_type = 0;
                                         jQuery(document).ready(function () {
-
+                                            jQuery("#callbackform-message").val(jQuery(".product-name h1").text());
                                             jQuery("body").on("click", ".btn-group label input", function () {
                                                 if (jQuery(this).parent().hasClass("active")) {
                                                     jQuery(this).attr('checked', false);
                                                     jQuery(this).parent().removeClass("active");
-                                                }
-                                                else {
+                                                } else {
                                                     jQuery(this).attr('checked', true);
                                                     jQuery(this).parent().addClass("active");
                                                 }
@@ -192,7 +192,7 @@
                                                     </thead>
                                                 </table>
                                             <?php endif; ?>
-                                            <?php if(!empty($model->price)): ?><h2 id="up-price" data-price="<?= $model->price; ?>">Цена: <?= $model->price; ?> руб.</h2><?php endif; ?>
+                                            <?php if (!empty($model->price)): ?><h2 id="up-price" data-price="<?= $model->price; ?>">Цена: <?= $model->price; ?> руб.</h2><?php endif; ?>
                                             <button data-title="<?= $model->title; ?>" data-id="<?= $model->id; ?>" type="button" title="Добавить в корзину" class="button btn-cart <?= $model->type == 'upakovka' ? 'addtocart2' : 'addtocart'; ?>">
                                                 <span><span><i class="icon-cart"></i>Добавить в корзину</span></span>
                                             </button>
