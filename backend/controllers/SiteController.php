@@ -69,6 +69,7 @@ class SiteController extends Controller
         }
         if (isset($_POST['result'])) {
             if (!empty($tblName)) {
+                \Yii::$app->db->createCommand('DELETE FROM {{%' . $tblName . '}}')->execute();
                 foreach ($_POST['result'] as $id) {
                     $sql = 'INSERT INTO {{%' . $tblName . '}} (page_id) VALUES(' . (int) $id . ')';
                     $models = \Yii::$app->db->createCommand($sql)->execute();
