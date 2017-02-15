@@ -280,7 +280,7 @@ $curRegion = \Yii::$app->session['region'];
                         <div class="footer-middle">
                             <div class="container">
                                 <div class="footer-ribbon">
-                                    <span>Ribbon Text</span>
+                                    <span>Наши проекты</span>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3" style="width: 100%;">
