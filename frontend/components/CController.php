@@ -585,7 +585,8 @@ class CController extends \yii\web\Controller {
             "ð" => "d",
             "Ð" => "D",
             "þ" => "th",
-            "Þ" => "TH"
+            "Þ" => "TH",
+            '"' => ''
         );
         $str = str_replace('/', '', $str);
         return strtolower(strtr(trim($str), $tr));
