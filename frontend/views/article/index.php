@@ -23,11 +23,21 @@
                             </div>
                         </div>
                     <?php endforeach; ?>
-                    <?php
-                    echo \yii\widgets\LinkPager::widget([
-                        'pagination' => $pagination,
-                    ]);
-                    ?>
+                    <div class="toolbar-bottom">
+                        <div class="toolbar">
+                            <div class="sorter">
+                                <div class="pager">
+                                    <div class="pages">
+                                        <?php
+                                        echo \yii\widgets\LinkPager::widget([
+                                            'pagination' => $pagination,
+                                        ]);
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
