@@ -17,7 +17,7 @@ $curRegion = \Yii::$app->session['region'];
 <html lang="en">
     <head>
         <meta charset="<?= Yii::$app->charset ?>">
-        <title><?= Html::encode($this->title) ?></title>
+        <title>Fleshka.ru Флешки оптом под нанесение логотипа, флешки оптом из китая, купить флешку, флешки металлические, флешки usb, флешки под нанесение логотипа, флэшки, флешка с логотипом, флешки оптом, флешки под нанесение, флешки купить, флешки под логотип, флешки с логотипом.</title>
         <?= Html::csrfMetaTags() ?>
         <?php $this->head() ?>
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans%3A300%2C300italic%2C400%2C400italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic&amp;v1&amp;subset=latin%2Clatin-ext" type="text/css" media="screen"/>
@@ -161,7 +161,8 @@ $curRegion = \Yii::$app->session['region'];
                     var i = 0;
                 }
                 //]]>
-        </script>        
+        </script>      
+        <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     </head>
     <body class=" cms-index-index cms-porto-home-5">
         <?php $this->beginBody() ?>
@@ -172,7 +173,14 @@ $curRegion = \Yii::$app->session['region'];
                     <div class="top-links-container">
                         <div class="top-links container">
                             <p class="welcome-msg" style="float: left;">Мы продаем флешки оптом уже 10 лет! Наносим красивые логотипы!</p>        
-
+                            <p class="welcome-msg">
+                                <a style="position: inherit;" href="https://www.instagram.com/fleshka.ru/" target="_blank">
+                                    <img width="200" src="http://www.fleshka.ru/images/Instagram-32.png" style="cursor:pointer;width: 30px;" alt="">
+                                </a>&nbsp;
+                                <a style="position: inherit;" href="https://vk.com/id357794088" target="_blank">
+                                    <img width="200" src="http://www.fleshka.ru/images/vkontakte-32.png" style="cursor:pointer;width: 30px;" alt="">
+                                </a>
+                            </p>
                             <p class="welcome-msg">Привет, Москва! Мы доставляем заказы в ваш город!</p>
                             <div class="clearer"></div>
                         </div>
@@ -434,7 +442,7 @@ $curRegion = \Yii::$app->session['region'];
                             if (data.rows[i] != null) {
                                 totalProducts++;
                                 var pr = data.rows[i].prices;
-                                if(data.rows[i].prod_price != null && data.rows[i].prod_price > 0)
+                                if (data.rows[i].prod_price != null && data.rows[i].prod_price > 0)
                                     totalSum += parseInt(data.rows[i].prod_price);
 
                                 for (var a = 0; a < pr.rows.length; a++) {
