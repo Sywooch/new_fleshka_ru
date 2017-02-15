@@ -275,6 +275,26 @@ $curRegion = \Yii::$app->session['region'];
                 </div>
                 <div class="mobile-nav-overlay close-mobile-nav"></div>        
                 <?php echo $content; ?>
+               
+                    <div class="main container">
+                        <div class="col-main">
+                            <div id="loading-mask">
+                                <div class ="background-overlay"></div>
+                                <p id="loading_mask_loader" class="loader">
+                                    <i class="ajax-loader large animate-spin"></i>
+                                </p>
+                            </div>            	
+                            <div class="std">
+                                <h2 class="filter-title" style="margin:0 0 10px;background:none;">                                    
+                                    <div align="center">
+                                        <span class="content"><strong>Нет времени искать товар? Не нашли то, что нужно? Напишите нам и мы вам поможем!</strong></span><br>
+                                        <a class="btn btn-success btn-sm" href="#" data-toggle="modal" data-target="#order" style="font-size: 16px;height: 37px;">Заказ в один клик</a>
+                                    </div>
+                                </h2>                                
+                            </div>                
+                        </div>
+                    </div>
+                
                 <div class="footer-container ">
                     <div class="footer">
                         <div class="footer-middle">
