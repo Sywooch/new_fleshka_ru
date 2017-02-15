@@ -287,7 +287,9 @@ $curRegion = \Yii::$app->session['region'];
                             <div class="std">
                                 <h2 class="filter-title" style="margin:0 0 10px;background:none;text-transform: none;">                                    
                                     <div align="center">
-                                        <span class="content"><strong>Нет времени искать товар? Не нашли то, что нужно?<br> Напишите нам и мы вам поможем!</strong></span><br>
+                                        <span class="content"><strong style="line-height: 25px;">Нет времени искать товар? Не нашли то, что нужно?</strong></span><br style="line-height: 25px;">
+                                        <span class="content"><strong style="line-height: 25px;">Напишите нам и мы вам поможем!</strong></span>
+                                        <br>
                                         <a class="btn btn-success btn-sm" href="#" data-toggle="modal" data-target="#order" style="font-size: 16px;height: 37px;">Заказ в один клик</a>
                                     </div>
                                 </h2>                                
