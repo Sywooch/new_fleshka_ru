@@ -175,10 +175,10 @@ $curRegion = \Yii::$app->session['region'];
                             <p class="welcome-msg" style="float: left;">Мы продаем флешки оптом уже 10 лет! Наносим красивые логотипы!</p>        
                             <p class="welcome-msg">
                                 <a style="position: inherit;" href="https://www.instagram.com/fleshka.ru/" target="_blank">
-                                    <img width="200" src="http://www.fleshka.ru/images/Instagram-32.png" style="cursor:pointer;width: 30px;" alt="">
+                                    <img width="200" src="/images/Instagram-32.png" style="cursor:pointer;width: 30px;" alt="">
                                 </a>&nbsp;
                                 <a style="position: inherit;" href="https://vk.com/id357794088" target="_blank">
-                                    <img width="200" src="http://www.fleshka.ru/images/vkontakte-32.png" style="cursor:pointer;width: 30px;" alt="">
+                                    <img width="200" src="/images/vkontakte-32.png" style="cursor:pointer;width: 30px;" alt="">
                                 </a>
                             </p>
                             <p class="welcome-msg">Привет, Москва! Мы доставляем заказы в ваш город!</p>
