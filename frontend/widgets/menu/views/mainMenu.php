@@ -17,7 +17,7 @@
         <?php endif; ?>
     </li>
     <li class="menu-item">
-        <a href="/article">Статьи</a>
+        <a href="/article">Новости</a>
     </li>
     <li class="menu-item">
         <a href="/page/metody-naneseniya-logotipa">Нанесения</a>
