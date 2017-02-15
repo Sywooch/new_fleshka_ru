@@ -8,6 +8,9 @@ use Yii;
 class CallBackForm extends Model {
 
     public $phone;
+    public $name;
+    public $message;
+    public $email;
 
     /**
      * @inheritdoc
@@ -15,6 +18,8 @@ class CallBackForm extends Model {
     public function rules() {
         return [
             ['phone', 'required'],
+            [['name', 'email', 'message'], 'default'],
+            ['email', 'email'],
         ];
     }
 

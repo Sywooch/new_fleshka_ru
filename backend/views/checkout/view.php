@@ -37,37 +37,39 @@ $itog = 0;
         ],
     ])
     ?>
-    <h3>Флешки</h3>
-    <table id="w0" class="table table-striped table-bordered detail-view">
-        <tbody>
-            <tr><th>Флешка</th><td>Цены</td><td>Цвета</td></tr>
-            <?php foreach ($products as $product): ?>
-                <?php $prices = json_decode($product['prices'], true); ?>
-                <?php $colors = json_decode($product['colors'], true); ?>
-                <tr>
-                    <th><?php echo \app\models\Pages::findOne($product['product_id'])->title; ?></th>
-                    <td>
-                        <?php
-                        foreach ($prices as $key => $price) {
-                            $sql = 'select p.price, vl.title from yu_volume_to_page p join yu_volumes vl on vl.id = p.volume_id WHERE p.volume_id = ' . $price['id'] . ' AND p.page_id = ' . $product['product_id'];
-                            $pr = \Yii::$app->db->createCommand($sql)->queryOne();
-                            $itog += $price['count'] * $pr['price'];
-                            echo ($key >= 1 ? '<br>' : '') . $pr['title'] . ' Гб. х ' . $price['count'] . ' = ' . ($price['count'] * $pr['price']) . ' Руб.';
-                        }
-                        ?>
-                    </td>
-                    <td>
-                        <div class="btn-group" data-toggle="buttons">
-                            <?php foreach ($colors as $color): ?>
-                            <label class="btn btn-success" style="background-color: <?= \app\models\Colors::findOne($color['id'])->value; ?>">                                    
-                                    <span class="glyphicon "></span>
-                                </label>
-                            <?php endforeach; ?>
-                        </div>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-    <h1>Итого <?= $itog . ' Руб.' ?></h1>
+    <?php if (!empty(json_decode($products[0]['prices'], true))): ?>
+        <h3>Флешки</h3>
+        <table id="w0" class="table table-striped table-bordered detail-view">
+            <tbody>
+                <tr><th>Флешка</th><td>Цены</td><td>Цвета</td></tr>
+                <?php foreach ($products as $product): ?>
+                    <?php $prices = json_decode($product['prices'], true); ?>
+                    <?php $colors = json_decode($product['colors'], true); ?>
+                    <tr>
+                        <th><?php echo \app\models\Pages::findOne($product['product_id'])->title; ?></th>
+                        <td>
+                            <?php
+                            foreach ($prices as $key => $price) {
+                                $sql = 'select p.price, vl.title from yu_volume_to_page p join yu_volumes vl on vl.id = p.volume_id WHERE p.volume_id = ' . $price['id'] . ' AND p.page_id = ' . $product['product_id'];
+                                $pr = \Yii::$app->db->createCommand($sql)->queryOne();
+                                $itog += $price['count'] * $pr['price'];
+                                echo ($key >= 1 ? '<br>' : '') . $pr['title'] . ' Гб. х ' . $price['count'] . ' = ' . ($price['count'] * $pr['price']) . ' Руб.';
+                            }
+                            ?>
+                        </td>
+                        <td>
+                            <div class="btn-group" data-toggle="buttons">
+                                <?php foreach ($colors as $color): ?>
+                                    <label class="btn btn-success" style="background-color: <?= \app\models\Colors::findOne($color['id'])->value; ?>">                                    
+                                        <span class="glyphicon "></span>
+                                    </label>
+                                <?php endforeach; ?>
+                            </div>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        <h1>Итого <?= $itog . ' Руб.' ?></h1>
+    <?php endif; ?>
 </div>

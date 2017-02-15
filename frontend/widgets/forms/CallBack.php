@@ -8,27 +8,28 @@ use yii\helpers\Html;
 use app\components\CController;
 
 class CallBack extends Widget {
-    
+
     public $class = 'call-widget';
 
     public function run() {
         $model = new \frontend\models\CallBackForm();
-        if ($model->load(Yii::$app->request->post())) {			
-			Yii::$app->mailer->compose()
-				->setFrom('no-reply@uyurista.ru')
-				->setTo('marketing@uyurista.ru')
-				->setSubject('Обратный звонок')
-				->setTextBody('Plain text content')
-				->setHtmlBody($model->phone . '/' . date('d.m.Y'))
-				->send();
-			Yii::$app->mailer->compose()
-				->setFrom('no-reply@uyurista.ru')
-				->setTo('dela@uyurista.ru')
-				->setSubject('Онлайн заявка')
-				->setTextBody('Plain text content')
-				->setHtmlBody($model->phone . '/' . date('d.m.Y'))
-				->send();		
+        if ($model->load(Yii::$app->request->post())) {
+            $orderID = uniqid();
+            Yii::$app->db->createCommand()->insert('{{%checkout}}', [
+                    'status' => 1,
+                    'name' => $model->name,
+                    'email' => $model->email,
+                    'phone' => $model->phone,
+                    'comment' => $model->message,
+                    'session_id' => $orderID,
+                    'product_id' => 0,
+                    'prices' => json_encode([]),
+                    'colors' => json_encode([]),
+                ])->execute();
+            $cookies = Yii::$app->response->cookies;
+            $cookies->remove('basket');
             \Yii::$app->getSession()->setFlash('success', 'seccess');
+            //Yii::$app->response->redirect('/cart/checkout', 302);
         }
         return $this->render('callBack', ['model' => $model, 'class' => $this->class]);
     }

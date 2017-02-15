@@ -326,41 +326,7 @@ $curRegion = \Yii::$app->session['region'];
                         </div>
                     </div>
                 </div>
-                <div id="order" class="fade modal" role="dialog" tabindex="-1" style="display: none;">
-                    <div class="modal-dialog ">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button style="float: right;" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <h4>Заказ в один клик</h4>
-                            </div>
-                            <div class="modal-body">
-                                <div class="_order">
-                                    <p>Оставьте заявку! Мы предоставим Вам коммерческое предложение в ближайшее время.</p>
-                                    <form id="contact-form" method="post">
-                                        <input type="hidden" name="fname" value="">
-                                        <div class="input-group field-contactform-name required">
-                                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span><input type="text" id="contactform-name" class="form-control" name="ContactForm[name]" placeholder="Ваше имя">
-                                        </div>
-                                        <div class="input-group field-contactform-email required">
-                                            <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span><input type="text" id="contactform-email" class="form-control" name="ContactForm[email]" placeholder="Ваша почта">
-                                        </div>
-                                        <div class="input-group field-contactform-subject required">
-                                            <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span><input type="text" id="contactform-subject" class="form-control" name="ContactForm[subject]" placeholder="Ваш телефон">
-                                        </div>
-                                        <div class="form-group field-contactform-body required">
-                                            <label class="control-label" for="contactform-body">Сообщение</label>
-                                            <textarea id="contactform-body" class="form-control" name="ContactForm[body]" rows="6" placeholder="Введите Ваше сообщение"></textarea>
-                                            <p class="help-block help-block-error"></p>
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="button" class="btn btn-success" id="send" name="contact-button">Отправить</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?= app\widgets\forms\CallBack::widget(); ?>
                 <a href="#" id="totop"><i class="icon-up-open"></i></a>
                 <script type="text/javascript">
                     var windowScroll_t;
