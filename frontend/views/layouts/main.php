@@ -286,10 +286,10 @@ $curRegion = \Yii::$app->session['region'];
                             </div>            	
                             <div class="std">
                                 <h2 class="filter-title" style="margin:0 0 10px;background:none;text-transform: none;">                                    
-                                    <div align="center">
-                                        <span class="content"><strong style="line-height: 25px;">Нет времени искать товар? Не нашли то, что нужно?</strong></span><br style="line-height: 25px;">
-                                        <span class="content"><strong style="line-height: 25px;">Напишите нам и мы вам поможем!</strong></span>
-                                        <br>
+                                    <div align="center" style="line-height: 25px;">
+                                        <p class="content"><strong style="line-height: 25px;">Нет времени искать товар? Не нашли то, что нужно?</strong><br>
+                                        <strong style="line-height: 25px;">Напишите нам и мы вам поможем!</strong></p>
+                                        <br><br>
                                         <a class="btn btn-success btn-sm" href="#" data-toggle="modal" data-target="#order" style="font-size: 16px;height: 37px;">Заказ в один клик</a>
                                     </div>
                                 </h2>                                
@@ -347,11 +347,28 @@ $curRegion = \Yii::$app->session['region'];
                         <div class="footer-bottom">
                             <div class="container">
                                 <div class="custom-block">
-                                    <img src="/images/payments.png" width="359" height="28" alt="" style="max-width: 100%;" />
+                                    <!--<img src="/images/payments.png" width="359" height="28" alt="" style="max-width: 100%;" />-->
+                                    <!--Openstat-->
+                                <span id="openstat2349032"></span>
+                                <script type="text/javascript">
+                                var openstat = { counter: 2349032, image: 5081, color: "458efc", next: openstat };
+                                (function(d, t, p) {
+                                var j = d.createElement(t); j.async = true; j.type = "text/javascript";
+                                j.src = ("https:" == p ? "https:" : "http:") + "//openstat.net/cnt.js";
+                                var s = d.getElementsByTagName(t)[0]; s.parentNode.insertBefore(j, s);
+                                })(document, "script", document.location.protocol);
+                                </script>
+                                <!--/Openstat-->
+                                <!-- Yandex.Metrika informer -->
+                                <a href="https://metrika.yandex.ru/stat/?id=10322905&amp;from=informer"
+                                target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/10322905/3_1_FFFFFFFF_EFEFEFFF_0_pageviews"
+                                style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:10322905,lang:'ru'});return false}catch(e){}" /></a>
+                                <!-- /Yandex.Metrika informer -->
                                 </div>                                
                                 <address>
                                     Наш адрес: г. Москва, М. Пражская, ул. 1й Дорожный проезд, д.6 © 2007–<?= date("Y"); ?> Компания FLESHKA.RU
                                 </address>
+                                
                             </div>
                         </div>
                     </div>
