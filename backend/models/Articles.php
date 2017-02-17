@@ -56,8 +56,9 @@ class Articles extends \yii\db\ActiveRecord {
 
     public function beforeSave($insert) {
         if (parent::beforeSave($insert)) {
-            $this->image = UploadedFile::getInstance($this, 'image');
-            if($this->image !== null) {
+            $upl = UploadedFile::getInstance($this, 'image');
+            if(!empty($upl)) {
+                $this->image = $upl;
                 $path = Yii::getAlias('@frontend') . '/web/uploads/images/articles/';
                 $file = $this->image->baseName . '.' . $this->image->extension;
                 $this->image->saveAs($path . $file);
