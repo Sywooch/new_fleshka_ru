@@ -33,10 +33,10 @@ return [
                 ],
             ],
         ],
-        'ipgeobase' => [
+        /*'ipgeobase' => [
             'class' => 'himiklab\ipgeobase\IpGeoBase',
             'useLocalDB' => false,
-        ],
+        ],*/
         /* 'user' => [
           'identityClass' => 'common\models\User',
           'enableAutoLogin' => true,
