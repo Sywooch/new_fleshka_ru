@@ -25,8 +25,9 @@ class Categories extends \yii\db\ActiveRecord {
      */
     public function rules() {
         return [
-            [['title', 'parent'], 'required'],
-            [['title'], 'string', 'max' => 255]
+            [['title', 'parent', 'sort'], 'required'],
+            [['title'], 'string', 'max' => 255],
+            [['sort'], 'integer'],
         ];
     }
 
@@ -37,6 +38,7 @@ class Categories extends \yii\db\ActiveRecord {
         return [
             'id' => 'Айди',
             'title' => 'Название',
+            'sort' => 'Сортировка',
         ];
     }
 
@@ -52,10 +54,13 @@ class Categories extends \yii\db\ActiveRecord {
     
     public function beforeSave($insert) {
         if (parent::beforeSave($insert)) {
-            $this->image = UploadedFile::getInstance($this, 'image');
-            $path = Yii::getAlias('@frontend') . '/web/uploads/images/categories/';
-            $file = $this->image->baseName . '.' . $this->image->extension;
-            $this->image->saveAs($path . $file);
+            $upl = UploadedFile::getInstance($this, 'image');
+            if(!empty($upl)) {
+                $this->image = $upl;
+                $path = Yii::getAlias('@frontend') . '/web/uploads/images/categories/';
+                $file = $this->image->baseName . '.' . $this->image->extension;
+                $this->image->saveAs($path . $file);
+            }
             return true;
         } else {
             return false;

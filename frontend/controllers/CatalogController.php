@@ -21,7 +21,7 @@ class CatalogController extends CController {
             'name' => 'description',
             'content' => ''
         ]);
-        $sql = 'SELECT * FROM {{%categories}} WHERE parent = ' . (int) $id;
+        $sql = 'SELECT * FROM {{%categories}} WHERE parent = ' . (int) $id . ' ORDER BY sort, id';
         $models = \Yii::$app->db->createCommand($sql)->queryAll();
         return $this->render('index', [
                     'rows' => $models,

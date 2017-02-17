@@ -26,7 +26,7 @@
         <a href="/page/usloviya-prodazhi">Условия продажи</a>
     </li>
     <li class="menu-item">
-        <a href="/page/dostavka-po-rossii-i-sng">Доставка</a>
+        <a href="/page/dostavka">Доставка</a>
     </li>
     <li class="menu-item">
         <a href="/page/garantiya">Гарантия</a>

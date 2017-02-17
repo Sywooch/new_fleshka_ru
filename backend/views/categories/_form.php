@@ -16,6 +16,8 @@ use kartik\file\FileInput;
     <?= $form->field($model, 'parent')->dropDownList([0 => 'Нет'] + $model->getDropdownItems(), ['encode' => false]); ?>
     
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'sort')->textInput(['maxlength' => true]) ?>
     
     <?=
     $form->field($model, 'image')->widget(FileInput::classname(), [
