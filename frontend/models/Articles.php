@@ -34,7 +34,8 @@ class Articles extends \yii\db\ActiveRecord {
             [['description'], 'string'],
             [['date'], 'safe'],
             [['active'], 'integer'],
-            [['title', 'short_description', 'image'], 'string', 'max' => 255]
+            [['title', 'short_description', 'image'], 'string', 'max' => 255],
+            [['image'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg'],
         ];
     }
 
