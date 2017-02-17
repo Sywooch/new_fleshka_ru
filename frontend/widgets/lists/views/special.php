@@ -22,7 +22,7 @@
                                         </div>
                                         <div class="details-area">
                                             <h2 class="product-name">
-                                                <a href="<?= $url; ?>" title="<?php echo $row['title']; ?>"><?php echo $row['title'] . ' #' . $row['old_id']; ?></a>
+                                                <a href="<?= $url; ?>" title="<?php echo $row['title']; ?>"><?php echo $row['title']; ?></a>
                                             </h2>
                                             <div class="price-box">
                                                 <span class="regular-price">
@@ -44,7 +44,7 @@
                 </div>
                 <script type="text/javascript">
                     jQuery(function ($) {
-                        $("#new_product .filter-products .owl-carousel").owlCarousel({lazyLoad: true, itemsCustom: [[0, 1], [320, 1], [480, 2], [768, 3], [992, 4], [1280, 6]], responsiveRefreshRate: 50, slideSpeed: 200, paginationSpeed: 500, scrollPerPage: false, stopOnHover: true, rewindNav: true, rewindSpeed: 600, pagination: true, navigation: false, autoPlay: true]});
+                        $("#new_product .filter-products .owl-carousel").owlCarousel({lazyLoad: true, itemsCustom: [[0, 1], [320, 1], [480, 2], [768, 3], [992, 4], [1280, 6]], responsiveRefreshRate: 50, slideSpeed: 200, paginationSpeed: 500, scrollPerPage: false, stopOnHover: true, rewindNav: true, rewindSpeed: 600, pagination: false, navigation: true, autoPlay: true, navigationText: ["<i class='icon-left-open'></i>", "<i class='icon-right-open'></i>"]});
                     });
                 </script>
             </div>
