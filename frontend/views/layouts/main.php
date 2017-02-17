@@ -48,7 +48,7 @@ $curRegion = \Yii::$app->session['region'];
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/animate.css" media="all" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/porto.css" media="all" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/animation.css" media="all" />
-        <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/local.css?v=7" media="all" />
+        <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/local.css?v=8" media="all" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/responsive.css" media="all" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/design_demo5_en.css" media="all" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/settings_demo5_en.css" media="all" />
@@ -188,7 +188,7 @@ $curRegion = \Yii::$app->session['region'];
                     <div class="header container">
                         <h1 class="logo"><strong>Fleshka.ru</strong>
                             <a href="/" title="Fleshka.ru" class="logo">
-                                <img src="<?= $assets ?>/img/logo4.png" alt="Fleshka.ru" />
+                                <img style=" max-width: 120%;" src="<?= $assets ?>/img/logo4.png" alt="Fleshka.ru" />
                             </a>
                         </h1>
                         <div class="cart-area">
