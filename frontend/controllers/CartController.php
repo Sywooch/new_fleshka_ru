@@ -59,6 +59,7 @@ class CartController extends CController {
                 ->setFrom($model->email)
                 ->setTo('sale@fleshka.ru')
                 ->setTo('dilshod-x@mail.ru')
+                ->setTo('alex@fleshka.ru')
                 ->setSubject('Fleshka.ru - заказ ' . $orderID)
                 ->setTextBody($model->comment . '<br><a href="http://admin.fleshka.ru/checkout/view?id=' . $orderID . '">Ссылка на заказ</a>')
                 ->send();
