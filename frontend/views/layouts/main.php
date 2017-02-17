@@ -348,22 +348,41 @@ $curRegion = \Yii::$app->session['region'];
                             <div class="container">
                                 <div class="custom-block">
                                     <!--<img src="/images/payments.png" width="359" height="28" alt="" style="max-width: 100%;" />-->
-                                    <!--Openstat-->
-                                <span id="openstat2349032"></span>
-                                <script type="text/javascript">
-                                var openstat = { counter: 2349032, image: 5081, color: "458efc", next: openstat };
-                                (function(d, t, p) {
-                                var j = d.createElement(t); j.async = true; j.type = "text/javascript";
-                                j.src = ("https:" == p ? "https:" : "http:") + "//openstat.net/cnt.js";
-                                var s = d.getElementsByTagName(t)[0]; s.parentNode.insertBefore(j, s);
-                                })(document, "script", document.location.protocol);
-                                </script>
-                                <!--/Openstat-->
-                                <!-- Yandex.Metrika informer -->
-                                <a href="https://metrika.yandex.ru/stat/?id=10322905&amp;from=informer"
-                                target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/10322905/3_1_FFFFFFFF_EFEFEFFF_0_pageviews"
-                                style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:10322905,lang:'ru'});return false}catch(e){}" /></a>
-                                <!-- /Yandex.Metrika informer -->
+                                    <!-- Yandex.Metrika informer -->
+                                    <a href="https://metrika.yandex.ru/stat/?id=10322905&amp;from=informer"
+                                       target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/10322905/3_1_FFFFFFFF_EFEFEFFF_0_pageviews"
+                                                                           style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" class="ym-advanced-informer" data-cid="10322905" data-lang="ru" /></a>
+                                    <!-- /Yandex.Metrika informer -->
+
+                                    <!-- Yandex.Metrika counter -->
+                                    <script type="text/javascript">
+                                        (function (d, w, c) {
+                                            (w[c] = w[c] || []).push(function() {
+                                                try {
+                                                    w.yaCounter10322905 = new Ya.Metrika({
+                                                        id:10322905,
+                                                        clickmap:true,
+                                                        trackLinks:true,
+                                                        accurateTrackBounce:true,
+                                                        webvisor:true
+                                                    });
+                                                } catch(e) { }
+                                            });
+
+                                            var n = d.getElementsByTagName("script")[0],
+                                                s = d.createElement("script"),
+                                                f = function () { n.parentNode.insertBefore(s, n); };
+                                            s.type = "text/javascript";
+                                            s.async = true;
+                                            s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+                                            if (w.opera == "[object Opera]") {
+                                                d.addEventListener("DOMContentLoaded", f, false);
+                                            } else { f(); }
+                                        })(document, window, "yandex_metrika_callbacks");
+                                    </script>
+                                    <noscript><div><img src="https://mc.yandex.ru/watch/10322905" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                                    <!-- /Yandex.Metrika counter -->
                                 </div>                                
                                 <address>
                                     Наш адрес: г. Москва, М. Пражская, ул. 1й Дорожный проезд, д.6 © 2007–<?= date("Y"); ?> Компания FLESHKA.RU
