@@ -5,13 +5,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
-                        <i class="icon-truck" style="font-size:36px;"></i><div class="text-area"><h3>FREE SHIPPING & RETURN</h3><p>Free shipping on all orders over $99.</p></div>
+                        <i class="icon-truck" style="font-size:36px;"></i><div class="text-area"><h3>Доставка по России и СНГ</h3><p></p></div>
                     </div>
                     <div class="col-md-4">
-                        <i class="icon-dollar"></i><div class="text-area"><h3>MONEY BACK GUARANTEE</h3><p>100% money back guarantee.</p></div>
+                        <i class="icon-dollar"></i><div class="text-area"><h3>Гибкие финансовые условия</h3><p></p></div>
                     </div>
                     <div class="col-md-4">
-                        <i class="icon-lifebuoy" style="font-size:32px;"></i><div class="text-area"><h3>ONLINE SUPPORT 24/7</h3><p>Lorem ipsum dolor sit amet.</p></div>
+                        <i class="icon-lifebuoy" style="font-size:32px;"></i><div class="text-area"><h3>Профессиональная техподдержка</h3><p></p></div>
                     </div>
                 </div>
             </div>

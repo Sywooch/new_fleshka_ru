@@ -48,7 +48,7 @@ $curRegion = \Yii::$app->session['region'];
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/animate.css" media="all" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/porto.css" media="all" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/animation.css" media="all" />
-        <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/local.css?v=5" media="all" />
+        <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/local.css?v=6" media="all" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/responsive.css" media="all" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/design_demo5_en.css" media="all" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/settings_demo5_en.css" media="all" />
@@ -421,6 +421,7 @@ $curRegion = \Yii::$app->session['region'];
                 display: inline-block;
                 width: 33%;
             }
+            @media (max-width: 500px) {.menu-left {width: 100% !important;}}
             .z-index-1000 {
                 z-index: 1000;
             }

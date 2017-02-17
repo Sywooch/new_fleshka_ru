@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-main col-sm-12">
                 <div class="page-title">
-                    <h1>Search results for 'nyx'</h1>
+                    <h1>Результаты поиска по запросу "<?= yii\helpers\Html::encode($text); ?>"</h1>
                 </div>
                 <div class="category-products">
                     <ul class="products-grid  columns4">
