@@ -4,17 +4,17 @@ $assets = Yii::getAlias('@web');
 <div id="banner-slider-demo-5" class="owl-carousel owl-theme owl-middle-narrow owl-banner-carousel">
     <div class="item">
         <div class="container" style="position:relative">
-            <img src="<?= $assets ?>/images/banners/bb1.jpg" alt="" />
+            <a href="/catalog"><img src="<?= $assets ?>/images/banners/bb1.jpg" alt="" /></a>
         </div>
     </div>
     <div class="item">
         <div class="container" style="position:relative">
-            <img src="<?= $assets ?>/images/banners/bb2.jpg" alt="" />
+            <a href="/catalog"><img src="<?= $assets ?>/images/banners/bb2.jpg" alt="" /></a>
         </div>
     </div>
     <div class="item">
         <div class="container" style="position:relative">
-            <img src="<?= $assets ?>/images/banners/bb3.jpg" alt="" />
+            <a href="/catalog"><img src="<?= $assets ?>/images/banners/bb3.jpg" alt="" /></a>
         </div>
     </div>
 </div>
