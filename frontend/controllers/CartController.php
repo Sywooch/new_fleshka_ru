@@ -58,7 +58,7 @@ class CartController extends CController {
             Yii::$app->mailer->compose()
                 ->setFrom($model->email)
                 ->setTo('sale@fleshka.ru')
-                ->setTo('dilshod-x@mail.ru')
+                //->setTo('dilshod-x@mail.ru')
                 ->setTo('alex@fleshka.ru')
                 ->setSubject('Fleshka.ru - заказ ' . $orderID)
                 ->setTextBody($model->comment)
