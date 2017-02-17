@@ -13,8 +13,9 @@
                         <?= $model['description']; ?>
                     </div>
                     <div class="post-share">
-                        <!--<h3><i class="icon-forward"></i>Share this post</h3>-->
-                        <div class="postBookmarks"></div>
+                        <div class="post-image">
+                            <img style="width: 97%;" src="/uploads/images/articles/<?= $model['image']; ?>" alt=""/>
+                        </div>
                     </div>
                 </div>                
             </div>
