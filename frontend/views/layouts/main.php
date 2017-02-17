@@ -421,7 +421,7 @@ $curRegion = \Yii::$app->session['region'];
                 display: inline-block;
                 width: 33%;
             }
-            @media (max-width: 500px) {.menu-left {width: 100% !important;}}
+            @media (max-width: 991px) {.menu-left {width: 100% !important;}}
             .z-index-1000 {
                 z-index: 1000;
             }
