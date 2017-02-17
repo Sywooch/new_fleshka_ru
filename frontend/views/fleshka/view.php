@@ -143,7 +143,7 @@
                                 </div>
                                 <div class="product-shop col-sm-7">                                    
                                     <div class="product-name">
-                                        <h1><?= $model->title; ?></h1>
+                                        <h1><?= $model->title . ' #' . $model['old_id']; ?></h1>
                                     </div>
                                     <div class="short-description">
                                         <h2><?= $model->title; ?></h2>
