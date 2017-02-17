@@ -37,7 +37,7 @@ $itog = 0;
         ],
     ])
     ?>
-    <?php if (!empty(json_decode($products[0]['prices'], true))): ?>
+    <?php if (!empty($products[0]['prices']) && $products[0]['prices'] != '[]'): ?>
         <h3>Флешки</h3>
         <table id="w0" class="table table-striped table-bordered detail-view">
             <tbody>
