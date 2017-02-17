@@ -55,6 +55,13 @@ class CartController extends CController {
                     'colors' => json_encode($ch['colors']),
                 ])->execute();
             }
+            Yii::$app->mailer->compose('contact/html')
+                ->setFrom($model->email)
+                ->setTo('sale@fleshka.ru')
+                ->setTo('dilshod-x@mail.ru')
+                ->setSubject('Fleshka.ru - заказ ' . $orderID)
+                ->setTextBody('Plain text content')
+                ->send();
             $cookies = Yii::$app->response->cookies;
             $cookies->remove('basket');
             \Yii::$app->getSession()->setFlash('success', 'seccess');
