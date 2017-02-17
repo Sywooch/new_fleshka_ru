@@ -600,21 +600,8 @@ class CController extends \yii\web\Controller {
     }
 
     public function beforeAction($event) {
-
-        $sql = 'select title, url, id from {{%pages}} WHERE type=\'category\' and active = 1';
-        $models = \Yii::$app->db->createCommand($sql)->queryAll();
-        $rows = [];
-        foreach ($models as $key => $model) {
-            if ($model['parent'] == 0) {
-                $rows[$key] = $model;
-                $rows[$key]['catChilds'] = $this->search($models, 'parent', $model['id']);
-            }
-        }
-        self::$menu = $rows;
-        unset($rows);
-
         //Yii::$app->ipgeobase->updateDB();
-        $userIP = Yii::$app->getRequest()->getUserIP();
+        /*$userIP = Yii::$app->getRequest()->getUserIP();
         $userRegionInfo = Yii::$app->ipgeobase->getLocation($userIP, true);
         if (empty(Yii::$app->session['region'])) {
             $regions = Yii::$app->params['regions'];
@@ -637,7 +624,7 @@ class CController extends \yii\web\Controller {
             header('Location: /' . Yii::$app->request->pathInfo);
             exit;
             //return Yii::$app->response->redirect('/' . Yii::$app->request->pathInfo);
-        }
+        }*/
         return parent::beforeAction($event);
     }
 
