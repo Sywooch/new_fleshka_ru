@@ -26,6 +26,16 @@ class CallBack extends Widget {
                     'prices' => json_encode([]),
                     'colors' => json_encode([]),
                 ])->execute();
+            Yii::$app->mailer->compose([
+                    'html' => 'contact-html',                    
+                ])
+                ->setFrom($model->email)
+                ->setTo('sale@fleshka.ru')
+                ->setTo('dilshod-x@mail.ru')
+                ->setTo('alex@fleshka.ru')
+                ->setSubject('Fleshka.ru - заказ ' . $orderID)
+                ->setTextBody($model->comment . '<br><a href="http://admin.fleshka.ru/checkout/view?id=' . $orderID . '">Ссылка на заказ</a>')
+                ->send();
             $cookies = Yii::$app->response->cookies;
             $cookies->remove('basket');
             \Yii::$app->getSession()->setFlash('success', 'seccess');

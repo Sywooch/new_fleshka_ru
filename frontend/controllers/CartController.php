@@ -56,8 +56,7 @@ class CartController extends CController {
                 ])->execute();
             }
             Yii::$app->mailer->compose([
-                    'html' => 'contact-html',
-                    'text' => 'contact-text',
+                    'html' => 'contact-html',                    
                 ])
                 ->setFrom($model->email)
                 ->setTo('sale@fleshka.ru')
