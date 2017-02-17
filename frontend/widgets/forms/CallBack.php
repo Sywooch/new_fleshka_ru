@@ -30,9 +30,8 @@ class CallBack extends Widget
             ])->execute();
             Yii::$app->mailer->compose()
                 ->setFrom($model->email)
-                ->setTo('sale@fleshka.ru')
+                //->setTo('sale@fleshka.ru')
                 ->setTo('dilshod-x@mail.ru')
-                ->setTo('alex@fleshka.ru')
                 ->setSubject('Fleshka.ru - заказ ' . $orderID)
                 ->setTextBody($model->message)
                 ->send();
