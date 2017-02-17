@@ -19,7 +19,7 @@ class PagesSearch extends Pages
     {
         return [
             [['id', 'active', 'sort'], 'integer'],
-            [['title', 'url', 'description', 'meta_key', 'meta_desc', 'meta_title', 'meta_h1', 'type'], 'safe'],
+            [['title', 'url', 'description', 'meta_key', 'meta_desc', 'meta_title', 'meta_h1', 'type', 'old_id'], 'safe'],
         ];
     }
 
@@ -57,6 +57,7 @@ class PagesSearch extends Pages
 
         $query->andFilterWhere([
             'id' => $this->id,
+            'old_id' => $this->old_id,
             'active' => $this->active,
             'sort' => $this->sort,
         ]);

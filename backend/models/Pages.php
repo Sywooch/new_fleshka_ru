@@ -68,7 +68,8 @@ class Pages extends \yii\db\ActiveRecord {
             'meta_h1' => 'Meta H1',
             //'image' => 'Image',
             'type' => 'Тип',
-            'price' => 'Цена для упаковки'
+            'price' => 'Цена для упаковки',
+            'old_id' => 'Номер'
         ];
     }
 
@@ -115,6 +116,11 @@ class Pages extends \yii\db\ActiveRecord {
                 \Yii::$app->db->createCommand('INSERT INTO {{%category_to_page}} (category_id, page_id) VALUES (' . $category . ', ' . $this->id . ')')->execute();
             }
         }
+        if($insert) {
+            $old_id = \Yii::$app->db->createCommand('SELECT MAX(old_id) as old_id FROM {{%pages}}')->queryOne();
+            $old_id = $old_id['old_id'];
+            \Yii::$app->db->createCommand('UPDATE {{%pages}} SET old_id = ' . ++$old_id . ' where id = ' . $this->id)->execute();
+        }        
     }
 
     public function beforeSave($insert) {
