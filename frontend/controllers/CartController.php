@@ -55,7 +55,7 @@ class CartController extends CController {
                     'colors' => json_encode($ch['colors']),
                 ])->execute();
             }
-            Yii::$app->mailer->compose('contact/html')
+            Yii::$app->mailer
                 ->setFrom($model->email)
                 ->setTo('sale@fleshka.ru')
                 ->setTo('dilshod-x@mail.ru')
