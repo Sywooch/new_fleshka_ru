@@ -15,7 +15,7 @@
                                         </a>
                                     </div>
                                     <div class="details-area">
-                                        <h2 class="product-name"><a href="<?= $url; ?>" title="<?php echo $row['title']; ?>"><?php echo $row['title']; ?></a></h2>                                        
+                                        <h2 class="product-name"><a href="<?= $url; ?>" title="<?php echo $row['title']; ?>"><?php echo $row['title']; ?><?php echo $row['cnt'] > 0 ? ' (' . $row['cnt'] . ')' : ''; ?></a></h2>                                        
                                         <div class="actions">
                                             <a href="<?= $url; ?>" class="addtocart"><span>&nbsp;Подробнее...</span></a>                                        
                                             <div class="clearer"></div>

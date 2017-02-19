@@ -116,6 +116,8 @@ class Pages extends \yii\db\ActiveRecord {
             foreach ($_POST['categories'] as $key => $category) {
                 \Yii::$app->db->createCommand('INSERT INTO {{%category_to_page}} (category_id, page_id) VALUES (' . $category . ', ' . $this->id . ')')->execute();
             }
+            $sql = 'UPDATE yu_categories ct SET cnt = (SELECT COUNT(*) FROM yu_category_to_page c2p WHERE c2p.category_id = ct.id GROUP BY c2p.category_id);';
+            \Yii::$app->db->createCommand($sql)->execute();
         }
         if($insert) {
             $old_id = \Yii::$app->db->createCommand('SELECT MAX(old_id) as old_id FROM {{%pages}}')->queryOne();
