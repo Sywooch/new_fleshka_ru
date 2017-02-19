@@ -9,6 +9,7 @@ use yii\grid\GridView;
 
 $this->title = 'Список категорий';
 $this->params['breadcrumbs'][] = $this->title;
+echo Yii::$app->request->serverName;
 ?>
 <div class="categories-index">
 
@@ -19,17 +20,26 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Создать', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?= GridView::widget([
+    <?=
+    GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
+                ['class' => 'yii\grid\SerialColumn'],
             'id',
             'title',
-
-            ['class' => 'yii\grid\ActionColumn'],
+                [
+                'attribute' => 'image',
+                'label' => 'Картинка',
+                'format' => 'html',
+                'value' => function ($data) {
+                    $url = 'http://' . str_replace('admin.', '', Yii::$app->request->serverName) . '/uploads/images/categories/' . $data['image'];
+                    return Html::img($url, ['alt' => 'myImage', 'width' => '70', 'height' => '50']);
+                }
+            ],
+                ['class' => 'yii\grid\ActionColumn'],
         ],
-    ]); ?>
+    ]);
+    ?>
 
 </div>

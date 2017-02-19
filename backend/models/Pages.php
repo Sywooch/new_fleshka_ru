@@ -46,6 +46,7 @@ class Pages extends \yii\db\ActiveRecord {
             [['title'], 'string', 'max' => 1000],
             [['url', 'meta_key', 'meta_title', 'meta_h1'], 'string', 'max' => 255],
             [['meta_desc'], 'string', 'max' => 500],
+            ['old_id', 'unique']
         ];
     }
 
