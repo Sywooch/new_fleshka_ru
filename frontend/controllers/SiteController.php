@@ -18,12 +18,11 @@ class SiteController extends CController {
         return $this->render('index');
     }
 
-    public function actionSearch($text) {
+    public function actionSearch($text) {        
         if(!filter_var($text, FILTER_VALIDATE_INT) === false) {
-            $sql = 'SELECT * FROM {{%price_list}} WHERE old_id = ' . (int) $text;
-            $cnt = count(Yii::$app->db->createCommand($sql)->queryAll());
-            $pages = new Pagination(['totalCount' => $cnt, 'pageSize' => 20]);
-            $rows = Yii::$app->db->createCommand($sql . ' LIMIT ' . (int) $pages->limit . ' OFFSET ' . (int) $pages->offset)->queryAll();
+            $sql = 'SELECT * FROM {{%price_list}} WHERE old_id = ' . (int) $text . ' LIMIT 1';            
+            $rows = Yii::$app->db->createCommand($sql)->queryAll();             
+            $pages = array();
         } else {
             $rows = (new \yii\db\Query())
                 ->select(['id'])

@@ -29,8 +29,8 @@
                                             <p class="special-price">
                                                 <span class="price-label">Special Price</span>
                                                 <span class="price" id="product-price-2">
-                                                        <?php if (!empty($row['price'])): ?>от <?php echo $row['price']; ?> Руб.<?php else: ?>&nbsp;<?php endif; ?>
-                                                    </span>
+                                                    <?php if (!empty($row['price'])): ?>от <?php echo $row['price']; ?> Руб.<?php else: ?>&nbsp;<?php endif; ?>
+                                                </span>
                                             </p>
                                         </div>
 
@@ -49,9 +49,10 @@
                                 <div class="pager">
                                     <div class="pages">
                                         <?php
-                                        echo \yii\widgets\LinkPager::widget([
-                                            'pagination' => $pagination,
-                                        ]);
+                                        if (!empty($pagination))
+                                            echo \yii\widgets\LinkPager::widget([
+                                                'pagination' => $pagination,
+                                            ]);
                                         ?>
                                     </div>
                                 </div>

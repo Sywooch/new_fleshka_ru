@@ -219,13 +219,13 @@
             <div class="col-right sidebar col-sm-3">
                 <div class="custom-block custom-block-1">
                     <div>
-                        <i class="icon-truck"></i><h3>FREE SHIPPING</h3><p>Free shipping on all orders over $99.</p>
+                        <i class="icon-truck"></i><h3>Доставка по России и СНГ</h3><p></p>
                     </div>
                     <div>
-                        <i class="icon-dollar"></i><h3>MONEY BACK GUARANTEE</h3><p>100% money back guarantee.</p>
+                        <i class="icon-dollar"></i><h3>Гибкие финансовые условия</h3><p></p>
                     </div>
                     <div>
-                        <i class="icon-lifebuoy"></i><h3>ONLINE SUPPORT 24/7</h3><p>Lorem ipsum dolor sit amet.</p>
+                        <i class="icon-lifebuoy"></i><h3>Профессиональная техподдержка</h3><p></p>
                     </div>
                 </div>
             </div>
