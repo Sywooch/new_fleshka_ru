@@ -21,7 +21,7 @@ class CheckoutSearch extends Checkout {
     public function rules() {
         return [
             [['id', 'product_id'], 'integer'],
-            [['product_title', 'prices', 'colors', 'session_id', 'name', 'email', 'comment', 'phone', 'statusFull'], 'safe'],
+            [['product_title', 'prices', 'colors', 'session_id', 'name', 'email', 'comment', 'phone', 'statusFull','date'], 'safe'],
         ];
     }
 
@@ -56,6 +56,7 @@ class CheckoutSearch extends Checkout {
                 'name',
                 'email',
                 'status',
+                'date',
                 'statusName' => [
                     'asc' => ['yu_checkout_status.title' => SORT_ASC],
                     'desc' => ['yu_checkout_status.title' => SORT_DESC],
@@ -86,6 +87,7 @@ class CheckoutSearch extends Checkout {
                 ->andFilterWhere(['like', 'email', $this->email])
                 ->andFilterWhere(['like', 'comment', $this->comment])
                 ->andFilterWhere(['like', 'phone', $this->phone])
+                ->andFilterWhere(['like', 'date', $this->date])
                 ->andFilterWhere(['like', 'status', $this->status]);
 
         return $dataProvider;

@@ -13,8 +13,8 @@ use app\components\CController;
 class CartController extends CController {
 
     public function actionCheckout() {
-        $checkout = array();
-        $orderID = uniqid();
+        $checkout = array();        
+        $orderID = CController::UniqueRandomNumbersWithinRange(1,10,5);        
         $prices = array();
         $colors = array();
         if (isset($_POST['products'])) {
@@ -53,6 +53,7 @@ class CartController extends CController {
                     'product_id' => $productId,
                     'prices' => json_encode($ch['prices']),
                     'colors' => json_encode($ch['colors']),
+                    'date' => date('Y-m-d H:i:s'),
                 ])->execute();
             }
             Yii::$app->mailer->compose()

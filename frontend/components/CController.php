@@ -8,6 +8,12 @@ class CController extends \yii\web\Controller {
 
     public static $menu = [];
 
+    public static function UniqueRandomNumbersWithinRange($min, $max, $quantity) {
+        $numbers = range($min, $max);
+        shuffle($numbers);
+        return implode('', array_slice($numbers, 0, $quantity));
+    }
+
     public static function ru2lat($str) {
         $tr = array(
             "А" => "a", "Б" => "b", "В" => "v", "Г" => "g", "Д" => "d",
@@ -601,30 +607,30 @@ class CController extends \yii\web\Controller {
 
     public function beforeAction($event) {
         //Yii::$app->ipgeobase->updateDB();
-        /*$userIP = Yii::$app->getRequest()->getUserIP();
-        $userRegionInfo = Yii::$app->ipgeobase->getLocation($userIP, true);
-        if (empty(Yii::$app->session['region'])) {
-            $regions = Yii::$app->params['regions'];
-            if (!empty($userRegionInfo->city)) {
-                if (isset($userRegionInfo->city)) {
-                    foreach ($regions as $region) {
-                        if (stripos($region['title'], $userRegionInfo->city) !== false) {
-                            $this->setRegion($region['id']);
-                            break;
-                        }
-                    }
-                }
-            } else {
-                $this->setRegion(1);
-            }
-        }
+        /* $userIP = Yii::$app->getRequest()->getUserIP();
+          $userRegionInfo = Yii::$app->ipgeobase->getLocation($userIP, true);
+          if (empty(Yii::$app->session['region'])) {
+          $regions = Yii::$app->params['regions'];
+          if (!empty($userRegionInfo->city)) {
+          if (isset($userRegionInfo->city)) {
+          foreach ($regions as $region) {
+          if (stripos($region['title'], $userRegionInfo->city) !== false) {
+          $this->setRegion($region['id']);
+          break;
+          }
+          }
+          }
+          } else {
+          $this->setRegion(1);
+          }
+          }
 
-        if (isset($_GET['region'])) {
-            $this->setRegion((int) $_GET['region']);
-            header('Location: /' . Yii::$app->request->pathInfo);
-            exit;
-            //return Yii::$app->response->redirect('/' . Yii::$app->request->pathInfo);
-        }*/
+          if (isset($_GET['region'])) {
+          $this->setRegion((int) $_GET['region']);
+          header('Location: /' . Yii::$app->request->pathInfo);
+          exit;
+          //return Yii::$app->response->redirect('/' . Yii::$app->request->pathInfo);
+          } */
         return parent::beforeAction($event);
     }
 

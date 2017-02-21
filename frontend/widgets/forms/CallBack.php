@@ -15,8 +15,8 @@ class CallBack extends Widget
     public function run()
     {
         $model = new \frontend\models\CallBackForm();
-        if ($model->load(Yii::$app->request->post())) {
-            $orderID = uniqid();
+        if ($model->load(Yii::$app->request->post()) && isset($_POST['user_fname']) && $_POST['user_fname'] == '') {
+            $orderID = CController::UniqueRandomNumbersWithinRange(1,10,5);
             Yii::$app->db->createCommand()->insert('{{%checkout}}', [
                 'status' => 1,
                 'name' => $model->name,
@@ -27,6 +27,7 @@ class CallBack extends Widget
                 'product_id' => 0,
                 'prices' => json_encode([]),
                 'colors' => json_encode([]),
+                'date' => date('Y-m-d H:i:s'),
             ])->execute();
             Yii::$app->mailer->compose()
                 ->setFrom($model->email)

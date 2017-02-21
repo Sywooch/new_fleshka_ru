@@ -37,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filterInputOptions' => ['class' => 'form-control',],
                 'filter' => yii\bootstrap\Html::activeDropDownList($searchModel, 'statusName', yii\helpers\ArrayHelper::map(app\models\Status::find()->asArray()->all(), 'id', 'title'), ['multiple' => false]),
             ],
-            // 'comment',
+            'date',
             // 'phone',
             ['class' => 'yii\grid\ActionColumn', 'template' => '{view} {delete}',
                 'buttons' => [

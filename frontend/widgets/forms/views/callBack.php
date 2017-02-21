@@ -22,7 +22,7 @@ $form = ActiveForm::begin([
                                 ],
                             ])
                     ?> 
-                    <input type="hidden" name="fname" value="">
+                    <input type="hidden" name="user_fname" value="">
                     <div class="input-group field-contactform-name required">       
                         <?= $form->field($model, 'name')->textInput(['placeholder' => 'Ваше имя', 'class' => 'form-control'])->label('Ваше имя') ?>                         
                     </div>

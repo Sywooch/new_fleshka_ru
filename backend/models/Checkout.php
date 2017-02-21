@@ -57,6 +57,7 @@ class Checkout extends \yii\db\ActiveRecord {
             'email' => 'E-mail',
             'comment' => 'Комментарий',
             'phone' => 'Телефон',
+            'date' => 'Дата',
         ];
     }
 
