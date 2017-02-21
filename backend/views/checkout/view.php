@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Checkout */
 
-$this->title = 'Заказ №' . $model->session_id;
+$this->title = 'Заказ №' . $model['session_id'];
 $this->params['breadcrumbs'][] = ['label' => 'Заказы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 $itog = 0;
@@ -37,16 +37,28 @@ $itog = 0;
         ],
     ])
     ?>
-    <?php if (!empty($products[0]['prices']) && $products[0]['prices'] != '[]'): ?>
+    <?php if (!empty($products)): ?>
         <h3>Флешки</h3>
         <table id="w0" class="table table-striped table-bordered detail-view">
             <tbody>
-                <tr><th>Флешка</th><td>Цены</td><td>Цвета</td></tr>
+                <tr><th>Картинка</th><th>Флешка</th><td>Цены</td><td>Цвета</td></tr>
                 <?php foreach ($products as $product): ?>
                     <?php $prices = json_decode($product['prices'], true); ?>
                     <?php $colors = json_decode($product['colors'], true); ?>
+                    <?php
+                    $sql = 'SELECT old_id, title, image FROM {{%price_list}} WHERE id = ' . $product['product_id'] . ' LIMIT 1';
+                    $pr = \Yii::$app->db->createCommand($sql)->queryOne();
+                    ?>
                     <tr>
-                        <th><?php echo \app\models\Pages::findOne($product['product_id'])->title; ?></th>
+                        <th>
+                            <?php if (!empty($pr['old_id'])): ?>
+                                <?php $url = 'http://' . str_replace('admin.', '', Yii::$app->request->serverName) . '/uploads/images/' . $pr['image']; ?>
+                            <img width="100" src="<?= $url; ?>"/>
+                            <?php endif; ?>
+                        </th>
+                        <th>
+                            <?php echo $pr['title'] . ' #' . $pr['old_id']; ?>
+                        </th>
                         <td>
                             <?php
                             foreach ($prices as $key => $price) {

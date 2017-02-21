@@ -56,7 +56,7 @@ class CheckoutController extends Controller {
      * @return mixed
      */
     public function actionView($id) {
-        $products = Checkout::find()->where(['session_id' => $id])->all();
+        $products = Checkout::find()->where(['session_id' => $id])->asArray()->all();
         //echo '<pre>';print_r($products);exit;
         return $this->render('view', [
                     'model' => $products[0],
