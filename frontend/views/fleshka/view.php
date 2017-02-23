@@ -213,7 +213,7 @@
 
                             </div>
                         </form>
-                    </div>
+                    </div>                    
                 </div>
                 <?= app\widgets\lists\Special::widget(); ?>
             </div>

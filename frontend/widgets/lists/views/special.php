@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <h2 class="filter-title"><span class="content"><strong>Специальные предложения</strong></span></h2>
-                <div id="featured_product" class="owl-top-narrow">
+                <div class="special_product" class="owl-top-narrow">
                     <div class="filter-products">
                         <div class="products owl-carousel">
                             <?php foreach ($rows as $row): ?>
@@ -42,12 +42,12 @@
                         </div>
                     </div>
                 </div>
-                <script type="text/javascript">
-                    jQuery(function ($) {
-                        $("#new_product .filter-products .owl-carousel").owlCarousel({lazyLoad: true, itemsCustom: [[0, 1], [320, 1], [480, 2], [768, 3], [992, 4], [1280, 6]], responsiveRefreshRate: 50, slideSpeed: 200, paginationSpeed: 500, scrollPerPage: false, stopOnHover: true, rewindNav: true, rewindSpeed: 600, pagination: false, navigation: true, autoPlay: true, navigationText: ["<i class='icon-left-open'></i>", "<i class='icon-right-open'></i>"]});
-                    });
-                </script>
             </div>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    jQuery(function ($) {
+        $(".special_product .filter-products .owl-carousel").owlCarousel({lazyLoad: true, itemsCustom: [[0, 1], [320, 1], [480, 2], [768, 3], [992, 4], [1280, 5]], responsiveRefreshRate: 50, slideSpeed: 200, paginationSpeed: 500, scrollPerPage: false, stopOnHover: true, rewindNav: true, rewindSpeed: 600, pagination: false, navigation: true, autoPlay: true, navigationText: ["<i class='icon-left-open'></i>", "<i class='icon-right-open'></i>"]});
+    });
+</script>

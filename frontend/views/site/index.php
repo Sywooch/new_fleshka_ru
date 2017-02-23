@@ -57,24 +57,6 @@
                             <a href="#" title="Sony"><img class="lazyOwl" data-src="http://www.newsmartwave.net/magento/porto/media/manufacturer/brand2.png" alt="brand2.png"/></a>
                         </div>
                     </div>
-                    <script type="text/javascript">
-                        jQuery(function ($) {
-                            $("#brands-slider-demo-5 .owl-carousel").owlCarousel({
-                                lazyLoad: true,
-                                itemsCustom: [[0, 1], [320, 1], [480, 2], [640, 3], [768, 3], [992, 5], [1200, 6]],
-                                responsiveRefreshRate: 50,
-                                slideSpeed: 200,
-                                paginationSpeed: 500,
-                                scrollPerPage: false,
-                                stopOnHover: true,
-                                rewindNav: true,
-                                rewindSpeed: 600,
-                                pagination: true,
-                                navigation: false,
-                                autoPlay: true
-                            });
-                        });
-                    </script>
                 </div>
                 <?= \app\widgets\lists\LastNews::widget(); ?>
             </div>                
