@@ -17,7 +17,7 @@
                                                 </div>
                                             </div>
                                             <a href="<?= $url; ?>" title="<?php echo $row['title']; ?>" class="product-image">
-                                                <img src="/uploads/images/<?php echo $row['image']; ?>" width="300" height="400" alt="<?php echo $row['title']; ?>"/>
+                                                <img src="/uploads/images/<?php echo $row['image']; ?>" width="300" height="400" alt="<?php echo $row['title'] . ' #' . $row['old_id']; ?>"/>
                                             </a>
                                         </div>
                                         <div class="details-area">

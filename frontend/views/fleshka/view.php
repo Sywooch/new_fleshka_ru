@@ -215,6 +215,7 @@
                         </form>
                     </div>
                 </div>
+                <?= app\widgets\lists\Special::widget(); ?>
             </div>
             <div class="col-right sidebar col-sm-3">
                 <div class="custom-block custom-block-1">
