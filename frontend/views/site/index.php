@@ -35,7 +35,6 @@
                 </h2>
                 <div id="brands-slider-demo-5" class="owl-no-narrow">
                     <div class="owl-carousel owl-theme">
-                              
                         <div class="item">
                             <img class="lazyOwl" data-src="/images/client2.jpg"/>
                         </div> 
@@ -76,7 +75,7 @@
                             <img class="lazyOwl" data-src="/images/client1.jpg"/>
                         </div> 
                     </div>
-                </div>
+                </div>                
                 <?= \app\widgets\lists\LastNews::widget(); ?>
             </div>                
         </div>
