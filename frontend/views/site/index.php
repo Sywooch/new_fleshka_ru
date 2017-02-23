@@ -35,27 +35,46 @@
                 </h2>
                 <div id="brands-slider-demo-5" class="owl-no-narrow">
                     <div class="owl-carousel owl-theme">
+                              
                         <div class="item">
-                            <a href="#" title="Adidas"><img class="lazyOwl" data-src="http://www.newsmartwave.net/magento/porto/media/manufacturer/brand1.png" alt="brand1.png"/></a>
+                            <img class="lazyOwl" data-src="/images/client2.jpg"/>
+                        </div> 
+                        <div class="item">
+                            <img class="lazyOwl" data-src="/images/client3.jpg"/>
+                        </div> 
+                        <div class="item">
+                            <img class="lazyOwl" data-src="/images/client4.jpg"/>
+                        </div> 
+                        <div class="item">
+                            <img class="lazyOwl" data-src="/images/client5.jpg"/>
                         </div>
                         <div class="item">
-                            <a href="#" title="Camel"><img class="lazyOwl" data-src="http://www.newsmartwave.net/magento/porto/media/manufacturer/brand2.png" alt="brand2.png"/></a>
+                            <img class="lazyOwl" data-src="/images/client6.jpg"/>
                         </div>
                         <div class="item">
-                            <a href="#" title="Motorola"><img class="lazyOwl" data-src="http://www.newsmartwave.net/magento/porto/media/manufacturer/brand3.png" alt="brand3.png"/></a>
+                            <img class="lazyOwl" data-src="/images/client7.jpg"/>
                         </div>
                         <div class="item">
-                            <a href="#" title="Rolex"><img class="lazyOwl" data-src="http://www.newsmartwave.net/magento/porto/media/manufacturer/brand4.png" alt="brand4.png"/></a>
+                            <img class="lazyOwl" data-src="/images/client8.jpg"/>
                         </div>
                         <div class="item">
-                            <a href="#" title="Samsung Galaxy"><img class="lazyOwl" data-src="http://www.newsmartwave.net/magento/porto/media/manufacturer/brand5.png" alt="brand5.png"/></a>
+                            <img class="lazyOwl" data-src="/images/client9.jpg"/>
                         </div>
                         <div class="item">
-                            <a href="#" title="Seiko"><img class="lazyOwl" data-src="http://www.newsmartwave.net/magento/porto/media/manufacturer/brand1.png" alt="brand1.png"/></a>
+                            <img class="lazyOwl" data-src="/images/client10.jpg"/>
                         </div>
                         <div class="item">
-                            <a href="#" title="Sony"><img class="lazyOwl" data-src="http://www.newsmartwave.net/magento/porto/media/manufacturer/brand2.png" alt="brand2.png"/></a>
+                            <img class="lazyOwl" data-src="/images/client11.jpg"/>
                         </div>
+                        <div class="item">
+                            <img class="lazyOwl" data-src="/images/client12.jpg"/>
+                        </div>
+                        <div class="item">
+                            <img class="lazyOwl" data-src="/images/client13.jpg"/>
+                        </div>
+                        <div class="item">
+                            <img class="lazyOwl" data-src="/images/client1.jpg"/>
+                        </div> 
                     </div>
                 </div>
                 <?= \app\widgets\lists\LastNews::widget(); ?>
@@ -63,3 +82,21 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    jQuery(function ($) {
+        $("#brands-slider-demo-5 .owl-carousel").owlCarousel({
+            lazyLoad: true,
+            itemsCustom: [[0, 1], [320, 1], [480, 2], [640, 3], [768, 3], [992, 5], [1200, 6]],
+            responsiveRefreshRate: 50,
+            slideSpeed: 200,
+            paginationSpeed: 500,
+            scrollPerPage: false,
+            stopOnHover: true,
+            rewindNav: true,
+            rewindSpeed: 600,
+            pagination: true,
+            navigation: false,
+            autoPlay: true
+        });
+    });
+</script>
