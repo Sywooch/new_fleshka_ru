@@ -72,6 +72,21 @@
                             <img class="lazyOwl" data-src="/images/client13.jpg"/>
                         </div>
                         <div class="item">
+                            <img class="lazyOwl" data-src="/images/client14.jpg"/>
+                        </div>
+                        <div class="item">
+                            <img class="lazyOwl" data-src="/images/client15.jpg"/>
+                        </div>
+                        <div class="item">
+                            <img class="lazyOwl" data-src="/images/client16.jpg"/>
+                        </div>
+                        <div class="item">
+                            <img class="lazyOwl" data-src="/images/client17.jpg"/>
+                        </div>
+                        <div class="item">
+                            <img class="lazyOwl" data-src="/images/client18.jpg"/>
+                        </div>
+                        <div class="item">
                             <img class="lazyOwl" data-src="/images/client1.jpg"/>
                         </div> 
                     </div>
