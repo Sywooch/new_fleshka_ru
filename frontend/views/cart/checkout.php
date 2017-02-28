@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\widgets\MaskedInput;
+use richweber\recaptcha\Captcha;
 ?>
 <div class="main-container col1-layout">
     <div class="main container">
@@ -62,6 +63,9 @@ use yii\widgets\MaskedInput;
                                                 </li>
                                             </ul>
                                         </fieldset>
+                                        <fieldset>
+                                            <?= Captcha::widget() ?>
+                                        </fieldset><br>
                                         <fieldset>
                                             <?= Html::submitButton('<span><span>Отправить</span></span>', ['class' => 'button btn-checkout opc-btn-checkout']) ?>
                                         </fieldset>

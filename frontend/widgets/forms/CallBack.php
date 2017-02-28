@@ -15,7 +15,9 @@ class CallBack extends Widget
     public function run()
     {
         $model = new \frontend\models\CallBackForm();
-        if ($model->load(Yii::$app->request->post()) && isset($_POST['user_fname']) && $_POST['user_fname'] == '') {
+        if ($model->load(Yii::$app->request->post()) && Yii::$app->recaptcha->verifyResponse(
+            $_SERVER['REMOTE_ADDR'],
+            Yii::$app->request->post('g-recaptcha-response')) && isset($_POST['user_fname']) && $_POST['user_fname'] == '') {
             $orderID = CController::UniqueRandomNumbersWithinRange(1,10,5);
             Yii::$app->db->createCommand()->insert('{{%checkout}}', [
                 'status' => 1,

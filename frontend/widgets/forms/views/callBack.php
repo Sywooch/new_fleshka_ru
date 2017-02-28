@@ -1,3 +1,6 @@
+<style>
+    #rc-imageselect, .g-recaptcha {transform:scale(0.9);-webkit-transform:scale(0.9);transform-origin:0 0;-webkit-transform-origin:0 0;}
+</style>
 <div id="order" class="fade modal" role="dialog" tabindex="-1" style="display: none;">
     <div class="modal-dialog ">
         <div class="modal-content">
@@ -13,6 +16,7 @@
                     use yii\helpers\Html;
                     use yii\widgets\ActiveForm;
                     use yii\widgets\MaskedInput;
+                    use richweber\recaptcha\Captcha;
 
 $form = ActiveForm::begin([
                                 'id' => 'feedback-form',
@@ -43,6 +47,9 @@ $form = ActiveForm::begin([
                     </div>
                     <div class="form-group field-contactform-body required">  
                         <?= $form->field($model, 'message')->textArea(['placeholder' => 'ведите Ваше сообщение', 'class' => 'form-control'])->label('ведите Ваше сообщение') ?>                      
+                    </div>
+                    <div class="form-group field-contactform-body required">
+                        <?= Captcha::widget() ?>
                     </div>
                     <div class="form-group">
                         <?= Html::submitButton('<span><span><i class="icon-send"></i>Отправить</span></span>', ['class' => 'button btn-cart']) ?>

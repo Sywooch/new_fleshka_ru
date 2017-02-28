@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bc6023fb13c6ed229a8f743630990c99",
-    "content-hash": "54636fe7bc28e696549c8439a8264d0e",
+    "hash": "d36ff13a46c1d4c1bb3ff7f9ce0551e0",
+    "content-hash": "09a46d2d233ef951f428865b86a7f440",
     "packages": [
         {
             "name": "2amigos/yii2-ckeditor-widget",
@@ -512,7 +512,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fxpio/composer-asset-plugin/zipball/a4c0c632af09be2aa97e69821d5486bc47cb9fff",
+                "url": "https://api.github.com/repos/fxpio/composer-asset-plugin/zipball/2b652ae00f9a59e013d5359301e0bda9ec8be873",
                 "reference": "a4c0c632af09be2aa97e69821d5486bc47cb9fff",
                 "shasum": ""
             },
@@ -613,7 +613,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/f42cd949ea2780853c80f26bcb9ddb5e4127a771",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/fdba3326561524d02e6d66df0e4c92744905f62c",
                 "reference": "f42cd949ea2780853c80f26bcb9ddb5e4127a771",
                 "shasum": ""
             },
@@ -666,7 +666,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/52e623e54d06b853fda01a6529ccca93ed2a7f66",
+                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/2479241c03c87995cfc528ae7b297f5ae9e733cb",
                 "reference": "52e623e54d06b853fda01a6529ccca93ed2a7f66",
                 "shasum": ""
             },
@@ -821,7 +821,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widget-select2/zipball/168bc215c9b18f571c5c533f5b8d79d2a189eb5b",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-select2/zipball/3943a643d106f775293ed5c4306b67b954b84058",
                 "reference": "168bc215c9b18f571c5c533f5b8d79d2a189eb5b",
                 "shasum": ""
             },
@@ -910,6 +910,47 @@
             "time": "2014-12-19 12:15:40"
         },
         {
+            "name": "richweber/yii2-recaptcha",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RichWeber/yii2-recaptcha.git",
+                "reference": "6e2465b0e351222231a88a4d09b85d86b18c6690"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RichWeber/yii2-recaptcha/zipball/6e2465b0e351222231a88a4d09b85d86b18c6690",
+                "reference": "6e2465b0e351222231a88a4d09b85d86b18c6690",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "richweber\\recaptcha\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "RichWeber",
+                    "email": "rbagatyi@gmail.com"
+                }
+            ],
+            "description": "Yii 2 Framework extension for Google reCAPTCHA",
+            "keywords": [
+                "google",
+                "recaptcha",
+                "yii2"
+            ],
+            "time": "2014-12-13 20:32:08"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "5.x-dev",
             "source": {
@@ -919,7 +960,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/85d85209dccf325c1357b444a7c9b3a4a1852627",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/7f075aa497bc08559ea26350fa222492f40657f7",
                 "reference": "85d85209dccf325c1357b444a7c9b3a4a1852627",
                 "shasum": ""
             },
@@ -973,7 +1014,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/f6c739b580981fd88ed77cbe652ccc0aa36e980e",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/cdba0fe216bc422c4e84c5fd11de788792a1fd52",
                 "reference": "f6c739b580981fd88ed77cbe652ccc0aa36e980e",
                 "shasum": ""
             },
@@ -1073,7 +1114,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/cd6b7463b3f6ead4a9901e162a57e7d40d270b72",
+                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/6c46dce6217c022b18ecfbede7a9dd9a3b91e9e5",
                 "reference": "cd6b7463b3f6ead4a9901e162a57e7d40d270b72",
                 "shasum": ""
             },
@@ -1386,7 +1427,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/2681e3a2c766c45a7415c961c97b6afb619b4970",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/f0dd1bad82628fd2b17784ec8b98f95d65aa4d23",
                 "reference": "2681e3a2c766c45a7415c961c97b6afb619b4970",
                 "shasum": ""
             },
@@ -1480,7 +1521,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/a8a3cda6c60cf92b0c1009a3e29a9266aa290231",
+                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/5182458848359f08505b21ab71c0bd05c74617a5",
                 "reference": "a8a3cda6c60cf92b0c1009a3e29a9266aa290231",
                 "shasum": ""
             },
@@ -1528,7 +1569,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "kartik-v/yii2-widget-fileinput": 20,
-        "kartik-v/yii2-widget-select2": 20
+        "kartik-v/yii2-widget-select2": 20,
+        "richweber/yii2-recaptcha": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

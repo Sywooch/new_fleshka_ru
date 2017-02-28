@@ -25,7 +25,8 @@
         "kartik-v/yii2-widget-datetimepicker": "*",
         "2amigos/yii2-date-time-picker-widget": "~1.0",
         "kartik-v/yii2-widget-select2": "@dev",
-        "nterms/yii2-listjs-widget": "*"
+        "nterms/yii2-listjs-widget": "*",
+        "richweber/yii2-recaptcha": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
