@@ -6,6 +6,7 @@ use yii\helpers\Html;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use app\widgets\menu\MainMenu;
+use app\components\CController;
 
 AppAsset::register($this);
 $assets = Yii::getAlias('@web');
@@ -272,31 +273,32 @@ $curRegion = \Yii::$app->session['region'];
                     <div class="menu-all-pages-container">
                         <?= MainMenu::widget(['mobile' => true]); ?>
                     </div>
-                </div>
-                <div class="mobile-nav-overlay close-mobile-nav"></div>        
+                </div>                
+                <div class="mobile-nav-overlay close-mobile-nav"></div> 
+                <?php $urls = CController::$breadcrumbs; ?>
+                <?php if (!empty($urls)) {echo \app\widgets\lists\BreadCrumbs::widget(['urls' => $urls]);} ?>               
                 <?php echo $content; ?>
-               
-                    <div class="main container">
-                        <div class="col-main">
-                            <div id="loading-mask">
-                                <div class ="background-overlay"></div>
-                                <p id="loading_mask_loader" class="loader">
-                                    <i class="ajax-loader large animate-spin"></i>
-                                </p>
-                            </div>            	
-                            <div class="std">
-                                <h2 class="filter-title" style="margin:0 0 10px;background:none;text-transform: none;">                                    
-                                    <div align="center" style="line-height: 25px;">
-                                        <p class="content"><strong style="line-height: 25px;">Нет времени искать товар? Не нашли то, что нужно?</strong><br>
+                <div class="main container">
+                    <div class="col-main">
+                        <div id="loading-mask">
+                            <div class ="background-overlay"></div>
+                            <p id="loading_mask_loader" class="loader">
+                                <i class="ajax-loader large animate-spin"></i>
+                            </p>
+                        </div>            	
+                        <div class="std">
+                            <h2 class="filter-title" style="margin:0 0 10px;background:none;text-transform: none;">                                    
+                                <div align="center" style="line-height: 25px;">
+                                    <p class="content"><strong style="line-height: 25px;">Нет времени искать товар? Не нашли то, что нужно?</strong><br>
                                         <strong style="line-height: 25px;">Напишите нам и мы вам поможем!</strong></p>
-                                        <br><br>
-                                        <a class="btn btn-success btn-sm" href="#" data-toggle="modal" data-target="#order" style="font-size: 16px;height: 37px;">Заказ в один клик</a>
-                                    </div>
-                                </h2>                                
-                            </div>                
-                        </div>
+                                    <br><br>
+                                    <a class="btn btn-success btn-sm" href="#" data-toggle="modal" data-target="#order" style="font-size: 16px;height: 37px;">Заказ в один клик</a>
+                                </div>
+                            </h2>                                
+                        </div>                
                     </div>
-                
+                </div>
+
                 <div class="footer-container ">
                     <div class="footer">
                         <div class="footer-middle">
@@ -340,6 +342,10 @@ $curRegion = \Yii::$app->session['region'];
                                             width: 16%;
                                             float: left;
                                         }
+                                        .top-container >.breadcrumbs{background-color:transparent}
+                                        .top-container >.breadcrumbs{color:#8e8e8e}
+                                        .breadcrumbs li a{color:#8e8e8e}
+                                        .breadcrumbs li a:hover{color:#8e8e8e}
                                     </style>
                                 </div>
                             </div>
@@ -351,34 +357,39 @@ $curRegion = \Yii::$app->session['region'];
                                     <!-- Yandex.Metrika informer -->
                                     <a href="https://metrika.yandex.ru/stat/?id=10322905&amp;from=informer"
                                        target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/10322905/3_1_FFFFFFFF_EFEFEFFF_0_pageviews"
-                                                                           style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" class="ym-advanced-informer" data-cid="10322905" data-lang="ru" /></a>
+                                                                        style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" class="ym-advanced-informer" data-cid="10322905" data-lang="ru" /></a>
                                     <!-- /Yandex.Metrika informer -->
 
                                     <!-- Yandex.Metrika counter -->
                                     <script type="text/javascript">
                                         (function (d, w, c) {
-                                            (w[c] = w[c] || []).push(function() {
+                                            (w[c] = w[c] || []).push(function () {
                                                 try {
                                                     w.yaCounter10322905 = new Ya.Metrika({
-                                                        id:10322905,
-                                                        clickmap:true,
-                                                        trackLinks:true,
-                                                        accurateTrackBounce:true,
-                                                        webvisor:true
+                                                        id: 10322905,
+                                                        clickmap: true,
+                                                        trackLinks: true,
+                                                        accurateTrackBounce: true,
+                                                        webvisor: true
                                                     });
-                                                } catch(e) { }
+                                                } catch (e) {
+                                                }
                                             });
 
                                             var n = d.getElementsByTagName("script")[0],
-                                                s = d.createElement("script"),
-                                                f = function () { n.parentNode.insertBefore(s, n); };
+                                                    s = d.createElement("script"),
+                                                    f = function () {
+                                                        n.parentNode.insertBefore(s, n);
+                                                    };
                                             s.type = "text/javascript";
                                             s.async = true;
                                             s.src = "https://mc.yandex.ru/metrika/watch.js";
 
                                             if (w.opera == "[object Opera]") {
                                                 d.addEventListener("DOMContentLoaded", f, false);
-                                            } else { f(); }
+                                            } else {
+                                                f();
+                                            }
                                         })(document, window, "yandex_metrika_callbacks");
                                     </script>
                                     <noscript><div><img src="https://mc.yandex.ru/watch/10322905" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
@@ -387,7 +398,7 @@ $curRegion = \Yii::$app->session['region'];
                                 <address>
                                     Наш адрес: г. Москва, М. Пражская, ул. 1й Дорожный проезд, д.6 <br>© 2007–<?= date("Y"); ?> Компания FLESHKA.RU
                                 </address>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -601,7 +612,7 @@ $curRegion = \Yii::$app->session['region'];
                             if (items.rows[i] != null) {
                                 totalItems += 1;
                                 totalSum += parseInt(items.rows[i]['prices']['total']) * parseInt(items.rows[i]['quantity']);
-                                if(data.rows[i].prod_price != null && data.rows[i].prod_price > 0)
+                                if (data.rows[i].prod_price != null && data.rows[i].prod_price > 0)
                                     totalSum += parseInt(items.rows[i]['prod_price']);
                                 var prices = items.rows[i]['prices'];
                                 var vols = '';

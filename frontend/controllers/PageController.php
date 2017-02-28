@@ -22,6 +22,7 @@ class PageController extends CController {
             'name' => 'description',
             'content' => $pageInfo['meta_desc']
         ]);
+        CController::$breadcrumbs = [['title' => $pageInfo['title'], 'url' => '']];
         return $this->render('view', ['model' => $pageInfo]);
     }
 

@@ -4,7 +4,9 @@
         <div class="row">
             <div class="col-main col-sm-9 f-right">                
                 <div class="category-products">
-                    <ul class="products-grid  columns4">                        
+                    <h1>Каталог флешек</h1>
+                    <ul class="products-grid  columns4">  
+                        
                         <?php foreach ($rows as $row): ?>
                             <?php $url = CController::haveChildren($row['id']) ? '/catalog/' . $row['id'] : '/category/' . CController::ru2lat($row['title']) . '-' . $row['id']; ?>
                             <li class="item">

@@ -7,6 +7,7 @@ use Yii;
 class CController extends \yii\web\Controller {
 
     public static $menu = [];
+    public static $breadcrumbs = [];
 
     public static function UniqueRandomNumbersWithinRange($min, $max, $quantity) {
         $numbers = range($min, $max);

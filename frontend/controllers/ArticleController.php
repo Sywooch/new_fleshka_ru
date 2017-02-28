@@ -32,7 +32,7 @@ class ArticleController extends CController {
         $models = $query->offset($pages->offset)
                 ->limit($pages->limit)
                 ->all();
-
+        CController::$breadcrumbs = [['title' => 'Новости', 'url' => 'article']];
         return $this->render('index', [
                     'models' => $models,
                     'pagination' => $pages,
@@ -49,7 +49,7 @@ class ArticleController extends CController {
             'name' => 'description',
             'content' => $pageInfo['meta_desc']
         ]);
-
+        CController::$breadcrumbs = [['title' => 'Новости', 'url' => 'article'], ['title' => $pageInfo['title'], 'url' => '']];
         return $this->render('view', ['model' => $pageInfo]);
     }
 

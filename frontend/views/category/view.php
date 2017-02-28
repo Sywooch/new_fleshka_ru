@@ -1,5 +1,4 @@
 <?php
-
 use yii\helpers;
 ?>
 <div class="main-container col2-left-layout">
@@ -7,6 +6,7 @@ use yii\helpers;
         <div class="row">
             <div class="col-main col-sm-9 f-right">                
                 <div class="category-products">
+                    <h1><?= $category->title; ?></h1>
                     <ul class="products-grid  columns4">                        
                         <?php foreach ($rows as $row): ?>
                             <?php $url = '/fleshka/' . \app\components\CController::ru2lat($row['title']) . '-' . $row['id']; ?>
@@ -19,16 +19,16 @@ use yii\helpers;
                                     </div>
                                     <div class="details-area">
                                         <h2 style="height: 50px;" class="product-name"><a href="<?= $url; ?>" title="<?php echo $row['title']; ?>"><?php echo $row['title']; ?> #<?php echo $row['old_id']; ?></a></h2>
-                                        
-                                            <div class="price-box">
-                                                <p class="special-price">
-                                                    <span class="price-label">Special Price</span>
-                                                    <span class="price" id="product-price-2">
-                                                        <?php if (!empty($row['price'])): ?>от <?php echo $row['price']; ?> Руб.<?php else: ?>&nbsp;<?php endif; ?>
-                                                    </span>
-                                                </p>
-                                            </div>
-                                        
+
+                                        <div class="price-box">
+                                            <p class="special-price">
+                                                <span class="price-label">Special Price</span>
+                                                <span class="price" id="product-price-2">
+                                                    <?php if (!empty($row['price'])): ?>от <?php echo $row['price']; ?> Руб.<?php else: ?>&nbsp;<?php endif; ?>
+                                                </span>
+                                            </p>
+                                        </div>
+
                                         <div class="actions">
                                             <a href="<?= $url; ?>" class="addtocart"><i class="icon-cart"></i><span>&nbsp;Купить</span></a>                                        
                                             <div class="clearer"></div>

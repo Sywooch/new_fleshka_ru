@@ -12,7 +12,7 @@ use app\components\CController;
  */
 class CategoryController extends CController {
 
-    public function actionView() {
+    public function actionView($id) {        
         \Yii::$app->view->registerMetaTag([
             'name' => 'keywords',
             'content' => ''
@@ -49,13 +49,15 @@ class CategoryController extends CController {
         $models = \Yii::$app->db->createCommand($sql . ' LIMIT ' . (int) $pages->limit . ' OFFSET ' . (int) $pages->offset)->queryAll();
         $volumes = \Yii::$app->db->createCommand('select id, title from {{%volumes}}')->queryAll();
         $colors = \Yii::$app->db->createCommand('select id, title, value from {{%colors}}')->queryAll();
-        //echo '<pre>';print_r($models);exit;
+        $category = \app\models\Categories::findOne($id);
+        CController::$breadcrumbs = [['title' => 'Каталог', 'url' => 'catalog'], ['title' => $category->title, 'url' => '']];
         return $this->render('view', [
                     'rows' => $models,
                     'pagination' => $pages,
                     'volumes' => $volumes,
-                    'colors' => $colors
-        ]);
+                    'colors' => $colors,
+                    'category' => $category
+                ]);
     }
 
 }

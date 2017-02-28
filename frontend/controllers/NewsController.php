@@ -26,31 +26,32 @@ class NewsController extends CController {
         $order = 'date DESC';
 
         $query = \frontend\models\Pages::find();
-        $query->where($where);        
+        $query->where($where);
         $countQuery = clone $query;
         $query->orderBy($order);
         $pages = new \yii\data\Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 10]);
         $models = $query->offset($pages->offset)
                 ->limit($pages->limit)
                 ->all();
-
+        CController::$breadcrumbs = [['title' => 'Новости', 'url' => '']];
         return $this->render('index', [
                     'models' => $models,
                     'pagination' => $pages,
                     'model' => $pageInfo,
         ]);
     }
-    
+
     public function actionView() {
         $pageInfo = $_GET['data'];
-		\Yii::$app->view->registerMetaTag([
-			'name' => 'keywords',
-			'content' => $pageInfo['meta_key']
-		]);
-		\Yii::$app->view->registerMetaTag([
-			'name' => 'description',
-			'content' => $pageInfo['meta_desc']
-		]);
+        \Yii::$app->view->registerMetaTag([
+            'name' => 'keywords',
+            'content' => $pageInfo['meta_key']
+        ]);
+        \Yii::$app->view->registerMetaTag([
+            'name' => 'description',
+            'content' => $pageInfo['meta_desc']
+        ]);
+        CController::$breadcrumbs = [['title' => 'Новости', 'url' => 'article'], ['title' => $pageInfo['title'], 'url' => '']];
         return $this->render('view', ['model' => $pageInfo]);
     }
 

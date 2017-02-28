@@ -23,6 +23,7 @@ class CatalogController extends CController {
         ]);
         $sql = 'SELECT * FROM {{%categories}} WHERE parent = ' . (int) $id . ' ORDER BY sort, id';
         $models = \Yii::$app->db->createCommand($sql)->queryAll();
+        CController::$breadcrumbs = [['title' => 'Каталог', 'url' => '/catalog']];
         return $this->render('index', [
                     'rows' => $models,
         ]);

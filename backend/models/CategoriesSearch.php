@@ -10,24 +10,22 @@ use app\models\Categories;
 /**
  * CategoriesSearch represents the model behind the search form about `app\models\Categories`.
  */
-class CategoriesSearch extends Categories
-{
+class CategoriesSearch extends Categories {
+
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
-            [['id'], 'integer'],
-            [['title'], 'safe'],
+                [['id'], 'integer'],
+                [['title'], 'safe'],
         ];
     }
 
     /**
      * @inheritdoc
      */
-    public function scenarios()
-    {
+    public function scenarios() {
         // bypass scenarios() implementation in the parent class
         return Model::scenarios();
     }
@@ -39,12 +37,14 @@ class CategoriesSearch extends Categories
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
-    {
+    public function search($params) {
         $query = Categories::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pageSize' => 200,
+            ]
         ]);
 
         $this->load($params);
@@ -63,4 +63,5 @@ class CategoriesSearch extends Categories
 
         return $dataProvider;
     }
+
 }
