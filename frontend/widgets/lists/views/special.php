@@ -22,7 +22,7 @@
                                         </div>
                                         <div class="details-area">
                                             <h2 class="product-name">
-                                                <a href="<?= $url; ?>" title="<?php echo $row['title']; ?>"><?php echo $row['title']; ?></a>
+                                                <a href="<?= $url; ?>" title="<?php echo $row['title']; ?>"><?php echo $row['title'] . ' #' . $row['old_id']; ?></a>
                                             </h2>
                                             <div class="price-box">
                                                 <span class="regular-price">
