@@ -385,7 +385,7 @@ $curRegion = \Yii::$app->session['region'];
                                     <!-- /Yandex.Metrika counter -->
                                 </div>                                
                                 <address>
-                                    Наш адрес: г. Москва, М. Пражская, ул. 1й Дорожный проезд, д.6 © 2007–<?= date("Y"); ?> Компания FLESHKA.RU
+                                    Наш адрес: г. Москва, М. Пражская, ул. 1й Дорожный проезд, д.6 <br>© 2007–<?= date("Y"); ?> Компания FLESHKA.RU
                                 </address>
                                 
                             </div>
