@@ -1,10 +1,8 @@
 User-agent: *
 Disallow: /search*
 Disallow: /about$
-Disallow: /news/vs-ne-vernul-status-otstavnika-sude-vzyatochnitze
 
 User-agent: Yandex
 Disallow: /search*
 Disallow: /about$
-Disallow: /news/vs-ne-vernul-status-otstavnika-sude-vzyatochnitze
-Host: uyurista.ru
+Host: www.fleshka.ru
