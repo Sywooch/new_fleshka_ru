@@ -182,7 +182,7 @@ $curRegion = \Yii::$app->session['region'];
                                     <img width="200" src="/images/vkontakte-32.png" style="cursor:pointer;width: 30px;" alt="">
                                 </a>
                                 <a style="position: inherit;" href="https://www.youtube.com/channel/UCelvixAq0oWJKwuF3-I6lyw" target="_blank">
-                                    <img width="200" src="/images/youtube.png" style="cursor:pointer;width: 30px;" alt="">
+                                    <img width="200" src="/images/youtube-a.jpg" style="cursor:pointer;width: 30px;padding-left: 4px;" alt="">
                                 </a>
                             </p>
                             <p class="welcome-msg">Привет, Москва! Мы доставляем заказы в ваш город!</p>
