@@ -8,8 +8,8 @@ use yii\base\Model;
 /**
  * ContactForm is the model behind the contact form.
  */
-class ContactForm extends Model
-{
+class ContactForm extends Model {
+
     public $name;
     public $email;
     public $subject;
@@ -19,11 +19,10 @@ class ContactForm extends Model
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             // name, email, subject and body are required
-            [['name', 'email', 'subject', 'body'], 'required'],
+                [['name', 'email', 'subject', 'body'], 'required'],
             // email has to be a valid email address
             ['email', 'email'],
             // verifyCode needs to be entered correctly
@@ -34,10 +33,13 @@ class ContactForm extends Model
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
-            'verifyCode' => 'Verification Code',
+            'verifyCode' => 'Введите слово с картинки',
+            'name' => 'Ваше имя',
+            'email' => 'E-mail',
+            'subject' => 'Тема сообщения',
+            'body' => 'Текст сообщения',
         ];
     }
 
@@ -47,13 +49,14 @@ class ContactForm extends Model
      * @param  string  $email the target email address
      * @return boolean whether the email was sent
      */
-    public function sendEmail($email)
-    {
+    public function sendEmail() {
         return Yii::$app->mailer->compose()
-            ->setTo($email)
-            ->setFrom([$this->email => $this->name])
-            ->setSubject($this->subject)
-            ->setTextBody($this->body)
-            ->send();
+                        ->setTo('sale@fleshka.ru')
+                        ->setTo('alex@fleshka.ru')
+                        ->setFrom([$this->email => $this->name])
+                        ->setSubject($this->subject)
+                        ->setTextBody($this->body)
+                        ->send();
     }
+
 }

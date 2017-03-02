@@ -9,6 +9,34 @@
                     <div class="postContent">
                         <?= $model['description']; ?>
                     </div>
+                    <?php if ($model['url'] == 'kontakty'): ?>
+                        <div class="row">                            
+                            <div class="col-lg-5">
+                                <h2>Обратная связь</h2>
+                                <?php $form = \yii\widgets\ActiveForm::begin(['id' => 'contact-form']); ?>
+
+                                <?= $form->field($feedBack, 'name')->textInput(['autofocus' => true]) ?>
+
+                                <?= $form->field($feedBack, 'email') ?>
+
+                                <?= $form->field($feedBack, 'subject') ?>
+
+                                <?= $form->field($feedBack, 'body')->textArea(['rows' => 6]) ?>
+
+                                <?=
+                                $form->field($feedBack, 'verifyCode')->widget(yii\captcha\Captcha::className(), [
+                                    'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
+                                ])
+                                ?>
+
+                                <div class="form-group">
+                                    <?= yii\bootstrap\Html::submitButton('Отправить сообщение', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                                </div>
+
+                                <?php \yii\widgets\ActiveForm::end(); ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>                
             </div>
         </div>
