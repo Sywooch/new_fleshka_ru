@@ -120,7 +120,7 @@ class Pages extends \yii\db\ActiveRecord {
             \Yii::$app->db->createCommand($sql)->execute();
         }
         if($insert) {
-            $old_id = \Yii::$app->db->createCommand('SELECT MAX(old_id) as old_id FROM {{%pages}}')->queryOne();
+            $old_id = \Yii::$app->db->createCommand('SELECT MAX(old_id) as old_id FROM {{%pages}} LIMIT 1')->queryOne();
             $old_id = $old_id['old_id'];
             \Yii::$app->db->createCommand('UPDATE {{%pages}} SET old_id = ' . ++$old_id . ' where id = ' . $this->id)->execute();
         }        

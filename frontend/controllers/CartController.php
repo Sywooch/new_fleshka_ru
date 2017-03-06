@@ -13,8 +13,10 @@ use app\components\CController;
 class CartController extends CController {
 
     public function actionCheckout() {
-        $checkout = array();        
-        $orderID = CController::UniqueRandomNumbersWithinRange(1,10,5);        
+        $checkout = array();
+        //$orderID = CController::UniqueRandomNumbersWithinRange(1, 10, 5);
+        $orderID = \Yii::$app->db->createCommand('SELECT MAX(id) as id FROM {{%checkout}} LIMIT 1')->queryOne();
+        $orderID = $old_id['id'] + 100;
         $prices = array();
         $colors = array();
         if (isset($_POST['products'])) {
@@ -30,20 +32,19 @@ class CartController extends CController {
                 }
             }
             Yii::$app->session['checkout'] = $checkout;
-        } elseif (!isset($_POST['user_fname']) && isset ($_COOKIE['basket'])) {
+        } elseif (!isset($_POST['user_fname']) && isset($_COOKIE['basket'])) {
             $products = json_decode($_COOKIE['basket'], true);
             foreach ($products['rows'] as $product) {
                 //if (!empty($productId))
-                    $checkout[$product['id']] = array('prices' => $product['prices']['rows'], 'colors' => $product['colors']['rows']);
+                $checkout[$product['id']] = array('prices' => $product['prices']['rows'], 'colors' => $product['colors']['rows']);
             }
             Yii::$app->session['checkout'] = $checkout;
         }
-        
-        
+
+
         $model = new \frontend\models\CheckoutForm();
         if ($model->load(Yii::$app->request->post()) && Yii::$app->recaptcha->verifyResponse(
-            $_SERVER['REMOTE_ADDR'],
-            Yii::$app->request->post('g-recaptcha-response')) && isset($_POST['user_fname']) && $_POST['user_fname'] == '') {
+                        $_SERVER['REMOTE_ADDR'], Yii::$app->request->post('g-recaptcha-response')) && isset($_POST['user_fname']) && $_POST['user_fname'] == '') {
             foreach (Yii::$app->session['checkout'] as $productId => $ch) {
                 Yii::$app->db->createCommand()->insert('{{%checkout}}', [
                     'status' => 1,
@@ -59,13 +60,13 @@ class CartController extends CController {
                 ])->execute();
             }
             Yii::$app->mailer->compose()
-                ->setFrom($model->email)
-                ->setTo('sale@fleshka.ru')
-                //->setTo('dilshod-x@mail.ru')
-                ->setTo('alex@fleshka.ru')
-                ->setSubject('Fleshka.ru - заказ ' . $orderID)
-                ->setTextBody($model->comment)
-                ->send();
+                    ->setFrom($model->email)
+                    ->setTo('sale@fleshka.ru')
+                    //->setTo('dilshod-x@mail.ru')
+                    ->setTo('alex@fleshka.ru')
+                    ->setSubject('Fleshka.ru - заказ ' . $orderID)
+                    ->setTextBody($model->comment)
+                    ->send();
             $cookies = Yii::$app->response->cookies;
             $cookies->remove('basket');
             \Yii::$app->getSession()->setFlash('success', 'seccess');
