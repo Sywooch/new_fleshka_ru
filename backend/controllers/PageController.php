@@ -20,7 +20,7 @@ class PageController extends Controller {
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
-                    [
+                        [
                         'actions' => ['index', 'create', 'update', 'delete', 'view', 'delete-file', 'upload'],
                         'allow' => true,
                         'roles' => ['@'],
@@ -105,7 +105,7 @@ class PageController extends Controller {
      */
     public function actionCreate() {
         $model = new Pages();
-        
+
         $volumes = \Yii::$app->db->createCommand('select id, title from {{%volumes}}')->queryAll();
         $colors = \Yii::$app->db->createCommand('select id, title, value from {{%colors}}')->queryAll();
         $cats = \Yii::$app->db->createCommand('select id, title from {{%categories}}')->queryAll();
@@ -126,7 +126,7 @@ class PageController extends Controller {
      */
     public function actionUpdate($id) {
         $model = $this->findModel($id);
-        
+
         $volumes = \Yii::$app->db->createCommand('select id, title from {{%volumes}}')->queryAll();
         $colors = \Yii::$app->db->createCommand('select id, title, value from {{%colors}}')->queryAll();
         $cats = \Yii::$app->db->createCommand('select id, title from {{%categories}}')->queryAll();
@@ -150,7 +150,17 @@ class PageController extends Controller {
      */
     public function actionDelete($id) {
         $this->findModel($id)->delete();
-
+        $images = \Yii::$app->db->createCommand('select * from {{%color_to_page}} where page_id = ' . (int) $id)->queryAll();
+        foreach ($images as $image) {
+            $filename = $image['image'];
+            $path = Yii::getAlias('@frontend') . '/web/uploads/images/';
+            if (file_exists($path . $filename)) {
+                unlink($path . $filename);
+            }
+        }
+        \Yii::$app->db->createCommand('delete from {{%volume_to_page}} where page_id = ' . (int) $id)->execute();
+        \Yii::$app->db->createCommand('delete from {{%color_to_page}} where page_id = ' . (int) $id)->execute();
+        \Yii::$app->db->createCommand('delete from {{%category_to_page}} where page_id = ' . (int) $id)->execute();
         return $this->redirect(['index']);
     }
 
