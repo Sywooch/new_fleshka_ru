@@ -43,7 +43,7 @@ class CartController extends CController {
 
 
         $model = new \frontend\models\CheckoutForm();
-        if ($model->load(Yii::$app->request->post()) && Yii::$app->recaptcha->verifyResponse(
+        if ($model->load(Yii::$app->request->post()) && !empty(Yii::$app->session['checkout']) && Yii::$app->recaptcha->verifyResponse(
                         $_SERVER['REMOTE_ADDR'], Yii::$app->request->post('g-recaptcha-response')) && isset($_POST['user_fname']) && $_POST['user_fname'] == '') {
             foreach (Yii::$app->session['checkout'] as $productId => $ch) {
                 Yii::$app->db->createCommand()->insert('{{%checkout}}', [
