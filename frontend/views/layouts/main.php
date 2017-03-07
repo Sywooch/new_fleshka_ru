@@ -163,7 +163,7 @@ $curRegion = \Yii::$app->session['region'];
                 }
                 //]]>
         </script>      
-        <link rel="shortcut icon" href="/images/favicon.ico?v=1" type="image/x-icon">
+        <link rel="shortcut icon" href="/images/favicon.ico?v=2" type="image/x-icon">
     </head>
     <body class=" cms-index-index cms-porto-home-5">
         <?php $this->beginBody() ?>
