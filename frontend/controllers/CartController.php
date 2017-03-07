@@ -66,7 +66,8 @@ class CartController extends CController {
                     //->setTo('dilshod-x@mail.ru')
                     ->setTo('alex@fleshka.ru')
                     ->setSubject('Fleshka.ru - заказ ' . $orderID)
-                    ->setHtmlBody($msg)
+                    ->setTextBody($model->message)
+                    //->setHtmlBody($msg)
                     ->send();
             $cookies = Yii::$app->response->cookies;
             $cookies->remove('basket');

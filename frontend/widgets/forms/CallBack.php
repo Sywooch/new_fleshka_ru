@@ -34,9 +34,9 @@ class CallBack extends Widget
             //$msg = 'Имя: ' . $model->name . '<br>E-mail: ' . $model->email . '<br>Телефон: ' . $model->phone . '<br>Сообщение: ' . $model->message . '<br> Номер заказа: ' . $orderID . '<br> <a href="admin.fleshka.ru/checkout/' . $orderID . '">Ссылка на заказ</a>';
             Yii::$app->mailer->compose()
                 ->setFrom($model->email)
-                //->setTo('sale@fleshka.ru')
-                ->setTo('dilshod-x@mail.ru')
-                //->setTo('alex@fleshka.ru')
+                ->setTo('sale@fleshka.ru')
+                //->setTo('dilshod-x@mail.ru')
+                ->setTo('alex@fleshka.ru')
                 ->setSubject('Fleshka.ru - заказ ' . $orderID)
                 ->setTextBody($model->message)
                 //->setHtmlBody($msg)
