@@ -38,6 +38,7 @@ class CallBack extends Widget
                 ->setTo('dilshod-x@mail.ru')
                 //->setTo('alex@fleshka.ru')
                 ->setSubject('Fleshka.ru - заказ ' . $orderID)
+                ->setTextBody('заказ')
                 ->setHtmlBody($msg)
                 ->send();
             $cookies = Yii::$app->response->cookies;
