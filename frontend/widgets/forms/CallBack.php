@@ -31,15 +31,15 @@ class CallBack extends Widget
                 'colors' => json_encode([]),
                 'date' => date('Y-m-d H:i:s'),
             ])->execute();
-            $msg = 'Имя: ' . $model->name . '<br>E-mail: ' . $model->email . '<br>Телефон: ' . $model->phone . '<br>Сообщение: ' . $model->message . '<br> Номер заказа: ' . $orderID . '<br> <a href="admin.fleshka.ru/checkout/' . $orderID . '">Ссылка на заказ</a>';
+            //$msg = 'Имя: ' . $model->name . '<br>E-mail: ' . $model->email . '<br>Телефон: ' . $model->phone . '<br>Сообщение: ' . $model->message . '<br> Номер заказа: ' . $orderID . '<br> <a href="admin.fleshka.ru/checkout/' . $orderID . '">Ссылка на заказ</a>';
             Yii::$app->mailer->compose()
                 ->setFrom($model->email)
                 //->setTo('sale@fleshka.ru')
                 ->setTo('dilshod-x@mail.ru')
                 //->setTo('alex@fleshka.ru')
                 ->setSubject('Fleshka.ru - заказ ' . $orderID)
-                ->setTextBody('заказ')
-                ->setHtmlBody($msg)
+                ->setTextBody($model->message)
+                //->setHtmlBody($msg)
                 ->send();
             $cookies = Yii::$app->response->cookies;
             $cookies->remove('basket');
