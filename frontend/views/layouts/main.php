@@ -196,6 +196,7 @@ $curRegion = \Yii::$app->session['region'];
                             </a>
                         </h1>
                         <div class="cart-area">
+                            
                             <div class="custom-block">
                                 <i class="icon-phone" style="margin-right: 5px;">
                                     <span>                                        
@@ -207,8 +208,11 @@ $curRegion = \Yii::$app->session['region'];
                                         <a style="font-size: 17px;" href="tel:74957808093"><b>+7 (495) 780-80-93</b></a>
                                     </span>
                                 </i>
+                                <a class="btn btn-success btn-sm" href="#" data-toggle="modal" data-target="#call-w" style="font-size: 16px;height: 37px;">Заказ звонок</a>
                                 <span class="split"></span>
-                                <a href="/page/kontakty">Контакты</a></div>            
+                                <a href="/page/kontakty">Контакты</a>
+                            </div>   
+                            
                             <div class="mini-cart">
                                 <a href="#" class="mybag-link">
                                     <i class="icon-mini-cart"></i>
@@ -240,7 +244,7 @@ $curRegion = \Yii::$app->session['region'];
                         <div class="search-area">
                             <a href="#" class="search-icon"><i class="icon-search"></i></a>
                             <form id="search_mini_form" action="/site/search" method="get">
-                                <div class="form-search ">
+                                <div class="form-search " style="width: 70%;">
                                     <label for="search">Поиск</label>
                                     <input placeholder="Поиск" id="search" type="text" name="text" class="input-text" />
                                     <button type="submit" title="Search" class="button"><i class="icon-search"></i></button>
@@ -407,6 +411,7 @@ $curRegion = \Yii::$app->session['region'];
                     </div>
                 </div>
                 <?= app\widgets\forms\CallBack::widget(); ?>
+                <?= app\widgets\forms\Feedback::widget(); ?>
                 <a href="#" id="totop"><i class="icon-up-open"></i></a>
                 <script type="text/javascript">
                     var windowScroll_t;

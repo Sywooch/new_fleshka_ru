@@ -8,6 +8,7 @@ use Yii;
 class FeedbackForm extends Model {
 
     public $phone;
+    public $name;
 
     /**
      * @inheritdoc
@@ -15,6 +16,7 @@ class FeedbackForm extends Model {
     public function rules() {
         return [
             ['phone', 'required'],
+            ['name', 'default'],
         ];
     }
 
