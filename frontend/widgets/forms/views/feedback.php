@@ -6,7 +6,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button style="float: right;" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4>Заказ званок</h4>
+                <h4>Заказать званок</h4>
             </div>
             <div class="modal-body">
                 <div class="_order">

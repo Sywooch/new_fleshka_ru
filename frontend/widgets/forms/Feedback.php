@@ -13,12 +13,12 @@ class Feedback extends Widget {
         $model = new \frontend\models\FeedbackForm();
         if ($model->load(Yii::$app->request->post()) && isset($_POST['user_fname']) && $_POST['user_fname'] == '') {
             Yii::$app->mailer->compose()
-                    ->setFrom($model->email)
+                    ->setFrom('no-reply@fleshka.ru')
                     ->setTo('sale@fleshka.ru')
                     //->setTo('dilshod-x@mail.ru')
                     ->setTo('alex@fleshka.ru')
-                    ->setSubject('Fleshka.ru - заказ ' . $orderID)
-                    ->setTextBody($model->message)
+                    ->setSubject('Fleshka.ru - Заказать званок')
+                    ->setTextBody('Заказать званок')
                     ->send();
             \Yii::$app->getSession()->setFlash('success', 'seccess');
         }
