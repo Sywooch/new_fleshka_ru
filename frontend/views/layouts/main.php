@@ -208,7 +208,7 @@ $curRegion = \Yii::$app->session['region'];
                                         <a style="font-size: 17px;" href="tel:74957808093"><b>+7 (495) 780-80-93</b></a>
                                     </span>
                                 </i>
-                                <a class="btn btn-success btn-sm" href="#" data-toggle="modal" data-target="#call-w" style="font-size: 16px;height: 37px;">Заказ звонок</a>
+                                <a class="btn btn-success btn-sm" href="#" data-toggle="modal" data-target="#call-w" style="font-size: 16px;height: 37px;">Заказать звонок</a>
                                 <span class="split"></span>
                                 <a href="/page/kontakty">Контакты</a>
                             </div>   
