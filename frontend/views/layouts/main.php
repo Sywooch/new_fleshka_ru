@@ -244,7 +244,7 @@ $curRegion = \Yii::$app->session['region'];
                         <div class="search-area">
                             <a href="#" class="search-icon"><i class="icon-search"></i></a>
                             <form id="search_mini_form" action="/site/search" method="get">
-                                <div class="form-search " style="width: 70%;">
+                                <div class="form-search " style="width: 66%;">
                                     <label for="search">Поиск</label>
                                     <input placeholder="Поиск" id="search" type="text" name="text" class="input-text" />
                                     <button type="submit" title="Search" class="button"><i class="icon-search"></i></button>
