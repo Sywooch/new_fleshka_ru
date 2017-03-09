@@ -15,8 +15,8 @@ class CartController extends CController {
     public function actionCheckout() {
         $checkout = array();
         //$orderID = CController::UniqueRandomNumbersWithinRange(1, 10, 5);
-        $orderID = \Yii::$app->db->createCommand('SELECT MAX(id) as id FROM {{%checkout}} LIMIT 1')->queryOne();
-        $orderID = $orderID['id'] + 100;
+        $orderID = \Yii::$app->db->createCommand('SELECT MAX(session_id) session_id FROM {{%checkout}} LIMIT 1')->queryOne();
+        $orderID = $orderID['session_id'] + 1;
         $prices = array();
         $colors = array();
         if (isset($_POST['products'])) {

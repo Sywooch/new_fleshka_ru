@@ -19,6 +19,8 @@ class CallBack extends Widget
             $_SERVER['REMOTE_ADDR'],
             Yii::$app->request->post('g-recaptcha-response')) && isset($_POST['user_fname']) && $_POST['user_fname'] == '') {
             $orderID = CController::UniqueRandomNumbersWithinRange(1,10,5);
+			$orderID = \Yii::$app->db->createCommand('SELECT MAX(session_id) session_id FROM {{%checkout}} LIMIT 1')->queryOne();
+			$orderID = $orderID['session_id'] + 1;
             Yii::$app->db->createCommand()->insert('{{%checkout}}', [
                 'status' => 1,
                 'name' => $model->name,
