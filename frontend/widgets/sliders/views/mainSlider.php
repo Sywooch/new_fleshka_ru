@@ -17,6 +17,11 @@ $assets = Yii::getAlias('@web');
             <a href="/catalog"><img src="<?= $assets ?>/images/banners/bb3.jpg" alt="" /></a>
         </div>
     </div>
+    <div class="item">
+        <div class="container" style="position:relative">
+            <a href="/category/zaryadnye-ustroistva---portativnye-akkumulyatory-powerbank-optom-84"><img src="<?= $assets ?>/images/banners/new_banner.jpg" alt="" /></a>
+        </div>
+    </div>
 </div>
 <script type="text/javascript">
     jQuery(function ($) {
