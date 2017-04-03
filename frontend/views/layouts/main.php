@@ -201,12 +201,12 @@ $curRegion = \Yii::$app->session['region'];
                             <div class="custom-block">
                                 <i class="icon-phone" style="margin-right: 5px;">
                                     <span>                                        
-                                        <a style="font-size: 17px;" href="tel:79647974238"><b>+7 (964) 797-42-38</b></a>
+                                        <a style="font-size: 17px;" href="tel:+79647974238"><b>+7 (964) 797-42-38</b></a>
                                     </span>
                                 </i>
                                 <i class="icon-phone" style="margin-right: 5px;">
                                     <span>
-                                        <a style="font-size: 17px;" href="tel:74957808093"><b>+7 (495) 780-80-93</b></a>
+                                        <a style="font-size: 17px;" href="tel:+74957808093"><b>+7 (495) 780-80-93</b></a>
                                     </span>
                                 </i>
                                 <a class="btn btn-success btn-sm" href="#" data-toggle="modal" data-target="#call-w" style="font-size: 16px;height: 37px;">Заказать звонок</a>
@@ -254,7 +254,7 @@ $curRegion = \Yii::$app->session['region'];
                             </form>
                         </div>
                         <div class="menu-icon"><a href="javascript:void(0)" title="Menu"><i class="fa fa-bars"></i></a></div>
-                         <a class="on-mobile" style="font-size: 17px;" href="tel:79647974238"><i class="icon-phone" style="margin-right: 5px;"></i></a>
+                         <a class="on-mobile" style="font-size: 17px;" href="tel:+79647974238"><i class="icon-phone" style="margin-right: 5px;"></i></a>
                     </div>
                     <div class="header-wrapper">
                         <div class="main-nav">
