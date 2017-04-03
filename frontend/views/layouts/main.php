@@ -49,7 +49,7 @@ $curRegion = \Yii::$app->session['region'];
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/animate.css" media="all" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/porto.css" media="all" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/animation.css" media="all" />
-        <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/local.css?v=8" media="all" />
+        <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/local.css?v=9" media="all" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/responsive.css" media="all" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/design_demo5_en.css" media="all" />
         <link rel="stylesheet" type="text/css" href="<?= $assets ?>/css/settings_demo5_en.css" media="all" />
@@ -196,7 +196,7 @@ $curRegion = \Yii::$app->session['region'];
                             </a>
                         </h1>
                         <div class="cart-area">
-                            
+                           
                             <div class="custom-block">
                                 <i class="icon-phone" style="margin-right: 5px;">
                                     <span>                                        
@@ -212,7 +212,7 @@ $curRegion = \Yii::$app->session['region'];
                                 <span class="split"></span>
                                 <a href="/page/kontakty">Контакты</a>
                             </div>   
-                            
+
                             <div class="mini-cart">
                                 <a href="#" class="mybag-link">
                                     <i class="icon-mini-cart"></i>
@@ -253,6 +253,7 @@ $curRegion = \Yii::$app->session['region'];
                             </form>
                         </div>
                         <div class="menu-icon"><a href="javascript:void(0)" title="Menu"><i class="fa fa-bars"></i></a></div>
+                         <a class="on-mobile" style="font-size: 17px;" href="tel:79647974238"><i class="icon-phone" style="margin-right: 5px;"></i></a>
                     </div>
                     <div class="header-wrapper">
                         <div class="main-nav">
@@ -283,8 +284,10 @@ $curRegion = \Yii::$app->session['region'];
                 </div>                
                 <div class="mobile-nav-overlay close-mobile-nav"></div> 
                 <?php $urls = CController::$breadcrumbs; ?>
-                <?php if (!empty($urls)) {echo \app\widgets\lists\BreadCrumbs::widget(['urls' => $urls]);} ?>               
-                <?php echo $content; ?>
+                <?php if (!empty($urls)) {
+                    echo \app\widgets\lists\BreadCrumbs::widget(['urls' => $urls]);
+                } ?>               
+<?php echo $content; ?>
                 <div class="main container">
                     <div class="col-main">
                         <div id="loading-mask">
@@ -410,8 +413,8 @@ $curRegion = \Yii::$app->session['region'];
                         </div>
                     </div>
                 </div>
-                <?= app\widgets\forms\CallBack::widget(); ?>
-                <?= app\widgets\forms\Feedback::widget(); ?>
+<?= app\widgets\forms\CallBack::widget(); ?>
+<?= app\widgets\forms\Feedback::widget(); ?>
                 <a href="#" id="totop"><i class="icon-up-open"></i></a>
                 <script type="text/javascript">
                     var windowScroll_t;
