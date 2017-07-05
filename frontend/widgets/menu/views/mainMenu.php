@@ -17,6 +17,9 @@
         <?php endif; ?>
     </li>
     <li class="menu-item">
+        <a href="/catalog/5147">Спиннеры</a>
+    </li>
+    <li class="menu-item">
         <a href="/article">Новости</a>
     </li>
     <li class="menu-item">

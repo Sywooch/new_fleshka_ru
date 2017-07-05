@@ -12,7 +12,7 @@ use app\components\CController;
  */
 class CatalogController extends CController {
 
-    public function actionIndex($id = 0) {
+    public function actionIndex($id = 0) {        
         \Yii::$app->view->registerMetaTag([
             'name' => 'keywords',
             'content' => ''
@@ -21,6 +21,7 @@ class CatalogController extends CController {
             'name' => 'description',
             'content' => ''
         ]);
+        
         $sql = 'SELECT * FROM {{%categories}} WHERE parent = ' . (int) $id . ' ORDER BY sort, id';
         $models = \Yii::$app->db->createCommand($sql)->queryAll();
         CController::$breadcrumbs = [['title' => 'Каталог', 'url' => '/catalog']];

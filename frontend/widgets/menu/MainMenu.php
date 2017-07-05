@@ -11,7 +11,7 @@ class MainMenu extends Widget {
     public $mobile = false;
 
     public function run() {
-        $rows = \Yii::$app->db->createCommand('SELECT * from {{%categories}} ORDER BY sort, id')->queryAll();
+        $rows = \Yii::$app->db->createCommand('SELECT * from {{%categories}} WHERE id != 5147 ORDER BY sort, id')->queryAll();
         
         $menu = $this->buildNavigation($rows);
 
