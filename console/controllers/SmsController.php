@@ -23,13 +23,13 @@ class SmsController extends \yii\console\Controller {
         ini_set("display_errors", false);
         error_reporting(false);
         set_time_limit(0);
-        $s = 'SELECT * FROM `yu_color_to_page` where id > 3110;';
+        $s = 'SELECT * FROM `yu_categories` where id > 5147;';
         $models = \Yii::$app->db->createCommand($s)->queryAll();
         $u = 'http://www.100zakazov.ru/published/publicdata/U45716/attachments/SC/products_pictures/';
         foreach ($models as $model) {
             try {
-                $path = \Yii::getAlias('@frontend') . '/web/uploads/images/';                
-                copy($u . '' . $model['image'], $path . $model['image']);
+                $path = \Yii::getAlias('@frontend') . '/web/uploads/images/categories/';                
+                copy($u . '' . str_replace(' ', '%20', $model['image']), $path . $model['image']);
                 echo $u . '' . $model['image'] . ' -> ' . $path . $model['image'], "\r\n";
             } catch (Exception $ex) {
                 continue;
