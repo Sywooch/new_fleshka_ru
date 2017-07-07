@@ -28,25 +28,41 @@ class SiteController extends CController {
     }
 
     public function actionSearch($text) {
+        $sql = 'SELECT
+                    `pgs`.`id` AS `id`,
+                    `pgs`.`old_id` AS `old_id`,
+                    `pgs`.`title` AS `title`,
+                    `v2p`.`price` AS `price`,
+                    `pgs`.`old_id` AS `old_id`,
+                    (
+                            SELECT
+                                    `cl2`.`image`
+                            FROM
+                                    `yu_color_to_page` `cl2`
+                            WHERE
+                                    (
+                                            `cl2`.`page_id` = `pgs`.`id`
+                                    )
+                            ORDER BY
+                                    `cl2`.`color_id`
+                            LIMIT 1
+                    ) AS `image`
+                FROM
+                        `yu_pages` pgs
+                LEFT JOIN yu_volume_to_page v2p ON pgs.id = v2p.page_id';
+
         if (!filter_var($text, FILTER_VALIDATE_INT) === false) {
-            $sql = 'SELECT * FROM {{%price_list}} WHERE old_id = ' . (int) $text . ' LIMIT 1';
-            $rows = Yii::$app->db->createCommand($sql)->queryAll();
+            $wh = ' WHERE `pgs`.old_id = ' . (int) $text . ' OR  pgs.title LIKE \'%' . (int) $text . '%\' LIMIT 1';
+            $rows = Yii::$app->db->createCommand($sql . $wh)->queryAll();
             $pages = array();
         } else {
-            $rows = (new \yii\db\Query())
-                    ->select(['id'])
-                    ->from('{{%price_list}}')
-                    ->andWhere(['like', 'title', $text])
-                    ->all();
+            $wh = ' WHERE pgs.title LIKE CONCAT(\'%\', :title, \'%\')';
+            $command = Yii::$app->db->createCommand($sql . $wh);
+            $command->bindParam(':title', $text);
+            $rows = $command->queryAll();
             $cnt = count($rows);
-            $pages = new Pagination(['totalCount' => $cnt, 'pageSize' => 20]);
-            $rows = (new \yii\db\Query())
-                    ->select(['id', 'title', 'old_id', 'image', 'price'])
-                    ->from('{{%price_list}}')
-                    ->andWhere(['like', 'title', $text])
-                    ->limit($pages->limit)
-                    ->offset($pages->offset)
-                    ->all();
+            $pages = new \yii\data\Pagination(['totalCount' => $cnt, 'pageSize' => 20]);
+            $rows = \Yii::$app->db->createCommand($sql . $wh . ' LIMIT ' . (int) $pages->limit . ' OFFSET ' . (int) $pages->offset)->bindParam(':title', $text)->queryAll();
         }
 
         \Yii::$app->view->registerMetaTag([
