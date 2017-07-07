@@ -52,7 +52,7 @@ class SiteController extends CController {
                 LEFT JOIN yu_volume_to_page v2p ON pgs.id = v2p.page_id';
 
         if (!filter_var($text, FILTER_VALIDATE_INT) === false) {
-            $wh = ' WHERE `pgs`.old_id = ' . (int) $text . ' OR  pgs.title LIKE \'%' . (int) $text . '%\' LIMIT 1';
+            $wh = ' WHERE `pgs`.old_id = ' . (int) $text . ' OR  pgs.title LIKE \'%' . (int) $text . '%\' LIMIT 20';
             $rows = Yii::$app->db->createCommand($sql . $wh)->queryAll();
             $pages = array();
         } else {
