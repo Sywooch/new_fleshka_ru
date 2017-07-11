@@ -91,7 +91,7 @@ class CategoriesController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+		$oldName = $model->image;
         if ($model->load(Yii::$app->request->post())) {
             if(empty($model->image))
                 $model->image = $oldName;
