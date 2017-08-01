@@ -631,12 +631,16 @@ $curRegion = \Yii::$app->session['region'];
                                 for (var a = 0; a < prices.rows.length; a++) {
                                     vols += '<p class="qty-price">' + prices.rows[a]['count'] + ' X ' + prices.rows[a]['vol'] + ' Гб = <span class="price">' + parseInt(prices.rows[a]['count']) * parseInt(prices.rows[a]['price']) + ' Руб.</span></p>';
                                 }
+                                var qtys = '';
+                                if(items.rows[i]['up_qty'] != '') {
+                                    qtys = '<p class="qty-price">' + items.rows[i]['prod_price'] + ' X ' + items.rows[i]['up_qty'] + ' шт. = ' + parseInt(items.rows[i]['prod_price']) * parseInt(items.rows[i]['up_qty']) + '</p>';
+                                }
                                 html += '<li class="item">' +
                                         '<a href="#" title="' + items.rows[i]['name'] + '" class="product-image"><img style="width: 90px;" src="' + items.rows[i]['img'] + '" alt=""></a>' +
                                         '<div class="product-details">' +
                                         '<p class="product-name">' +
                                         '<a href="#">' + items.rows[i]['name'] + '</a>' +
-                                        '</p>' + vols +
+                                        '</p>' + vols + qtys +
                                         '<a href="#" title="' + items.rows[i]['name'] + '" data-id="' + items.rows[i]['id'] + '" class="btn-remove"><i class="icon-cancel"></i></a>' +
                                         '</div>' +
                                         '<div class="clearer"></div>' +
@@ -656,7 +660,7 @@ $curRegion = \Yii::$app->session['region'];
 
                 var data = {"total": 0, "rows": []};
                 var totalCost = 0;
-                function addProduct(id, name, prices, img, colors, prod_price = '') {
+                function addProduct(id, name, prices, img, colors, prod_price = '', up_qty = '') {
                     if ($.cookie('basket')) {
                         var items = JSON.parse($.cookie("basket"));
                         if (items.rows[0] != null) {
@@ -664,7 +668,6 @@ $curRegion = \Yii::$app->session['region'];
                         }
                     }
                     function add() {
-
                         for (var i = 0; i < data.total; i++) {
                             if (items.rows[i] != null) {
                                 var row = data.rows[i];
@@ -682,7 +685,6 @@ $curRegion = \Yii::$app->session['region'];
                                 }
                             }
                         }
-
                         data.total += 1;
                         data.rows.push({
                             id: id,
@@ -692,6 +694,7 @@ $curRegion = \Yii::$app->session['region'];
                             img: img,
                             colors: colors,
                             prod_price: prod_price,
+                            up_qty: up_qty,
                         });
                     }
                     add();
@@ -705,6 +708,7 @@ $curRegion = \Yii::$app->session['region'];
                     var prod_price = $("#up-price").data('price');
                     var pricesList = {"total": 0, "rows": []};
                     var colorsList = {"total": 0, "rows": []};
+                    var up_qty = $("#up-qty").val();
                     var cart = $('.mini-cart');
                     var prc = false;
                     var imgtodrag = $('.etalage_thumb').find("img").eq(0);
@@ -730,7 +734,7 @@ $curRegion = \Yii::$app->session['region'];
                                 }, 1000, 'easeInOutExpo');
 
                         setTimeout(function () {
-                            addProduct(prod_id, prod_title, pricesList, imgtodrag.attr("src"), colorsList, prod_price);
+                            addProduct(prod_id, prod_title, pricesList, imgtodrag.attr("src"), colorsList, prod_price, up_qty);
                             showBasket();
                             cart.effect("shake", {
                                 times: 2
