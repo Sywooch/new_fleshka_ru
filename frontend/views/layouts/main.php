@@ -197,7 +197,7 @@ $curRegion = \Yii::$app->session['region'];
                             </a>
                         </h1>
                         <div class="cart-area">
-                           
+
                             <div class="custom-block">
                                 <i class="icon-phone" style="margin-right: 5px;">
                                     <span>                                        
@@ -254,7 +254,7 @@ $curRegion = \Yii::$app->session['region'];
                             </form>
                         </div>
                         <div class="menu-icon"><a href="javascript:void(0)" title="Menu"><i class="fa fa-bars"></i></a></div>
-                         <a class="on-mobile" style="font-size: 17px;" href="tel:+79647974238"><i class="icon-phone" style="margin-right: 5px;"></i></a>
+                        <a class="on-mobile" style="font-size: 17px;" href="tel:+79647974238"><i class="icon-phone" style="margin-right: 5px;"></i></a>
                     </div>
                     <div class="header-wrapper">
                         <div class="main-nav">
@@ -285,9 +285,11 @@ $curRegion = \Yii::$app->session['region'];
                 </div>                
                 <div class="mobile-nav-overlay close-mobile-nav"></div> 
                 <?php $urls = CController::$breadcrumbs; ?>
-                <?php if (!empty($urls)) {
+                <?php
+                if (!empty($urls)) {
                     echo \app\widgets\lists\BreadCrumbs::widget(['urls' => $urls]);
-                } ?>               
+                }
+                ?>               
 <?php echo $content; ?>
                 <div class="main container">
                     <div class="col-main">
@@ -632,8 +634,11 @@ $curRegion = \Yii::$app->session['region'];
                                     vols += '<p class="qty-price">' + prices.rows[a]['count'] + ' X ' + prices.rows[a]['vol'] + ' Гб = <span class="price">' + parseInt(prices.rows[a]['count']) * parseInt(prices.rows[a]['price']) + ' Руб.</span></p>';
                                 }
                                 var qtys = '';
-                                if(items.rows[i]['up_qty'] != '') {
-                                    qtys = '<p class="qty-price">' + items.rows[i]['prod_price'] + ' X ' + items.rows[i]['up_qty'] + ' шт. = ' + parseInt(items.rows[i]['prod_price']) * parseInt(items.rows[i]['up_qty']) + '</p>';
+                                if (items.rows[i]['up_qty'] != '') {
+                                    if (data.rows[i].prod_price != null && data.rows[i].prod_price > 0)
+                                        qtys = '<p class="qty-price">' + items.rows[i]['prod_price'] + ' X ' + items.rows[i]['up_qty'] + ' шт. = ' + parseInt(items.rows[i]['prod_price']) * parseInt(items.rows[i]['up_qty']) + '</p>';
+                                    else 
+                                        qtys = '<p class="qty-price">' + items.rows[i]['up_qty'] + ' шт.</p>';
                                 }
                                 html += '<li class="item">' +
                                         '<a href="#" title="' + items.rows[i]['name'] + '" class="product-image"><img style="width: 90px;" src="' + items.rows[i]['img'] + '" alt=""></a>' +
@@ -865,11 +870,31 @@ $curRegion = \Yii::$app->session['region'];
                 } catch (e) {
                 }
             })(document);/* ]]> */</script>
-<!-- BEGIN JIVOSITE CODE {literal} -->
-<script type='text/javascript'>
-(function(){ var widget_id = 'b7sbJDOnLn';var d=document;var w=window;function l(){
-var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//code.jivosite.com/script/widget/'+widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);}if(d.readyState=='complete'){l();}else{if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();</script>
-<!-- {/literal} END JIVOSITE CODE -->
+        <!-- BEGIN JIVOSITE CODE {literal} -->
+        <script type='text/javascript'>
+            (function () {
+                var widget_id = 'b7sbJDOnLn';
+                var d = document;
+                var w = window;
+                function l() {
+                    var s = document.createElement('script');
+                    s.type = 'text/javascript';
+                    s.async = true;
+                    s.src = '//code.jivosite.com/script/widget/' + widget_id;
+                    var ss = document.getElementsByTagName('script')[0];
+                    ss.parentNode.insertBefore(s, ss);
+                }
+                if (d.readyState == 'complete') {
+                    l();
+                } else {
+                    if (w.attachEvent) {
+                        w.attachEvent('onload', l);
+                    } else {
+                        w.addEventListener('load', l, false);
+                    }
+                }
+            })();</script>
+        <!-- {/literal} END JIVOSITE CODE -->
     </body>
 </html>
 <?php $this->registerJsFile($assets . '/js/jquery.inputmask.bundle.js'); ?>
