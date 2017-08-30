@@ -197,7 +197,7 @@ $curRegion = \Yii::$app->session['region'];
                             </a>
                         </h1>
                         <div class="cart-area">
-                           
+
                             <div class="custom-block">
                                 <i class="icon-phone" style="margin-right: 5px;">
                                     <span>                                        
@@ -261,7 +261,7 @@ $curRegion = \Yii::$app->session['region'];
                             </form>
                         </div>
                         <div class="menu-icon"><a href="javascript:void(0)" title="Menu"><i class="fa fa-bars"></i></a></div>
-                         <a class="on-mobile" style="font-size: 17px;" href="tel:+79647974238"><i class="icon-phone" style="margin-right: 5px;"></i></a>
+                        <a class="on-mobile" style="font-size: 17px;" href="tel:+79647974238"><i class="icon-phone" style="margin-right: 5px;"></i></a>
                     </div>
                     <div class="header-wrapper">
                         <div class="main-nav">
@@ -292,9 +292,11 @@ $curRegion = \Yii::$app->session['region'];
                 </div>                
                 <div class="mobile-nav-overlay close-mobile-nav"></div> 
                 <?php $urls = CController::$breadcrumbs; ?>
-                <?php if (!empty($urls)) {
+                <?php
+                if (!empty($urls)) {
                     echo \app\widgets\lists\BreadCrumbs::widget(['urls' => $urls]);
-                } ?>               
+                }
+                ?>               
 <?php echo $content; ?>
                 <div class="main container">
                     <div class="col-main">
@@ -638,12 +640,19 @@ $curRegion = \Yii::$app->session['region'];
                                 for (var a = 0; a < prices.rows.length; a++) {
                                     vols += '<p class="qty-price">' + prices.rows[a]['count'] + ' X ' + prices.rows[a]['vol'] + ' Гб = <span class="price">' + parseInt(prices.rows[a]['count']) * parseInt(prices.rows[a]['price']) + ' Руб.</span></p>';
                                 }
+                                var qtys = '';
+                                if (items.rows[i]['up_qty'] != '') {
+                                    if (data.rows[i].prod_price != null && data.rows[i].prod_price > 0)
+                                        qtys = '<p class="qty-price">' + items.rows[i]['prod_price'] + ' X ' + items.rows[i]['up_qty'] + ' шт. = ' + parseInt(items.rows[i]['prod_price']) * parseInt(items.rows[i]['up_qty']) + '</p>';
+                                    else 
+                                        qtys = '<p class="qty-price">' + items.rows[i]['up_qty'] + ' шт.</p>';
+                                }
                                 html += '<li class="item">' +
                                         '<a href="#" title="' + items.rows[i]['name'] + '" class="product-image"><img style="width: 90px;" src="' + items.rows[i]['img'] + '" alt=""></a>' +
                                         '<div class="product-details">' +
                                         '<p class="product-name">' +
                                         '<a href="#">' + items.rows[i]['name'] + '</a>' +
-                                        '</p>' + vols +
+                                        '</p>' + vols + qtys +
                                         '<a href="#" title="' + items.rows[i]['name'] + '" data-id="' + items.rows[i]['id'] + '" class="btn-remove"><i class="icon-cancel"></i></a>' +
                                         '</div>' +
                                         '<div class="clearer"></div>' +
@@ -663,7 +672,7 @@ $curRegion = \Yii::$app->session['region'];
 
                 var data = {"total": 0, "rows": []};
                 var totalCost = 0;
-                function addProduct(id, name, prices, img, colors, prod_price = '') {
+                function addProduct(id, name, prices, img, colors, prod_price = '', up_qty = '') {
                     if ($.cookie('basket')) {
                         var items = JSON.parse($.cookie("basket"));
                         if (items.rows[0] != null) {
@@ -671,7 +680,6 @@ $curRegion = \Yii::$app->session['region'];
                         }
                     }
                     function add() {
-
                         for (var i = 0; i < data.total; i++) {
                             if (items.rows[i] != null) {
                                 var row = data.rows[i];
@@ -689,7 +697,6 @@ $curRegion = \Yii::$app->session['region'];
                                 }
                             }
                         }
-
                         data.total += 1;
                         data.rows.push({
                             id: id,
@@ -699,6 +706,7 @@ $curRegion = \Yii::$app->session['region'];
                             img: img,
                             colors: colors,
                             prod_price: prod_price,
+                            up_qty: up_qty,
                         });
                     }
                     add();
@@ -712,6 +720,7 @@ $curRegion = \Yii::$app->session['region'];
                     var prod_price = $("#up-price").data('price');
                     var pricesList = {"total": 0, "rows": []};
                     var colorsList = {"total": 0, "rows": []};
+                    var up_qty = $("#up-qty").val();
                     var cart = $('.mini-cart');
                     var prc = false;
                     var imgtodrag = $('.etalage_thumb').find("img").eq(0);
@@ -737,7 +746,7 @@ $curRegion = \Yii::$app->session['region'];
                                 }, 1000, 'easeInOutExpo');
 
                         setTimeout(function () {
-                            addProduct(prod_id, prod_title, pricesList, imgtodrag.attr("src"), colorsList, prod_price);
+                            addProduct(prod_id, prod_title, pricesList, imgtodrag.attr("src"), colorsList, prod_price, up_qty);
                             showBasket();
                             cart.effect("shake", {
                                 times: 2
@@ -868,11 +877,31 @@ $curRegion = \Yii::$app->session['region'];
                 } catch (e) {
                 }
             })(document);/* ]]> */</script>
-<!-- BEGIN JIVOSITE CODE {literal} -->
-<script type='text/javascript'>
-(function(){ var widget_id = 'b7sbJDOnLn';var d=document;var w=window;function l(){
-var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//code.jivosite.com/script/widget/'+widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);}if(d.readyState=='complete'){l();}else{if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();</script>
-<!-- {/literal} END JIVOSITE CODE -->
+        <!-- BEGIN JIVOSITE CODE {literal} -->
+        <script type='text/javascript'>
+            (function () {
+                var widget_id = 'b7sbJDOnLn';
+                var d = document;
+                var w = window;
+                function l() {
+                    var s = document.createElement('script');
+                    s.type = 'text/javascript';
+                    s.async = true;
+                    s.src = '//code.jivosite.com/script/widget/' + widget_id;
+                    var ss = document.getElementsByTagName('script')[0];
+                    ss.parentNode.insertBefore(s, ss);
+                }
+                if (d.readyState == 'complete') {
+                    l();
+                } else {
+                    if (w.attachEvent) {
+                        w.attachEvent('onload', l);
+                    } else {
+                        w.addEventListener('load', l, false);
+                    }
+                }
+            })();</script>
+        <!-- {/literal} END JIVOSITE CODE -->
     </body>
 </html>
 <?php $this->registerJsFile($assets . '/js/jquery.inputmask.bundle.js'); ?>
