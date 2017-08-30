@@ -206,7 +206,7 @@ $curRegion = \Yii::$app->session['region'];
                                     </span>
 									
                                 </i>
-                                <i class="icon-phone" style="margin-right: 5px;">
+                                <i style="margin-right: 5px;">
                                     <span>
                                         <a style="font-size: 17px;" href="mailto:sale@fleshka.ru"><b>sale@fleshka.ru</b></a>
                                     </span>
