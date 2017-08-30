@@ -200,22 +200,41 @@ $curRegion = \Yii::$app->session['region'];
 
                             <div class="custom-block">
                                 <i class="icon-phone" style="margin-right: 5px;">
+									<style>
+										.icon-phone:after {
+											content: '\e80a';
+										}
+										[class^="icon-"]:after, [class*=" icon-"]:after {
+											font-family: "porto";
+											font-style: normal;
+											font-weight: normal;
+											speak: none;
+											display: inline-block;
+											text-decoration: inherit;
+											width: 1em;
+											margin-right: .2em;
+											text-align: center;
+											font-variant: normal;
+											text-transform: none;
+											line-height: 1em;
+											margin-left: .2em;
+											-webkit-font-smoothing: antialiased;
+											-moz-osx-font-smoothing: grayscale;
+											    position: absolute;
+											left: 0px;
+											top: 37px;
+										}
+									</style>
                                     <span>                                        
                                         <a style="font-size: 17px;" href="tel:+79647974238"><b>+7 (964) 797-42-38</b></a>
 										<a style="font-size: 17px; position:absolute; margin-top:24px;left:0px;margin-left:24px;" href="tel:+79647974238"><b>+7 (964) 797-42-38</b></a>
-                                    </span>
-									
+                                    </span>									
                                 </i>
                                 <i style="margin-right: 5px;">
                                     <span>
                                         <a style="font-size: 17px;" href="mailto:sale@fleshka.ru"><b>sale@fleshka.ru</b></a>
                                     </span>
-                                </i>
-								
-                                    
-                                        
-                                    
-                                
+                                </i>                                                                    
                                 <a class="btn btn-success btn-sm" href="#" data-toggle="modal" data-target="#call-w" style="font-size: 16px;height: 37px;">Заказать звонок</a>
                                 <span class="split"></span>
                                 <a href="/page/kontakty">Контакты</a>
