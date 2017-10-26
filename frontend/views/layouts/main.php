@@ -190,11 +190,13 @@ $curRegion = \Yii::$app->session['region'];
                             <div class="clearer"></div>
                         </div>
                     </div>
+					<a class="mobile-contact" href="/page/kontakty">Контакты</a>
                     <div class="header container">
                         <h1 class="logo"><strong>Fleshka.ru</strong>
                             <a href="/" title="Fleshka.ru" class="logo">
                                 <img style=" max-width: 120%;" src="<?= $assets ?>/img/logo4.png" alt="Fleshka.ru" />
                             </a>
+							
                         </h1>
                         <div class="cart-area">
 
@@ -224,6 +226,25 @@ $curRegion = \Yii::$app->session['region'];
 											left: 0px;
 											top: 37px;
 										}
+										.mobile-contact {
+											display: none;
+										}
+										@media (max-width: 400px){
+											.mobile-contact {
+												position: absolute;
+												margin-top: 10px;
+												margin-left: 154px;
+												display: block;
+											}
+											.icon-phone[class^="icon-"]:before {
+												display: none;
+											}
+											.icon-phone[class^="icon-"]:after {
+												left: 18px;
+												top: 2px;
+											}
+										}
+										
 									</style>
                                     <span>                                        
                                         <a style="font-size: 17px;" href="tel:+79647974238"><b>+7 (964) 797-42-38</b></a>
