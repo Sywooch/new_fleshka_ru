@@ -176,7 +176,7 @@ $curRegion = \Yii::$app->session['region'];
                         <div class="top-links container">
                             <p class="welcome-msg" style="float: left;">Мы продаем флешки оптом уже 10 лет! Наносим красивые логотипы!</p>        
                             <p class="welcome-msg">
-                                <a style="position: inherit;" href="https://www.instagram.com/fleshka.ru/" target="_blank">
+                                <a style="position: inherit;" href="https://www.instagram.com/fleshkaru/" target="_blank">
                                     <img width="200" src="/images/Instagram-32.png" style="cursor:pointer;width: 30px;" alt="">
                                 </a>&nbsp;
                                 <a style="position: inherit;" href="https://vk.com/id357794088" target="_blank">
@@ -248,7 +248,7 @@ $curRegion = \Yii::$app->session['region'];
 									</style>
                                     <span>                                        
                                         <a style="font-size: 17px;" href="tel:+79647974238"><b>+7 (964) 797-42-38</b></a>
-										<a style="font-size: 17px; position:absolute; margin-top:24px;left:0px;margin-left:24px;" href="tel:+79647974238"><b>+7 (964) 797-42-38</b></a>
+										<a style="font-size: 17px; position:absolute; margin-top:24px;left:0px;margin-left:24px;" href="tel:+74957808093"><b>+7 (495) 780-80-93</b></a>
                                     </span>									
                                 </i>
                                 <i style="margin-right: 5px;">
