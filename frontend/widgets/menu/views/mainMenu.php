@@ -37,4 +37,7 @@
     <li class="menu-item">
         <a href="/page/nashi-klienty">Наши клиенты</a>
     </li>
+	<li class="menu-item mobile-contact">
+		<a class="mobile-contact" href="/page/kontakty">Контакты</a>
+	</li>
 </ul>

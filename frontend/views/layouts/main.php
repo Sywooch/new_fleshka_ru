@@ -190,7 +190,7 @@ $curRegion = \Yii::$app->session['region'];
                             <div class="clearer"></div>
                         </div>
                     </div>
-					<a class="mobile-contact" href="/page/kontakty">Контакты</a>
+					
                     <div class="header container">
                         <h1 class="logo"><strong>Fleshka.ru</strong>
                             <a href="/" title="Fleshka.ru" class="logo">
@@ -227,14 +227,11 @@ $curRegion = \Yii::$app->session['region'];
 											top: 37px;
 										}
 										.mobile-contact {
-											display: none;
+											display: none !important;
 										}
 										@media (max-width: 400px){
-											.mobile-contact {
-												position: absolute;
-												margin-top: 10px;
-												margin-left: 154px;
-												display: block;
+											.mobile-contact {												
+												display: block  !important;
 											}
 											.icon-phone[class^="icon-"]:before {
 												display: none;
